@@ -1,0 +1,41 @@
+#container {
+    width: 550px;
+    margin: auto;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h3 {
+    margin: 2pt 2pt 10pt;
+}
+.section {
+    padding: 20px;
+    border: 1px dotted black;
+}
+.section p, .section label, .section span {
+    margin: 4pt;
+}
+
+.parent {
+    display: inline-block;
+    width: 225px;
+    margin: auto 0px;
+}
+
+#parent-two {
+    margin-left: 10px;
+}
+
+.iv-box {
+    display: inline-block;
+}
+
+label {
+    display: block;
+}
+
+.section .indented {
+    margin-left: 16pt;
+}
+
+// Todo: make the page prettier
