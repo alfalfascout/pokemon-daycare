@@ -103,6 +103,25 @@ function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
 }
 
 
+function powerItemChecker(chosen_ivs) {
+    /* Narrows down chosen_ivs based on power items held by the parents */
+    var narrowed_ivs = [];
+    if ((Number.isInteger(parents[0].item) ||
+            Number.isInteger(parents[1].item))) {
+        for (var x = 0; x < chosen_ivs.length; x += 1) {
+            if (chosen_ivs[x].includes(parents[0].item) ||
+                    chosen_ivs[x].includes(parents[1].item)) {
+                narrowed_ivs.push(chosen_ivs[x].slice());
+            }
+        }
+    }
+    else {
+        narrowed_ivs = chosen_ivs.slice();
+    }
+    return narrowed_ivs;
+}
+
+
 function generateIVs() {
     /*  Generates every possible IV spread,
         given the parents' IVs and held items.
@@ -117,25 +136,63 @@ function generateIVs() {
     ];
     var iv_spreads = [];
     if (parents[0].item === "destiny-knot" ||
-        parents[1].item === "destiny-knot") {
+            parents[1].item === "destiny-knot") {
         chosen_ivs = [
             [0,1,2,3,4],[0,1,2,3,5],[0,1,2,4,5],
             [0,1,3,4,5],[0,2,3,4,5],[1,2,3,4,5]
         ];
     }
+    chosen_ivs = powerItemChecker(chosen_ivs);
     for (var j = 0; j < chosen_ivs.length; j += 1) {
         var one_spread = [0,0,0,0,0,0];
         for (var k = 0; k < chosen_ivs[j].length; k += 1) {
-            if (parents[0].ivs[chosen_ivs[j][k]] &&
-                parents[1].ivs[chosen_ivs[j][k]]) {
+            /* I keep confusing myself with this:
+                [j] is the current IV SET, [k] is the IV INSIDE THE SET. */
+            if (chosen_ivs[j][k] === parents[0].item === parents[1].item) {
+                // if they both have the power item in this stat...
+                if (parents[0].ivs[chosen_ivs[j][k]] &&
+                        parents[1].ivs[chosen_ivs[j][k]]) {
+                    // and they both have perfect ivs
+                    one_spread[chosen_ivs[j][k]] = 31;
+                }
+                else if (parents[0].ivs[chosen_ivs[j][k]] ||
+                        parents[1].ivs[chosen_ivs[j][k]]) {
+                    // and one of them has a perfect iv
+                    one_spread[chosen_ivs[j][k]] = [15, 31];
+                }
+                else {
+                    // and neither have a perfect iv
+                    one_spread[chosen_ivs[j][k]] = [10, 20];
+                }
+            }
+            else if (chosen_ivs[j][k] === parents[0].item ||
+                    chosen_ivs[j][k] === parents[1].item ) {
+                // if one parent has a power item in this stat...
+                if ((chosen_ivs[j][k] === parents[0].item &&
+                        Number.isInteger(parents[1].item)) ||
+                        (chosen_ivs[j][k] === parents[1].item &&
+                        Number.isInteger(parents[0].item))) {
+                    // and the other has a different power item
+                    one_spread[chosen_ivs[j][k]] = [15, 31];
+                }
+                else {
+                    // and the other has no power item
+                    one_spread[chosen_ivs[j][k]] = 31;
+                }
+            }
+            else if (parents[0].ivs[chosen_ivs[j][k]] &&
+                    parents[1].ivs[chosen_ivs[j][k]]) {
+                // if neither has the stat's item but both ivs are perfect
                 one_spread[chosen_ivs[j][k]] = 31;
             }
-            else if (!(parents[0].ivs[chosen_ivs[j][k]] ||
-                parents[1].ivs[chosen_ivs[j][k]])) {
-                one_spread[chosen_ivs[j][k]] = [10, 20];
+            else if ((parents[0].ivs[chosen_ivs[j][k]] ||
+                    parents[1].ivs[chosen_ivs[j][k]])) {
+                // if neither has the stat's item and one has a perfect iv
+                one_spread[chosen_ivs[j][k]] = [15, 31];
             }
             else {
-                one_spread[chosen_ivs[j][k]] = [15, 31];
+                // if neither have the stat's item or a perfect iv
+                one_spread[chosen_ivs[j][k]] = [10, 20];
             }
         }
         iv_spreads = splitIVs(one_spread.slice(),
@@ -239,7 +296,7 @@ function calculateResults() {
     if (desired.nature) {
         var nature_probability = 1.0
         if (!(parents[0].item === "everstone" ||
-            parents[1].item === "everstone")) {
+                parents[1].item === "everstone")) {
             nature_probability = 1.0 / 25.0;
         }
         total_probability *= nature_probability;
@@ -249,7 +306,7 @@ function calculateResults() {
     if (desired.ability) {
         var ability_probability = 1 / ability_choices;
         if (ability_choices === 3 &&
-            !(parents[0].ability || parents[1].ability)) {
+                !(parents[0].ability || parents[1].ability)) {
             ability_probability = 0.0;
         }
         else if (ability_choices > 1) {
@@ -269,7 +326,10 @@ function calculateResults() {
 }
 
 function pushGoals(part) {
-    /* Called by updateGoals(). Pushes any necessary changes to the doc */
+    /*  Called by updateGoals(). Pushes changes from the indented options
+        (ivs, shiny probability aids, ability choices) to check the
+        corresponding stat's box. Also called for parent stat changes,
+        if the user hasn't changed the corresponding goals manually. */
     if (part === "ivs") {
         doc_iv_super = document.getElementsByName("goal-ivs")[0];
         doc_iv_super.checked = desired.ivs;
@@ -280,7 +340,7 @@ function pushGoals(part) {
         }
     }
 
-    else if (part === "nature" || part === "ability") {
+    else if (part === "nature" || part === "ability" || part === "shiny") {
         var part_string = "goal-" + part;
         doc_part = document.getElementsByName(part_string)[0];
         doc_part.checked = desired[part];
@@ -348,6 +408,7 @@ function updateGoals(part, push_from_parents, unchecking) {
             else {
                 shiny_charm = false;
             }
+            pushGoals("shiny");
         }
         else {
             desired.shiny = false;
@@ -418,6 +479,9 @@ function updateParent(pn, part) {
         var parent_item = doc_parent.getElementsByClassName("held-item-menu")[0];
         selected_item = parent_item.selectedIndex;
         parents[pn].item = parent_item.options[selected_item].value;
+        if (parents[pn].item.includes("power")) {
+            parents[pn].item = parseInt(parents[pn].item[6], 10);
+        }
     }
 
     else if (part === "nature") {
