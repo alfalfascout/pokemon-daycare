@@ -77,6 +77,7 @@ function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
     this_stat = this_stat || 0;
 
     if (Number.isInteger(one_spread[this_stat])) {
+        // the current iv in this spread is just an integer
         var flat_spread = one_spread.slice();
         if (this_stat === 5) {
             finishIVs(flat_spread, taken_ivs, iv_spreads);
@@ -85,7 +86,27 @@ function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
             splitIVs(flat_spread, taken_ivs, iv_spreads, (this_stat + 1));
         }
     }
+    else if ((Number.isInteger(parents[0].item) &&
+            Number.isInteger(parents[1].item)) &&
+            !(parents[0].item === parents[1].item)) {
+        // we need to split up the power items' influence properly
+        var flat_spread_one = one_spread.slice();
+        var flat_spread_two = one_spread.slice();
+        flat_spread_one[parents[0].item] = 31;
+        flat_spread_one[parents[1].item] = 15;
+        flat_spread_two[parents[1].item] = 31;
+        flat_spread_two[parents[0].item] = 15;
+        if (this_stat === 5) {
+            finishIVs(flat_spread_one, taken_ivs, iv_spreads);
+            finishIVs(flat_spread_two, taken_ivs, iv_spreads);
+        }
+        else {
+            splitIVs(flat_spread_one, taken_ivs, iv_spreads, (this_stat + 1));
+            splitIVs(flat_spread_two, taken_ivs, iv_spreads, (this_stat + 1));
+        }
+    }
     else {
+        // there were two numbers for a stat unrelated to power items
         var flat_spread_one = one_spread.slice();
         var flat_spread_two = one_spread.slice();
         flat_spread_one[this_stat] = one_spread[this_stat][0];
