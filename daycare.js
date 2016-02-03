@@ -33,8 +33,16 @@ var region_difference = false;
 var shiny_charm = false;
 
 
-function randInt(min, max) {
-    return ~~(Math.random() * (max - min)) + min;
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+function probX(probability, repeat_trials) {
+    fail_probability = 1 - probability;
+    new_fail_probability = 1;
+    for (var x = 0; x < repeat_trials; x += 1) {
+        new_fail_probability = new_fail_probability * fail_probability;
+    }
+    return 1 - new_fail_probability;
 }
 
 
@@ -250,36 +258,36 @@ function pushResults(total_probability, probabilities) {
     var doc_results = document.getElementById("results");
     var result_block = "<h3>Overall Result</h3>\n\n <p><b>" +
         "The chance of you hatching your desired pok&eacute;mon is " +
-        (total_probability * 100) + "%!</b> ";
+        round(total_probability * 100, 4) + "%!</b> ";
 
-    result_block += "If you were to hatch 50 eggs, the chance would be " +
-        (total_probability * 5000) + "%. If you were to hatch 100, " +
-        "the chance would be " + (total_probability * 10000) + "%.</p>\n\n";
+    result_block += "If you were to hatch 50 eggs, the chance would be ~" +
+        round(probX(total_probability, 50) * 100, 4) +
+        "%. If you were to hatch 100, the chance would be ~" + round(probX(total_probability, 100) * 100, 4) + "%.</p>\n\n";
 
     result_block += "<h3>Breakdown</h3>\n\n";
 
     if (desired.ivs) {
         result_block += "<p><b>IVs:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired IVs is " +
-            (probabilities["ivs"] * 100) + "%.</p>\n\n";
+            round(probabilities["ivs"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.shiny) {
         result_block += "<p><b>Shiny:</b> The chance of you hatching a " +
-            "shiny pok&eacute;mon is " + (probabilities["shiny"] * 100) +
-            "%.</p>\n\n";
+            "shiny pok&eacute;mon is " +
+            round(probabilities["shiny"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.nature) {
         result_block += "<p><b>Nature:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired nature is " +
-            (probabilities["nature"] * 100) + "%.</p>\n\n";
+            round(probabilities["nature"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.ability) {
         result_block += "<p><b>Ability:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired ability is " +
-            (probabilities["ability"] * 100) + "%.</p>\n\n";
+            round(probabilities["ability"] * 100, 4) + "%.</p>\n\n";
     }
 
     doc_results.innerHTML = result_block;
@@ -333,10 +341,12 @@ function calculateResults() {
         else if (ability_choices > 1) {
             for (var x = 0; x < 2; x += 1) {
                 if (parents[x].gender === "female" && parents[x].ability) {
-                    ability_probability += (0.8 * ability_probability);
+                    ability_probability = 1 - (0.2 *
+                        (1 - ability_probability));
                 }
                 else if (parents[x].gender === "male" && parents[x].ability) {
-                    ability_probability += (0.2 * ability_probability);
+                    ability_probability = 1 - (0.8 *
+                        (1 - ability_probability));
                 }
             }
         }
