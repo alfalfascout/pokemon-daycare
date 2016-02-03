@@ -51,7 +51,7 @@
                 id="iv-05" onchange="updateParent(0, 'ivs')">
             <label for="iv-05" class="lbox"></label>
         </p>
-        <p>Gender:
+        <label>Gender:
             <select name="gender" class="gender-menu"
                 onchange="updateParent(0, 'gender')">
                 <option value="none">None</option>
@@ -59,8 +59,8 @@
                 <option value="female">Female</option>
                 <option value="male">Male</option>
             </select>
-        </p>
-        <p>Held Item:
+        </label>
+        <label>Held Item:
             <select name="held-item" class="held-item-menu"
                 onchange="updateParent(0, 'item')">
                 <option value="none">None</option>
@@ -73,7 +73,7 @@
                 <option value="power-4">Power Band</option>
                 <option value="power-5">Power Anklet</option>
             </select>
-        </p>
+        </label>
 
         <input type="checkbox" name="nature" class="nature-box cbox"
             id="nature-0" onchange="updateParent(0, 'nature')">
@@ -106,7 +106,7 @@
                 id="iv-15" onchange="updateParent(1, 'ivs')">
             <label for="iv-15" class="lbox"></label>
         </p>
-        <p>Gender:
+        <label>Gender:
             <select name="gender" class="gender-menu"
                 onchange="updateParent(1, 'gender')">
                 <option value="none">None</option>
@@ -114,8 +114,8 @@
                 <option value="female">Female</option>
                 <option value="male">Male</option>
             </select>
-        </p>
-        <p>Held Item:
+        </label>
+        <label>Held Item:
             <select name="held-item" class="held-item-menu"
                 onchange="updateParent(1, 'item')">
                 <option value="none">None</option>
@@ -128,7 +128,7 @@
                 <option value="power-4">Power Band</option>
                 <option value="power-5">Power Anklet</option>
             </select>
-        </p>
+        </label>
 
         <input type="checkbox" name="nature" class="nature-box cbox"
             id="nature-1" onchange="updateParent(1, 'nature')">
@@ -182,22 +182,39 @@
         <label class="indented" for="goal-shiny-charm">
             I have a shiny charm</label>
 
-            <input type="checkbox" name="goal-nature" class="cbox"
-                id="goal-nature" onchange="updateOrUncheck('nature')">
-            <label for="goal-nature"> Show nature stats</label>
+        <input type="checkbox" name="goal-nature" class="cbox"
+            id="goal-nature" onchange="updateOrUncheck('nature')">
+        <label for="goal-nature"> Show nature stats</label>
 
-            <input type="checkbox" name="goal-ability" class="cbox"
-                id="goal-ability" onchange="updateOrUncheck('ability')">
-            <label for="goal-ability"> Show ability stats</label>
+        <input type="checkbox" name="goal-ability" class="cbox"
+            id="goal-ability" onchange="updateOrUncheck('ability')">
+        <label for="goal-ability"> Show ability stats</label>
 
         <label class="indented">
-            <select name="goal-ability-number" name="goal-ability-number"
-                id="goal-ability-number" onchange="updateGoals('ability')">
+            <select name="goal-ability-menu" class="goal-ability-menu"
+                id="goal-ability-menu" onchange="updateGoals('ability')">
                 <option value="1">One</option>
                 <option value="2" selected>Two</option>
                 <option value="3">Three</option>
             </select>
             Possible abilities
+        </label>
+
+        <input type="checkbox" name="goal-gender" class="cbox"
+            id="goal-gender" onchange="updateOrUncheck('gender')">
+        <label for="goal-gender"> Show gender stats</label>
+
+        <label class="indented">
+            <select name="goal-gender-menu" class="goal-gender-menu"
+                id="goal-gender-menu" onchange="updateGoals('gender')">
+                <option value="1.0">100%</option>
+                <option value="0.875">87.5%</option>
+                <option value="0.75">75%</option>
+                <option value="0.5" selected>50%</option>
+                <option value="0.25">25%</option>
+                <option value="0.125">12.5%</option>
+            </select>
+            Gender ratio
         </label>
 
         <button name="goal-calculate" onclick="calculateResults()">
@@ -219,8 +236,65 @@
 
     <div class="help section" id="help">
 
+        <h3>What is this? How do I use it?</h3>
         <p>
-            Eventually, there will be some help here.
+            This is a tool to help you determine the probability
+            of getting the pok&eacute;mon you want when breeding.
+            <b>You can fill out as much or as little as you like.</b>
+            If you're only interested in one section, you can safely
+            ignore the rest. For more info on breeding,
+    <a href="http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_breeding">
+            Bulbapedia has a lovely article</a>.
+        </p>
+
+        <h3 id="help-ivs">How do I breed for IVs?</h3>
+        <p>
+            In Gen 6, the pok&eacute;mon you breed will inherit 3
+            IVs from their parents, at least. If one parent holds a
+            Destiny Knot, the egg will inherit 5 IVs. If one parent holds
+            a Power Item, the egg will definitely inherit that stat from
+            that parent. If both parents hold power items, the egg
+            inherits one IV or the other, but never both. There's no way
+            to guarantee that 6th perfect IV... but if you have two parents
+            with many perfect IVs and you hatch a lot of eggs,
+            you can get lucky!
+        </p>
+
+        <h3 id="help-shiny">How do I breed for shininess?</h3>
+        <p>
+            There are two ways you can make it more likely you'll
+            hatch a shiny pok&eacute;mon: if you breed pokémon from
+            two different regions (for example, SPA and KOR) or
+            if you have a shiny charm from completing the national
+            pok&eacute;dex. Together, they make a shiny hatch a lot
+            more likely, but the chance is still only 1 in 512.
+        </p>
+
+        <h3 id="help-nature">How do I breed for a specific nature?</h3>
+        <p>
+            If one of your parents has the nature you want, you
+            can give them an Everstone to guarantee they pass it on.
+            Otherwise, it's a toss-up between every possible nature.
+        </p>
+
+        <h3 id="help-ability">How do I breed for a specific ability?</h3>
+        <p>
+            If your parent pok&eacute;mon have that ability, they have
+            a chance of passing it on to their eggs. Female pok&eacute;mon
+            have an 80% chance, while male pok&eacute;mon have a 20%
+            chance to pass on their ability. If you want to breed for a
+            hidden ability, one of your parents must have the hidden
+            ability, or your eggs will never have it.
+        </p>
+
+        <h3 id="help-gender">How do I breed for a specific gender?</h3>
+        <p>
+            There's no way to influence what gender an egg will hatch,
+            but it's worth noting that the gender ratio is different
+            for every species of pok&eacute;mon. Starter pok&eacute;mon,
+            for example, will almost always hatch male (87.5%). You
+            can look up the
+            <a href="http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio">gender ratio</a> for many pok&eacute;mon.
         </p>
 
     </div>

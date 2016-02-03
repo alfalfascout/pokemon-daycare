@@ -22,7 +22,6 @@ var desired = {
 };
 var manual = {
     "ivs": false,
-    "gender": false,
     "nature": false,
     "ability": false
 };
@@ -34,9 +33,12 @@ var shiny_charm = false;
 
 
 function round(value, decimals) {
+    /* Rounding function to save some headaches */
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 function probX(probability, repeat_trials) {
+    /*  Calculates the probability of success if we do something
+        the same way x number of times. */
     fail_probability = 1 - probability;
     new_fail_probability = 1;
     for (var x = 0; x < repeat_trials; x += 1) {
@@ -290,6 +292,12 @@ function pushResults(total_probability, probabilities) {
             round(probabilities["ability"] * 100, 4) + "%.</p>\n\n";
     }
 
+    if (desired.ability) {
+        result_block += "<p><b>Gender:</b> The chance of you hatching a " +
+            "pok&eacute;mon with your desired gender is " +
+            round(probabilities["gender"] * 100, 4) + "%.</p>\n\n";
+    }
+
     doc_results.innerHTML = result_block;
 }
 
@@ -353,6 +361,12 @@ function calculateResults() {
         total_probability *= ability_probability;
         probabilities["ability"] = ability_probability;
     }
+
+    if (desired.gender) {
+        var gender_probability = goal_gender;
+        total_probability *= gender_probability;
+        probabilities["gender"] = gender_probability;
+    }
     pushResults(total_probability, probabilities);
 }
 
@@ -371,7 +385,8 @@ function pushGoals(part) {
         }
     }
 
-    else if (part === "nature" || part === "ability" || part === "shiny") {
+    else if (part === "nature" || part === "ability" ||
+            part === "shiny" || part === "gender") {
         var part_string = "goal-" + part;
         doc_part = document.getElementsByName(part_string)[0];
         doc_part.checked = desired[part];
@@ -446,7 +461,7 @@ function updateGoals(part, push_from_parents, unchecking) {
         }
     }
 
-    else if (part === "nature" || part === "ability") {
+    else if (part === "nature" || part === "ability" || part === "gender") {
         if (!manual[part] && push_from_parents) {
             // Only push from parents if the user hasn't set stats manually
             desired[part] = true;
@@ -456,9 +471,15 @@ function updateGoals(part, push_from_parents, unchecking) {
             desired[part] = true;
             if (part === "ability") {
                 doc_choices =
-                    document.getElementsByName("goal-ability-number")[0];
+                    document.getElementsByName("goal-ability-menu")[0];
                 ability_choices = parseFloat(doc_choices.value);
                 pushGoals("ability");
+            }
+            else if (part === "gender") {
+                doc_choices =
+                    document.getElementsByName("goal-gender-menu")[0];
+                goal_gender = parseFloat(doc_choices.value);
+                pushGoals("gender");
             }
         }
         else {
