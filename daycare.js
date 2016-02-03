@@ -25,7 +25,7 @@ var manual = {
     "gender": false,
     "nature": false,
     "ability": false
-}
+};
 var goal_ivs = [false,false,false,false,false,false];
 var goal_gender = 0.5;
 var ability_choices = 2.0;
@@ -315,7 +315,7 @@ function calculateResults() {
     }
 
     if (desired.nature) {
-        var nature_probability = 1.0
+        var nature_probability = 1.0;
         if (!(parents[0].item === "everstone" ||
                 parents[1].item === "everstone")) {
             nature_probability = 1.0 / 25.0;
@@ -325,7 +325,7 @@ function calculateResults() {
     }
 
     if (desired.ability) {
-        var ability_probability = 1 / ability_choices;
+        var ability_probability = 1.0 / ability_choices;
         if (ability_choices === 3 &&
                 !(parents[0].ability || parents[1].ability)) {
             ability_probability = 0.0;
@@ -447,7 +447,7 @@ function updateGoals(part, push_from_parents, unchecking) {
             if (part === "ability") {
                 doc_choices =
                     document.getElementsByName("goal-ability-number")[0];
-                ability_choices = parseFloat(doc_choices);
+                ability_choices = parseFloat(doc_choices.value);
                 pushGoals("ability");
             }
         }
@@ -487,17 +487,19 @@ function updateParent(pn, part) {
                 parents[pn].ivs[j] = false;
             }
         }
-        updateGoals("ivs", true)
+        updateGoals("ivs", true);
     }
 
     else if (part === "gender") {
-        var parent_gender = doc_parent.getElementsByClassName("gender-menu")[0];
+        var parent_gender =
+            doc_parent.getElementsByClassName("gender-menu")[0];
         selected_gender = parent_gender.selectedIndex;
         parents[pn].gender = parent_gender.options[selected_gender].value;
     }
 
     else if (part === "item") {
-        var parent_item = doc_parent.getElementsByClassName("held-item-menu")[0];
+        var parent_item =
+            doc_parent.getElementsByClassName("held-item-menu")[0];
         selected_item = parent_item.selectedIndex;
         parents[pn].item = parent_item.options[selected_item].value;
         if (parents[pn].item.includes("power")) {
@@ -517,7 +519,8 @@ function updateParent(pn, part) {
     }
 
     else if (part === "ability") {
-        var parent_ability = doc_parent.getElementsByClassName("ability-box")[0];
+        var parent_ability =
+            doc_parent.getElementsByClassName("ability-box")[0];
         if (parent_ability.checked) {
             parents[pn].ability = true;
         }

@@ -33,17 +33,23 @@
         <h3>Parent One</h3>
         <p>IVs:
             <input type="checkbox" name="iv-hp" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-00" onchange="updateParent(0, 'ivs')">
+            <label for="iv-00" class="lbox"></label>
             <input type="checkbox" name="iv-atk" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-01" onchange="updateParent(0, 'ivs')">
+            <label for="iv-01" class="lbox"></label>
             <input type="checkbox" name="iv-def" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-02" onchange="updateParent(0, 'ivs')">
+            <label for="iv-02" class="lbox"></label>
             <input type="checkbox" name="iv-satk" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-03" onchange="updateParent(0, 'ivs')">
+            <label for="iv-03" class="lbox"></label>
             <input type="checkbox" name="iv-sdef" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-04" onchange="updateParent(0, 'ivs')">
+            <label for="iv-04" class="lbox"></label>
             <input type="checkbox" name="iv-spe" class="iv-box"
-                onchange="updateParent(0, 'ivs')">
+                id="iv-05" onchange="updateParent(0, 'ivs')">
+            <label for="iv-05" class="lbox"></label>
         </p>
         <p>Gender:
             <select name="gender" class="gender-menu"
@@ -68,32 +74,37 @@
                 <option value="power-5">Power Anklet</option>
             </select>
         </p>
-        <label>
-            <input type="checkbox" name="nature" class="nature-box"
-                onchange="updateParent(0, 'nature')">
-            Has desired nature
-        </label>
-        <label>
-            <input type="checkbox" name="ability" class="ability-box"
-                onchange="updateParent(0, 'ability')">
-            Has desired ability
-        </label>
+
+        <input type="checkbox" name="nature" class="nature-box cbox"
+            id="nature-0" onchange="updateParent(0, 'nature')">
+        <label for="nature-0"> Has desired nature</label>
+
+        <input type="checkbox" name="ability" class="ability-box cbox"
+            id="ability-0" onchange="updateParent(0, 'ability')">
+        <label for="ability-0"> Has desired ability</label>
+
     </div>
     <div class="parent section" id="parent-two">
         <h3>Parent Two</h3>
         <p>IVs:
             <input type="checkbox" name="iv-hp" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-10" onchange="updateParent(1, 'ivs')">
+            <label for="iv-10" class="lbox"></label>
             <input type="checkbox" name="iv-atk" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-11" onchange="updateParent(1, 'ivs')">
+            <label for="iv-11" class="lbox"></label>
             <input type="checkbox" name="iv-def" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-12" onchange="updateParent(1, 'ivs')">
+            <label for="iv-12" class="lbox"></label>
             <input type="checkbox" name="iv-satk" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-13" onchange="updateParent(1, 'ivs')">
+            <label for="iv-13" class="lbox"></label>
             <input type="checkbox" name="iv-sdef" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-14" onchange="updateParent(1, 'ivs')">
+            <label for="iv-14" class="lbox"></label>
             <input type="checkbox" name="iv-spe" class="iv-box"
-                onchange="updateParent(1, 'ivs')">
+                id="iv-15" onchange="updateParent(1, 'ivs')">
+            <label for="iv-15" class="lbox"></label>
         </p>
         <p>Gender:
             <select name="gender" class="gender-menu"
@@ -118,71 +129,70 @@
                 <option value="power-5">Power Anklet</option>
             </select>
         </p>
-        <label>
-            <input type="checkbox" name="nature" class="nature-box"
-                onchange="updateParent(1, 'nature')">
-            Has desired nature
-        </label>
-        <label>
-            <input type="checkbox" name="ability" class="ability-box"
-                onchange="updateParent(1, 'ability')">
-            Has desired ability
-        </label>
+
+        <input type="checkbox" name="nature" class="nature-box cbox"
+            id="nature-1" onchange="updateParent(1, 'nature')">
+        <label for="nature-1"> Has desired nature</label>
+
+        <input type="checkbox" name="ability" class="ability-box cbox"
+            id="ability-1" onchange="updateParent(1, 'ability')">
+        <label for="ability-1"> Has desired ability</label>
     </div>
 
     <h2>Desired Results</h2> <!-- USER'S DESIRED RESULTS SECTION -->
 
     <div class="goals section" id="goals">
-        <label>
-            <input type="checkbox" name="goal-ivs"
-                onchange="updateOrUncheck('ivs')">
-            I want these IVs...
-        </label>
+
+        <input type="checkbox" name="goal-ivs" class="cbox"
+            id="goal-ivs" onchange="updateOrUncheck('ivs')">
+        <label for="goal-ivs"> I want these IVs...</label>
+
         <span class="indented">
             <input type="checkbox" name="iv-hp" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g0" onchange="updateGoals('ivs')">
+            <label for="iv-g0" class="lbox"></label>
             <input type="checkbox" name="iv-atk" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g1" onchange="updateGoals('ivs')">
+            <label for="iv-g1" class="lbox"></label>
             <input type="checkbox" name="iv-def" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g2" onchange="updateGoals('ivs')">
+            <label for="iv-g2" class="lbox"></label>
             <input type="checkbox" name="iv-satk" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g3" onchange="updateGoals('ivs')">
+            <label for="iv-g3" class="lbox"></label>
             <input type="checkbox" name="iv-sdef" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g4" onchange="updateGoals('ivs')">
+            <label for="iv-g4" class="lbox"></label>
             <input type="checkbox" name="iv-spe" class="iv-box"
-                onchange="updateGoals('ivs')">
+                id="iv-g5" onchange="updateGoals('ivs')">
+            <label for="iv-g5" class="lbox"></label>
         </span>
 
-        <label>
-            <input type="checkbox" name="goal-shiny"
-                onchange="updateOrUncheck('shiny')">
-            I care about shininess and...
-        </label>
-        <label class="indented">
-            <input type="checkbox" name="goal-shiny-region"
-                onchange="updateGoals('shiny')">
-            My pokemon are from different language regions
-        </label>
-        <label class="indented">
-            <input type="checkbox" name="goal-shiny-charm"
-                onchange="updateGoals('shiny')">
-            I have a shiny charm
-        </label>
+        <input type="checkbox" name="goal-shiny" class="cbox"
+            id="goal-shiny" onchange="updateOrUncheck('shiny')">
+        <label for="goal-shiny"> I care about shininess and...</label>
 
-        <label>
-            <input type="checkbox" name="goal-nature"
-                onchange="updateOrUncheck('nature')">
-            Show nature stats
-        </label>
+        <input type="checkbox" name="goal-shiny-region" class="cbox"
+            id="goal-shiny-region" change="updateGoals('shiny')">
+        <label class="indented" for="goal-shiny-region">
+            My pokemon are from different regions</label>
 
-        <label>
-            <input type="checkbox" name="goal-ability"
-                onchange="updateOrUncheck('ability')">
-            Show ability stats
-        </label>
+        <input type="checkbox" name="goal-shiny-charm" class="cbox"
+            id="goal-shiny-charm" onchange="updateGoals('shiny')">
+        <label class="indented" for="goal-shiny-charm">
+            I have a shiny charm</label>
+
+            <input type="checkbox" name="goal-nature" class="cbox"
+                id="goal-nature" onchange="updateOrUncheck('nature')">
+            <label for="goal-nature"> Show nature stats</label>
+
+            <input type="checkbox" name="goal-ability" class="cbox"
+                id="goal-ability" onchange="updateOrUncheck('ability')">
+            <label for="goal-ability"> Show ability stats</label>
+
         <label class="indented">
             <select name="goal-ability-number" name="goal-ability-number"
-                onchange="updateGoals('ability')">
+                id="goal-ability-number" onchange="updateGoals('ability')">
                 <option value="1">One</option>
                 <option value="2" selected>Two</option>
                 <option value="3">Three</option>

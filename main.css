@@ -1,6 +1,17 @@
+body {
+    background-color: #65954e;
+    font-family: "San Francisco", "Helvetica Neue", Helvetica,
+        Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    color: #6a4940;
+}
+
 #container {
     width: 550px;
-    margin: auto;
+    padding: 20px 40px 40px;
+    margin: 0px auto;
+    background: rgba(210,243,205,0.8);
 }
 h1, h2, h3 {
     text-align: center;
@@ -8,12 +19,20 @@ h1, h2, h3 {
 h3 {
     margin: 2pt 2pt 10pt;
 }
+h1,h2,h3,a {
+    color: #482821;
+}
 .section {
-    padding: 20px;
-    border: 1px dotted black;
+    padding: 20px 19px;
+    background-color: #d2f3cd;
+    border-width: 0px 0px 2px;
+    border-style: solid;
+    border-color: #bae49a;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px -1px #65954e;
 }
 .section p, .section label, .section span {
-    margin: 4pt;
+    margin: 5pt 2pt;
 }
 
 .parent {
@@ -21,9 +40,32 @@ h3 {
     width: 225px;
     margin: auto 0px;
 }
-
 #parent-two {
     margin-left: 10px;
+}
+
+.iv-box, .cbox {
+    position: absolute;
+    left: -9999px;
+}
+label::before {
+    content: '';
+}
+.section .lbox, .cbox + label::before {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-width: 2px;
+    border-color: #65954e;
+    border-style: solid;
+    border-radius: 3px;
+}
+.parent.section .lbox, .cbox + label::before {
+    margin-bottom: -3.5pt;
+}
+input:checked + label.lbox, input:checked + label::before {
+    background-color: #65954e;
 }
 
 .iv-box {
@@ -37,5 +79,3 @@ label {
 .section .indented {
     margin-left: 16pt;
 }
-
-// Todo: make the page prettier
