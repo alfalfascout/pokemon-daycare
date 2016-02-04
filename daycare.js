@@ -1,3 +1,5 @@
+/* For the parents[], think of false as "the pokemon doesn't have
+the value the user wants in this stat". true means "has" or "is perfect" */
 var parent0 = {
     "ivs": [false,false,false,false,false,false],
     "gender": "",
@@ -13,6 +15,8 @@ var parent1 = {
     "ability": false
 };
 var parents = [parent0, parent1];
+/* For desired, false means don't show output for these or calculate their
+ probabilities unless told otherwise */
 var desired = {
     "ivs": false,
     "shiny": false,
@@ -20,11 +24,15 @@ var desired = {
     "nature": false,
     "ability": false
 };
+/* For manual, false means update the goals section when the user updates the
+ parents section. When the user makes changes in the goals section,
+ manual.(section) changes to true and parent changes no longer change goals */
 var manual = {
     "ivs": false,
     "nature": false,
     "ability": false
 };
+/* The rest of these globals are set by the user in the goals section. */
 var goal_ivs = [false,false,false,false,false,false];
 var goal_gender = 0.5;
 var ability_choices = 2.0;
@@ -36,6 +44,8 @@ function round(value, decimals) {
     /* Rounding function to save some headaches */
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
+
+
 function probX(probability, repeat_trials) {
     /*  Calculates the probability of success if we do something
         the same way x number of times. */
@@ -82,8 +92,9 @@ function finishIVs(one_spread, taken_ivs, iv_spreads) {
 
 
 function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
-    /*  Splits any IV spreads that had multiple options
-        because of inheritance, then passes them to finishIVs(). */
+    /*  Recursively splits any IV spreads that had multiple options
+        because of inheritance, starting at the 0th stat in the thread.
+        When it reaches the 5th stat, then passes them to finishIVs(). */
     this_stat = this_stat || 0;
 
     if (Number.isInteger(one_spread[this_stat])) {
@@ -99,7 +110,7 @@ function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
     else if ((Number.isInteger(parents[0].item) &&
             Number.isInteger(parents[1].item)) &&
             !(parents[0].item === parents[1].item)) {
-        // we need to split up the power items' influence properly
+        // both parents have different power items, one is this stat
         var flat_spread_one = one_spread.slice();
         var flat_spread_two = one_spread.slice();
         flat_spread_one[parents[0].item] = 31;
@@ -135,7 +146,8 @@ function splitIVs(one_spread, taken_ivs, iv_spreads, this_stat) {
 
 
 function powerItemChecker(chosen_ivs) {
-    /* Narrows down chosen_ivs based on power items held by the parents */
+    /*  Narrows down chosen_ivs based on power items held by the parents.
+        If a parent has a power item, chosen_ivs must include that stat. */
     var narrowed_ivs = [];
     if ((Number.isInteger(parents[0].item) ||
             Number.isInteger(parents[1].item))) {
@@ -157,6 +169,9 @@ function generateIVs() {
     /*  Generates every possible IV spread,
         given the parents' IVs and held items.
         Could return as many as 5 million or as few as 192 IV spreads */
+    // iv_spreads are all the possible spreads
+    var iv_spreads = [];
+    // chosen_ivs are what the egg could inherit
     var chosen_ivs = [
         [0,1,2],[0,1,3],[0,1,4],[0,1,5],
         [0,2,3],[0,2,4],[0,2,5],
@@ -165,7 +180,6 @@ function generateIVs() {
         [1,3,4],[1,3,5],[1,4,5],
         [2,3,4],[2,3,5],[2,4,5],[3,4,5]
     ];
-    var iv_spreads = [];
     if (parents[0].item === "destiny-knot" ||
             parents[1].item === "destiny-knot") {
         chosen_ivs = [
@@ -174,6 +188,7 @@ function generateIVs() {
         ];
     }
     chosen_ivs = powerItemChecker(chosen_ivs);
+
     for (var j = 0; j < chosen_ivs.length; j += 1) {
         var one_spread = [0,0,0,0,0,0];
         for (var k = 0; k < chosen_ivs[j].length; k += 1) {
@@ -226,8 +241,7 @@ function generateIVs() {
                 one_spread[chosen_ivs[j][k]] = [10, 20];
             }
         }
-        iv_spreads = splitIVs(one_spread.slice(),
-            chosen_ivs[j], iv_spreads);
+        iv_spreads = splitIVs(one_spread.slice(), chosen_ivs[j], iv_spreads);
     }
 
     return iv_spreads;
@@ -237,7 +251,7 @@ function generateIVs() {
 function compareIVs(wanted_ivs, possible_ivs) {
     /*  Should populate matching_ivs with a list from possible_ivs
         that includes and/or exceeds wanted_ivs. */
-    var matching_ivs = []
+    var matching_ivs = [];
     for (var x = 0; x < possible_ivs.length; x += 1) {
         var spread = possible_ivs[x];
         var matched_spread = true;
@@ -262,9 +276,10 @@ function pushResults(total_probability, probabilities) {
         "The chance of you hatching your desired pok&eacute;mon is " +
         round(total_probability * 100, 4) + "%!</b> ";
 
-    result_block += "If you were to hatch 50 eggs, the chance would be ~" +
-        round(probX(total_probability, 50) * 100, 4) +
-        "%. If you were to hatch 100, the chance would be ~" + round(probX(total_probability, 100) * 100, 4) + "%.</p>\n\n";
+    result_block += "If you were to hatch 10 eggs, the chance would be ~" +
+        round(probX(total_probability, 10) * 100, 4) +
+        "%. If you were to hatch 50, the chance would be ~" +
+        round(probX(total_probability, 50) * 100, 4) + "%.</p>\n\n";
 
     result_block += "<h3>Breakdown</h3>\n\n";
 
@@ -344,15 +359,18 @@ function calculateResults() {
         var ability_probability = 1.0 / ability_choices;
         if (ability_choices === 3 &&
                 !(parents[0].ability || parents[1].ability)) {
+            // if neither parent has hidden third ability: 0% likelihood
             ability_probability = 0.0;
         }
         else if (ability_choices > 1) {
             for (var x = 0; x < 2; x += 1) {
                 if (parents[x].gender === "female" && parents[x].ability) {
+                    // if female parent has the ability: 80% more likely
                     ability_probability = 1 - (0.2 *
                         (1 - ability_probability));
                 }
                 else if (parents[x].gender === "male" && parents[x].ability) {
+                    // if male parent has: 20% more likely
                     ability_probability = 1 - (0.8 *
                         (1 - ability_probability));
                 }
@@ -420,12 +438,7 @@ function updateGoals(part, push_from_parents, unchecking) {
                 desired.ivs = true;
                 doc_ivs = doc_goals.getElementsByClassName("iv-box");
                 for(var j = 0; j < doc_ivs.length; j += 1) {
-                    if (doc_ivs[j].checked) {
-                        goal_ivs[j] = true;
-                    }
-                    else {
-                        goal_ivs[j] = false;
-                    }
+                    goal_ivs[j] = doc_ivs[j].checked;
                 }
                 pushGoals("ivs");
             }
@@ -441,19 +454,9 @@ function updateGoals(part, push_from_parents, unchecking) {
             doc_region = document.getElementsByName("goal-shiny-region")[0];
             doc_charm = document.getElementsByName("goal-shiny-charm")[0];
 
-            if (doc_region.checked) {
-                region_difference = true;
-            }
-            else {
-                region_difference = false;
-            }
+            region_difference = doc_region.checked;
+            shiny_charm = doc_charm.checked;
 
-            if (doc_charm.checked) {
-                shiny_charm = true;
-            }
-            else {
-                shiny_charm = false;
-            }
             pushGoals("shiny");
         }
         else {
@@ -509,14 +512,9 @@ function updateParent(pn, part) {
     var doc_parent = document.getElementsByClassName("parent")[pn];
 
     if (part === "ivs") {
-        var parent_ivs = doc_parent.getElementsByClassName("iv-box");
-        for(var j = 0; j < parent_ivs.length; j += 1) {
-            if (parent_ivs[j].checked) {
-                parents[pn].ivs[j] = true;
-            }
-            else {
-                parents[pn].ivs[j] = false;
-            }
+        var doc_parent_ivs = doc_parent.getElementsByClassName("iv-box");
+        for(var j = 0; j < doc_parent_ivs.length; j += 1) {
+            parents[pn].ivs[j] = doc_parent_ivs[j].checked;
         }
         updateGoals("ivs", true);
     }
@@ -539,25 +537,16 @@ function updateParent(pn, part) {
     }
 
     else if (part === "nature") {
-        var parent_nature = doc_parent.getElementsByClassName("nature-box")[0];
-        if (parent_nature.checked) {
-            parents[pn].nature = true;
-        }
-        else {
-            parents[pn].nature = false;
-        }
+        var doc_parent_nature =
+            doc_parent.getElementsByClassName("nature-box")[0];
+        parents[pn].nature = doc_parent_nature.checked;
         updateGoals("nature", true);
     }
 
     else if (part === "ability") {
-        var parent_ability =
+        var doc_parent_ability =
             doc_parent.getElementsByClassName("ability-box")[0];
-        if (parent_ability.checked) {
-            parents[pn].ability = true;
-        }
-        else {
-            parents[pn].ability = false;
-        }
+        parents[pn].ability = doc_parent_ability.checked;
         updateGoals("ability", true);
     }
 
