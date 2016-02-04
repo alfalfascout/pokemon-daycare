@@ -218,8 +218,17 @@ function generateIVs() {
                         Number.isInteger(parents[1].item)) ||
                         (chosen_ivs[j][k] === parents[1].item &&
                         Number.isInteger(parents[0].item))) {
-                    // and the other has a different power item
-                    one_spread[chosen_ivs[j][k]] = [15, 31];
+                    // and the other has a different power item...
+                    if (chosen_ivs[j].includes(parents[0].item) &&
+                            chosen_ivs[j].includes(parents[1].item)) {
+                        // and both stats are in this chosen spread
+                        one_spread[chosen_ivs[j][k]] = [15, 31];
+                    }
+                    else {
+                        // and only one stat is in this chosen spread
+                        one_spread[chosen_ivs[j][k]] = 31;
+                    }
+
                 }
                 else {
                     // and the other has no power item
@@ -472,6 +481,7 @@ function updateGoals(part, push_from_parents, unchecking) {
         }
         else if (!push_from_parents && !unchecking) {
             desired[part] = true;
+            manual[part] = true;
             if (part === "ability") {
                 doc_choices =
                     document.getElementsByName("goal-ability-menu")[0];
@@ -485,8 +495,9 @@ function updateGoals(part, push_from_parents, unchecking) {
                 pushGoals("gender");
             }
         }
-        else {
+        else if (unchecking) {
             desired[part] = false;
+            manual[part] = true;
         }
     }
 }
@@ -494,6 +505,7 @@ function updateGoals(part, push_from_parents, unchecking) {
 function updateOrUncheck(part) {
     /*  Called from the goals section. Determines whether the element changed
         has just been unchecked, and calls updateGoals accordingly. */
+    manual[part] = true;
     var checked_string = "goal-" + part;
     var doc_checked = document.getElementsByName(checked_string)[0].checked;
 

@@ -173,7 +173,7 @@
         <label for="goal-shiny"> I care about shininess and...</label>
 
         <input type="checkbox" name="goal-shiny-region" class="cbox"
-            id="goal-shiny-region" change="updateGoals('shiny')">
+            id="goal-shiny-region" onchange="updateGoals('shiny')">
         <label class="indented" for="goal-shiny-region">
             My pokemon are from different regions</label>
 
@@ -295,6 +295,18 @@
             for example, will almost always hatch male (87.5%). You
             can look up the
             <a href="http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio">gender ratio</a> for many pok&eacute;mon.
+        </p>
+
+        <h3 id="help-probability">How did you make this?</h3>
+        <p>
+            I got a lot of inspiration (but no actual code) from <a
+            href="http://destinyknot.tk">destinyknot.tk</a>. Interestingly,
+            the numbers I get for IV calcluations are different from
+            the ones given by destinyknot.tk. Whose is right? To be honest,
+            I have no clue. We could both be wrong. If you know a little
+            about probability and a little about javascript, I'd appreciate
+            your feedback on <a
+            href="https://github.com/alfalfascout/pokemon-daycare">Github</a>.
         </p>
 
     </div>
