@@ -29,8 +29,8 @@
 
     <h2>Parents</h2> <!-- PARENTS' INFORMATION -->
 
-    <div class="parent section" id="parent-one">
-        <h3>Parent One</h3>
+    <div class="parent section" id="parent-primary">
+        <h3>Primary Parent</h3>
         <p>IVs:
             <input type="checkbox" name="iv-hp" class="iv-box"
                 id="iv-00" onchange="updateParent(0, 'ivs')">
@@ -54,8 +54,7 @@
         <label>Gender:
             <select name="gender" class="gender-menu"
                 onchange="updateParent(0, 'gender')">
-                <option value="none">None</option>
-                <option value="ditto">Ditto</option>
+                <option value="none" selected>None</option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
             </select>
@@ -84,8 +83,8 @@
         <label for="ability-0"> Has desired ability</label>
 
     </div>
-    <div class="parent section" id="parent-two">
-        <h3>Parent Two</h3>
+    <div class="parent section" id="parent-secondary">
+        <h3>Secondary Parent</h3>
         <p>IVs:
             <input type="checkbox" name="iv-hp" class="iv-box"
                 id="iv-10" onchange="updateParent(1, 'ivs')">
@@ -109,9 +108,7 @@
         <label>Gender:
             <select name="gender" class="gender-menu"
                 onchange="updateParent(1, 'gender')">
-                <option value="none">None</option>
-                <option value="ditto">Ditto</option>
-                <option value="female">Female</option>
+                <option value="ditto" selected>Ditto</option>
                 <option value="male">Male</option>
             </select>
         </label>

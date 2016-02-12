@@ -9,7 +9,7 @@ var parent0 = {
 };
 var parent1 = {
     "ivs": [false,false,false,false,false,false],
-    "gender": "",
+    "gender": "ditto",
     "item": "",
     "nature": false,
     "ability": false
@@ -316,7 +316,7 @@ function pushResults(total_probability, probabilities) {
             round(probabilities["ability"] * 100, 4) + "%.</p>\n\n";
     }
 
-    if (desired.ability) {
+    if (desired.gender) {
         result_block += "<p><b>Gender:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired gender is " +
             round(probabilities["gender"] * 100, 4) + "%.</p>\n\n";
@@ -366,23 +366,19 @@ function calculateResults() {
 
     if (desired.ability) {
         var ability_probability = 1.0 / ability_choices;
-        if (ability_choices === 3 &&
-                !(parents[0].ability || parents[1].ability)) {
-            // if neither parent has hidden third ability: 0% likelihood
+        if (ability_choices === 3) {
+            // if primary parent doesn't have third ability: 0% likelihood
             ability_probability = 0.0;
         }
-        else if (ability_choices > 1) {
-            for (var x = 0; x < 2; x += 1) {
-                if (parents[x].gender === "female" && parents[x].ability) {
-                    // if female parent has the ability: 80% more likely
-                    ability_probability = 1 - (0.2 *
-                        (1 - ability_probability));
-                }
-                else if (parents[x].gender === "male" && parents[x].ability) {
-                    // if male parent has: 20% more likely
-                    ability_probability = 1 - (0.8 *
-                        (1 - ability_probability));
-                }
+        if (ability_choices > 1) {
+            if (((parents[1].gender === "ditto") && parents[0].ability) ||
+                ((parents[0].gender === "female") && parents[0].ability)) {
+                // if primary parent has ability: 60% likely to inherit
+                ability_probability = 0.6 + (0.4 * ability_probability);
+            }
+            else {
+                // if primary parent doesn't: 60% not likely ???
+                ability_probability = 0.4 * ability_probability;
             }
         }
         total_probability *= ability_probability;
