@@ -8,7 +8,7 @@ body {
 }
 
 #container {
-    width: 550px;
+    width: 600px;
     padding: 20px 40px 40px;
     margin: 0px auto;
     background: rgba(210,243,205,0.8);
@@ -20,6 +20,15 @@ h1, h2, h3 {
 
 h1, h2, h3, a {
     color: #482821;
+}
+
+h3:target {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4pt;
+}
+
+a.helper {
+    font-size: 10pt;
 }
 
 .parent h3 {
@@ -42,7 +51,7 @@ h1, h2, h3, a {
 
 .parent {
     display: inline-block;
-    width: 225px;
+    width: 250px;
     margin: auto 0px;
 }
 

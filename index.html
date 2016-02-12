@@ -50,6 +50,7 @@
             <input type="checkbox" name="iv-spe" class="iv-box"
                 id="iv-05" onchange="updateParent(0, 'ivs')">
             <label for="iv-05" class="lbox"></label>
+            <a href="#help-ivs" class="helper">?</a>
         </p>
         <label>Gender:
             <select name="gender" class="gender-menu"
@@ -59,6 +60,7 @@
                 <option value="male">Male</option>
             </select>
         </label>
+
         <label>Held Item:
             <select name="held-item" class="held-item-menu"
                 onchange="updateParent(0, 'item')">
@@ -76,11 +78,17 @@
 
         <input type="checkbox" name="nature" class="nature-box cbox"
             id="nature-0" onchange="updateParent(0, 'nature')">
-        <label for="nature-0"> Has desired nature</label>
+        <label for="nature-0">
+            Has desired nature
+            <a href="#help-nature" class="helper">?</a>
+        </label>
 
         <input type="checkbox" name="ability" class="ability-box cbox"
             id="ability-0" onchange="updateParent(0, 'ability')">
-        <label for="ability-0"> Has desired ability</label>
+        <label for="ability-0">
+            Has desired ability
+            <a href="#help-ability" class="helper">?</a>
+        </label>
 
     </div>
     <div class="parent section" id="parent-secondary">
@@ -104,6 +112,7 @@
             <input type="checkbox" name="iv-spe" class="iv-box"
                 id="iv-15" onchange="updateParent(1, 'ivs')">
             <label for="iv-15" class="lbox"></label>
+            <a href="#help-ivs" class="helper">?</a>
         </p>
         <label>Gender:
             <select name="gender" class="gender-menu"
@@ -129,11 +138,17 @@
 
         <input type="checkbox" name="nature" class="nature-box cbox"
             id="nature-1" onchange="updateParent(1, 'nature')">
-        <label for="nature-1"> Has desired nature</label>
+        <label for="nature-1">
+            Has desired nature
+            <a href="#help-nature" class="helper">?</a>
+        </label>
 
         <input type="checkbox" name="ability" class="ability-box cbox"
             id="ability-1" onchange="updateParent(1, 'ability')">
-        <label for="ability-1"> Has desired ability</label>
+        <label for="ability-1">
+            Has desired ability
+            <a href="#help-ability" class="helper">?</a>
+        </label>
     </div>
 
     <h2>Desired Results</h2> <!-- USER'S DESIRED RESULTS SECTION -->
@@ -163,11 +178,15 @@
             <input type="checkbox" name="iv-spe" class="iv-box"
                 id="iv-g5" onchange="updateGoals('ivs')">
             <label for="iv-g5" class="lbox"></label>
+            <a href="#help-ivs" class="helper">?</a>
         </span>
 
         <input type="checkbox" name="goal-shiny" class="cbox"
             id="goal-shiny" onchange="updateOrUncheck('shiny')">
-        <label for="goal-shiny"> I care about shininess and...</label>
+        <label for="goal-shiny">
+            I care about shininess and...
+            <a href="#help-shiny" class="helper">?</a>
+        </label>
 
         <input type="checkbox" name="goal-shiny-region" class="cbox"
             id="goal-shiny-region" onchange="updateGoals('shiny')">
@@ -181,11 +200,17 @@
 
         <input type="checkbox" name="goal-nature" class="cbox"
             id="goal-nature" onchange="updateOrUncheck('nature')">
-        <label for="goal-nature"> Show nature stats</label>
+        <label for="goal-nature">
+            Show nature stats
+            <a href="#help-nature" class="helper">?</a>
+        </label>
 
         <input type="checkbox" name="goal-ability" class="cbox"
             id="goal-ability" onchange="updateOrUncheck('ability')">
-        <label for="goal-ability"> Show ability stats</label>
+        <label for="goal-ability">
+            Show ability stats
+            <a href="#help-ability" class="helper">?</a>
+        </label>
 
         <label class="indented">
             <select name="goal-ability-menu" class="goal-ability-menu"
@@ -199,7 +224,10 @@
 
         <input type="checkbox" name="goal-gender" class="cbox"
             id="goal-gender" onchange="updateOrUncheck('gender')">
-        <label for="goal-gender"> Show gender stats</label>
+        <label for="goal-gender">
+            Show gender stats
+            <a href="#help-gender" class="helper">?</a>
+        </label>
 
         <label class="indented">
             <select name="goal-gender-menu" class="goal-gender-menu"
