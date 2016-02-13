@@ -68,7 +68,8 @@ label::before {
     content: '';
 }
 
-.section .lbox, .cbox + label::before, .section select, .section button {
+.section .lbox, .cbox + label::before, .section select,
+.section button, .section input[type=text] {
     display: inline-block;
     height: 24px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -83,7 +84,7 @@ label::before {
     width: 18px;
 }
 
-.section select {
+.section select, .section input[type=text] {
     line-height: 1.2em;
     font-size: 0.9em;
     width: auto;

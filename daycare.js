@@ -1,18 +1,16 @@
 /* For the parents[], think of false as "the pokemon doesn't have
 the value the user wants in this stat". true means "has" or "is perfect" */
 var parent0 = {
+    "species": 0,
     "ivs": [false,false,false,false,false,false],
-    "gender": "",
     "item": "",
     "nature": false,
-    "ability": false
+    "ability": 1
 };
 var parent1 = {
     "ivs": [false,false,false,false,false,false],
-    "gender": "ditto",
     "item": "",
     "nature": false,
-    "ability": false
 };
 var parents = [parent0, parent1];
 /* For desired, false means don't show output for these or calculate their
@@ -34,27 +32,28 @@ var manual = {
 };
 /* The rest of these globals are set by the user in the goals section. */
 var goal_ivs = [false,false,false,false,false,false];
-var goal_gender = 0.5;
-var ability_choices = 2.0;
-var region_difference = false;
+var goal_gender = "x";
+var goal_ability = 1;
+var two_regions = false;
 var shiny_charm = false;
-
+var pokedex = [];
+var breedable_pokedex = [];
 
 function round(value, decimals) {
-    /* Rounding function to save some headaches */
+    /* Rounds a float to specified decimal places */
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
 
-function probX(probability, repeat_trials) {
+function pbtyX(pbty, repeat_trials) {
     /*  Calculates the probability of success if we do something
         the same way x number of times. */
-    fail_probability = 1 - probability;
-    new_fail_probability = 1;
+    fail_pbty = 1 - pbty;
+    new_fail_pbty = 1;
     for (var x = 0; x < repeat_trials; x += 1) {
-        new_fail_probability = new_fail_probability * fail_probability;
+        new_fail_pbty = new_fail_pbty * fail_pbty;
     }
-    return 1 - new_fail_probability;
+    return 1 - new_fail_pbty;
 }
 
 
@@ -277,49 +276,49 @@ function compareIVs(wanted_ivs, possible_ivs) {
 }
 
 
-function pushResults(total_probability, probabilities) {
+function pushResults(total_pbty, pbtys) {
     /*  Updates the doc's results section with a breakdown of the
         probabilities, e.g. of hatching a shiny egg with perfect ivs */
     var doc_results = document.getElementById("results");
     var result_block = "<h3>Overall Result</h3>\n\n <p><b>" +
         "The chance of you hatching your desired pok&eacute;mon is " +
-        round(total_probability * 100, 4) + "%!</b> ";
+        round(total_pbty * 100, 4) + "%!</b> ";
 
     result_block += "If you were to hatch 10 eggs, the chance would be ~" +
-        round(probX(total_probability, 10) * 100, 4) +
+        round(pbtyX(total_pbty, 10) * 100, 4) +
         "%. If you were to hatch 50, the chance would be ~" +
-        round(probX(total_probability, 50) * 100, 4) + "%.</p>\n\n";
+        round(pbtyX(total_pbty, 50) * 100, 4) + "%.</p>\n\n";
 
     result_block += "<h3>Breakdown</h3>\n\n";
 
     if (desired.ivs) {
         result_block += "<p><b>IVs:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired IVs is " +
-            round(probabilities["ivs"] * 100, 4) + "%.</p>\n\n";
+            round(pbtys["ivs"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.shiny) {
         result_block += "<p><b>Shiny:</b> The chance of you hatching a " +
             "shiny pok&eacute;mon is " +
-            round(probabilities["shiny"] * 100, 4) + "%.</p>\n\n";
+            round(pbtys["shiny"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.nature) {
         result_block += "<p><b>Nature:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired nature is " +
-            round(probabilities["nature"] * 100, 4) + "%.</p>\n\n";
+            round(pbtys["nature"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.ability) {
         result_block += "<p><b>Ability:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired ability is " +
-            round(probabilities["ability"] * 100, 4) + "%.</p>\n\n";
+            round(pbtys["ability"] * 100, 4) + "%.</p>\n\n";
     }
 
     if (desired.gender) {
         result_block += "<p><b>Gender:</b> The chance of you hatching a " +
             "pok&eacute;mon with your desired gender is " +
-            round(probabilities["gender"] * 100, 4) + "%.</p>\n\n";
+            round(pbtys["gender"] * 100, 4) + "%.</p>\n\n";
     }
 
     doc_results.innerHTML = result_block;
@@ -329,68 +328,75 @@ function pushResults(total_probability, probabilities) {
 function calculateResults() {
     /*  Determines the likelihood of hatching an egg with the desired
         iv, nature, etc. as the user's goals, based on the parents' stats. */
-    var total_probability = 1.0;
-    var probabilities = [];
+    var total_pbty = 1.0;
+    var pbtys = [];
     if (desired.ivs) {
-        var iv_probability = 1.0;
+        var iv_pbty = 1.0;
         iv_spreads = generateIVs();
-        iv_probability = compareIVs(goal_ivs.slice(), iv_spreads);
-        total_probability *= iv_probability;
-        probabilities["ivs"] = iv_probability;
+        iv_pbty = compareIVs(goal_ivs.slice(), iv_spreads);
+        total_pbty *= iv_pbty;
+        pbtys["ivs"] = iv_pbty;
     }
 
     if (desired.shiny) {
-        var shiny_probability = 1.0 / 8192.0;
-        if (region_difference && shiny_charm) {
-            shiny_probability = 1.0 / 512.0;
+        var shiny_pbty = 1.0 / 8192.0;
+        if (two_regions && shiny_charm) {
+            shiny_pbty = 1.0 / 512.0;
         }
         else if (shiny_charm) {
-            shiny_probability = 3.0 / 8192.0;
+            shiny_pbty = 3.0 / 8192.0;
         }
-        else if (region_difference) {
-            shiny_probability = 5.0 / 8192.0;
+        else if (two_regions) {
+            shiny_pbty = 5.0 / 8192.0;
         }
-        total_probability *= shiny_probability;
-        probabilities["shiny"] = shiny_probability;
+        total_pbty *= shiny_pbty;
+        pbtys["shiny"] = shiny_pbty;
     }
 
     if (desired.nature) {
-        var nature_probability = 1.0;
-        if (!(parents[0].item === "everstone" ||
-                parents[1].item === "everstone")) {
-            nature_probability = 1.0 / 25.0;
+        var nature_pbty = 1.0;
+        if (!((parents[0].item === "everstone" && parents[0].nature) ||
+                (parents[1].item === "everstone" && parents[1].nature))) {
+            nature_pbty = 1.0 / 25.0;
         }
-        total_probability *= nature_probability;
-        probabilities["nature"] = nature_probability;
+        total_pbty *= nature_pbty;
+        pbtys["nature"] = nature_pbty;
     }
 
     if (desired.ability) {
-        var ability_probability = 1.0 / ability_choices;
-        if (ability_choices === 3) {
-            // if primary parent doesn't have third ability: 0% likelihood
-            ability_probability = 0.0;
+        var ability_pbty = 1.0; // 100% base chance
+        if (parents[0].species.abilities[2]) {
+            // if more than one regular ability possible, 50% base chance
+            ability_pbty = 0.5;
         }
-        if (ability_choices > 1) {
-            if (((parents[1].gender === "ditto") && parents[0].ability) ||
-                ((parents[0].gender === "female") && parents[0].ability)) {
-                // if primary parent has ability: 60% likely to inherit
-                ability_probability = 0.6 + (0.4 * ability_probability);
-            }
-            else {
-                // if primary parent doesn't: 60% not likely ???
-                ability_probability = 0.4 * ability_probability;
-            }
+        if (goal_ability === 0) {
+            // if goal is hidden ability, 0% base chance
+            ability_pbty = 0.0;
         }
-        total_probability *= ability_probability;
-        probabilities["ability"] = ability_probability;
+        if (parents[0].ability === goal_ability) {
+            // if primary parent has ability, 60% likely to inherit
+            ability_pbty = 0.6 + (0.4 * ability_pbty);
+        }
+        else {
+            // if primary parent doesn't, 60% not likely ???
+            ability_pbty = 0.4 * ability_pbty;
+        }
+        total_pbty *= ability_pbty;
+        pbtys["ability"] = ability_pbty;
     }
 
     if (desired.gender) {
-        var gender_probability = goal_gender;
-        total_probability *= gender_probability;
-        probabilities["gender"] = gender_probability;
+        var gender_pbty = 1.0;
+        if (goal_gender != "x") {
+            gender_pbty = parents[0].species.gender;
+            if (goal_gender === "m") {
+                gender_pbty = 1 - gender_pbty;
+            }
+        }
+        total_pbty *= gender_pbty;
+        pbtys["gender"] = gender_pbty;
     }
-    pushResults(total_probability, probabilities);
+    pushResults(total_pbty, pbtys);
 }
 
 function pushGoals(part) {
@@ -459,7 +465,7 @@ function updateGoals(part, push_from_parents, unchecking) {
             doc_region = document.getElementsByName("goal-shiny-region")[0];
             doc_charm = document.getElementsByName("goal-shiny-charm")[0];
 
-            region_difference = doc_region.checked;
+            two_regions = doc_region.checked;
             shiny_charm = doc_charm.checked;
 
             pushGoals("shiny");
@@ -478,17 +484,16 @@ function updateGoals(part, push_from_parents, unchecking) {
         else if (!push_from_parents && !unchecking) {
             desired[part] = true;
             manual[part] = true;
-            if (part === "ability") {
+            if (part === "ability" || part === "gender") {
                 doc_choices =
-                    document.getElementsByName("goal-ability-menu")[0];
-                ability_choices = parseFloat(doc_choices.value);
-                pushGoals("ability");
-            }
-            else if (part === "gender") {
-                doc_choices =
-                    document.getElementsByName("goal-gender-menu")[0];
-                goal_gender = parseFloat(doc_choices.value);
-                pushGoals("gender");
+                    document.getElementsByName("goal-" + part + "-menu")[0];
+                if (part === "gender") {
+                    goal_gender = doc_choices.value;
+                }
+                else {
+                    goal_ability = parseInt(doc_choices.value);
+                }
+                pushGoals(part);
             }
         }
         else if (unchecking) {
@@ -513,11 +518,75 @@ function updateOrUncheck(part) {
     }
 }
 
+function pushSpeciesChanges() {
+    /*  Called when the user sets a species. Changes ability & gender menus
+        to include only options relevant to the current species */
+    var doc_goal_genders = document.getElementById("goal-gender-menu");
+    var doc_parent_abilities =
+        document.getElementsByClassName("ability-menu")[0];
+    var doc_goal_abilities = document.getElementById("goal-ability-menu");
+    var gender_block = "";
+    var goal_ability_block = "";
+    var parent_ability_block = "";
+    var this_species = parents[0].species;
+    var this_family = raw_pokedex[this_species.family];
+
+    if (this_family.gender === "x") {
+        gender_block = "<option value='x'>None</option>";
+    }
+    else {
+        if (this_family.gender > 0) {
+            gender_block += "<option value='f'>Female</option>";
+        }
+        if (this_family.gender < 1) {
+            gender_block += "<option value='m'>Male</option>";
+        }
+    }
+    doc_goal_genders.innerHTML = gender_block;
+
+    if (this_species.abilities["0"]) {
+        parent_ability_block += "<option value='0'>" +
+            this_species.abilities["0"] + " (Hidden Ability)</option>";
+        goal_ability_block += "<option value='0'>" +
+            this_family.abilities["0"] + " (Hidden Ability)</option>";
+    }
+    parent_ability_block += "<option value='1' selected>" +
+        this_species.abilities["1"];
+    goal_ability_block += "<option value='1' selected>" +
+        this_family.abilities["1"];
+    if (this_species.abilities["2"]) {
+        parent_ability_block += " (Regular Ability 1)</option>" +
+            "<option value='2'>" + this_species.abilities["2"] +
+            " (Regular Ability 2)</option>";
+        goal_ability_block += " (Regular Ability 1)</option>" +
+            "<option value='2'>" + this_family.abilities["2"] +
+            " (Regular Ability 2)</option>";
+    }
+    else {
+        parent_ability_block += " (Regular Ability)</option>";
+        goal_ability_block += " (Regular Ability)</option>";
+    }
+    doc_parent_abilities.innerHTML = parent_ability_block;
+    doc_goal_abilities.innerHTML = goal_ability_block;
+
+    // now make sure the js variables match the webpage
+    parents[0].ability = parseInt(doc_parent_abilities.value);
+    goal_gender = doc_goal_genders.value;
+    goal_ability = parseInt(doc_goal_abilities.value);
+}
+
 function updateParent(pn, part) {
     /* Translates the webpage's parent information into
         variables local to the javascript program,
         so egg probabilities can be calculated. */
     var doc_parent = document.getElementsByClassName("parent")[pn];
+
+    if (part === "species") {
+        var doc_parent_species =
+            doc_parent.getElementsByClassName("species-menu")[0];
+        parents[pn].species = pokedex[doc_parent_species.value];
+        pushSpeciesChanges();
+    }
 
     if (part === "ivs") {
         var doc_parent_ivs = doc_parent.getElementsByClassName("iv-box");
@@ -527,18 +596,10 @@ function updateParent(pn, part) {
         updateGoals("ivs", true);
     }
 
-    else if (part === "gender") {
-        var parent_gender =
-            doc_parent.getElementsByClassName("gender-menu")[0];
-        selected_gender = parent_gender.selectedIndex;
-        parents[pn].gender = parent_gender.options[selected_gender].value;
-    }
-
     else if (part === "item") {
-        var parent_item =
+        var doc_parent_item =
             doc_parent.getElementsByClassName("held-item-menu")[0];
-        selected_item = parent_item.selectedIndex;
-        parents[pn].item = parent_item.options[selected_item].value;
+        parents[pn].item = doc_parent_item.value;
         if (parents[pn].item.includes("power")) {
             parents[pn].item = parseInt(parents[pn].item[6], 10);
         }
@@ -553,16 +614,37 @@ function updateParent(pn, part) {
 
     else if (part === "ability") {
         var doc_parent_ability =
-            doc_parent.getElementsByClassName("ability-box")[0];
-        parents[pn].ability = doc_parent_ability.checked;
+            doc_parent.getElementsByClassName("ability-menu")[0];
+        parents[0].ability = parseInt(doc_parent_ability.value);
         updateGoals("ability", true);
     }
-
-    else {
-        updateParent(pn, "ivs");
-        updateParent(pn, "gender");
-        updateParent(pn, "item");
-        updateParent(pn, "nature");
-        updateParent(pn, "ability");
-    }
 }
+
+function populatePokedex() {
+    /*  Gets every breedable pokemon species from pokedex.js
+        and updates species-menu with that list */
+    var doc_species_menu = document.getElementsByName("species-menu")[0];
+    var species_block = "<option value='0' selected>Select Species</option>";
+    for (var p in raw_pokedex) {
+        // first build an array so we can put them in order
+        var this_index = parseInt(p.substr(1));
+        var this_pokemon = raw_pokedex[p];
+        pokedex[this_index] = this_pokemon;
+    }
+    for (var p of pokedex) {
+        if (pokedex.indexOf(p) > 0 && !(p.breeds === "NO")) {
+            var this_index = pokedex.indexOf(p);
+            species_block += "<option value='" + this_index.toString() +
+                "'>" + p.name + " (" + this_index.toString() + ")</option>";
+            breedable_pokedex[this_index] = p;
+        }
+    }
+    doc_species_menu.innerHTML = species_block;
+}
+
+function matchFields(part) {
+    /*  TODO: Autocompletes the menu with full or partial matches
+        from the text field. So far, only necessary for species. */
+}
+
+populatePokedex();
