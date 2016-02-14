@@ -1,8 +1,8 @@
-var raw_pokedex = {
-    "p0": {
+var pokedex = [
+    {
         "name": "Pokemon",
         "gender": 0.5,
-        "family": "p0",
+        "family": 0,
         "abilities":
         {
             "0": "Hidden",
@@ -10,158 +10,158 @@ var raw_pokedex = {
             "2": "Regular"
         }
     },
-    "p1": {
+    {
         "name": "Bulbasaur",
         "gender": 0.125,
-        "family": "p1",
+        "family": 1,
         "abilities":
         {
             "0": "Chlorophyll",
             "1": "Overgrow"
         }
     },
-    "p2": {
+    {
         "name": "Ivysaur",
         "gender": 0.125,
-        "family": "p1",
+        "family": 1,
         "abilities":
         {
             "0": "Chlorophyll",
             "1": "Overgrow"
         }
     },
-    "p3": {
+    {
         "name": "Venusaur",
         "gender": 0.125,
-        "family": "p1",
+        "family": 1,
         "abilities":
         {
             "0": "Chlorophyll",
             "1": "Overgrow"
         }
     },
-    "p4": {
+    {
         "name": "Charmander",
         "gender": 0.125,
-        "family": "p4",
+        "family": 4,
         "abilities":
         {
             "0": "Solar Power",
             "1": "Blaze"
         }
     },
-    "p5": {
+    {
         "name": "Charmeleon",
         "gender": 0.125,
-        "family": "p4",
+        "family": 4,
         "abilities":
         {
             "0": "Solar Power",
             "1": "Blaze"
         }
     },
-    "p6": {
+    {
         "name": "Charizard",
         "gender": 0.125,
-        "family": "p4",
+        "family": 4,
         "abilities":
         {
             "0": "Solar Power",
             "1": "Blaze"
         }
     },
-    "p7": {
+    {
         "name": "Squirtle",
         "gender": 0.125,
-        "family": "p7",
+        "family": 7,
         "abilities":
         {
             "0": "Rain Dish",
             "1": "Torrent"
         }
     },
-    "p8": {
+    {
         "name": "Wartortle",
         "gender": 0.125,
-        "family": "p7",
+        "family": 7,
         "abilities":
         {
             "0": "Rain Dish",
             "1": "Torrent"
         }
     },
-    "p9": {
+    {
         "name": "Blastoise",
         "gender": 0.125,
-        "family": "p7",
+        "family": 7,
         "abilities":
         {
             "0": "Rain Dish",
             "1": "Torrent"
         }
     },
-    "p10": {
+    {
         "name": "Caterpie",
         "gender": 0.5,
-        "family": "p10",
+        "family": 10,
         "abilities":
         {
             "0": "Run Away",
             "1": "Shield Dust"
         }
     },
-    "p11": {
+    {
         "name": "Metapod",
         "gender": 0.5,
-        "family": "p10",
+        "family": 10,
         "abilities":
         {
             "1": "Shed Skin"
         }
     },
-    "p12": {
+    {
         "name": "Butterfree",
         "gender": 0.5,
-        "family": "p10",
+        "family": 10,
         "abilities":
         {
             "0": "Tinted Lens",
             "1": "Compound Eyes"
         }
     },
-    "p13": {
+    {
         "name": "Weedle",
         "gender": 0.5,
-        "family": "p13",
+        "family": 13,
         "abilities":
         {
             "0": "Run Away",
             "1": "Shield Dust"
         }
     },
-    "p14": {
+    {
         "name": "Kakuna",
         "gender": 0.5,
-        "family": "p13",
+        "family": 13,
         "abilities":
         {
             "1": "Shed Skin"
         }
     },
-    "p15": {
+    {
         "name": "Beedrill",
         "gender": 0.5,
-        "family": "p13",
+        "family": 13,
         "abilities":
         {
             "0": "Sniper",
             "1": "Swarm"
         }
     },
-    "p16": {
+    {
         "name": "Pidgey",
         "gender": 0.5,
-        "family": "p16",
+        "family": 16,
         "abilities":
         {
             "0": "Big Pecks",
@@ -169,10 +169,10 @@ var raw_pokedex = {
             "2": "Tangled Feet"
         }
     },
-    "p17": {
+    {
         "name": "Pidgeotto",
         "gender": 0.5,
-        "family": "p16",
+        "family": 16,
         "abilities":
         {
             "0": "Big Pecks",
@@ -180,10 +180,10 @@ var raw_pokedex = {
             "2": "Tangled Feet"
         }
     },
-    "p18": {
+    {
         "name": "Pidgeot",
         "gender": 0.5,
-        "family": "p16",
+        "family": 16,
         "abilities":
         {
             "0": "Big Pecks",
@@ -191,10 +191,10 @@ var raw_pokedex = {
             "2": "Tangled Feet"
         }
     },
-    "p19": {
+    {
         "name": "Rattata",
         "gender": 0.5,
-        "family": "p19",
+        "family": 19,
         "abilities":
         {
             "0": "Hustle",
@@ -202,10 +202,10 @@ var raw_pokedex = {
             "2": "Guts"
         }
     },
-    "p20": {
+    {
         "name": "Raticate",
         "gender": 0.5,
-        "family": "p19",
+        "family": 19,
         "abilities":
         {
             "0": "Hustle",
@@ -213,30 +213,30 @@ var raw_pokedex = {
             "2": "Guts"
         }
     },
-    "p21": {
+    {
         "name": "Spearow",
         "gender": 0.5,
-        "family": "p21",
+        "family": 21,
         "abilities":
         {
             "0": "Sniper",
             "1": "Keen Eye"
         }
     },
-    "p22": {
+    {
         "name": "Fearow",
         "gender": 0.5,
-        "family": "p21",
+        "family": 21,
         "abilities":
         {
             "0": "Sniper",
             "1": "Keen Eye"
         }
     },
-    "p23": {
+    {
         "name": "Ekans",
         "gender": 0.5,
-        "family": "p23",
+        "family": 23,
         "abilities":
         {
             "0": "Unnerve",
@@ -244,10 +244,10 @@ var raw_pokedex = {
             "2": "Shed Skin"
         }
     },
-    "p24": {
+    {
         "name": "Arbok",
         "gender": 0.5,
-        "family": "p23",
+        "family": 23,
         "abilities":
         {
             "0": "Unnerve",
@@ -255,50 +255,61 @@ var raw_pokedex = {
             "2": "Shed Skin"
         }
     },
-    "p25": {
+    {
         "name": "Pikachu",
         "gender": 0.5,
-        "family": "p172",
+        "family": 172,
         "abilities":
         {
             "0": "Lightning Rod",
             "1": "Static"
         }
     },
-    "p26": {
+    {
         "name": "Raichu",
         "gender": 0.5,
-        "family": "p172",
+        "family": 172,
         "abilities":
         {
             "0": "Lightning Rod",
             "1": "Static"
         }
     },
-    "p27": {
+    {
         "name": "Sandshrew",
         "gender": 0.5,
-        "family": "p27",
+        "family": 27,
         "abilities":
         {
             "0": "Sand Rush",
             "1": "Sand Veil"
         }
     },
-    "p28": {
+    {
         "name": "Sandslash",
         "gender": 0.5,
-        "family": "p27",
+        "family": 27,
         "abilities":
         {
             "0": "Sand Rush",
             "1": "Sand Veil"
         }
     },
-    "p29": {
+    {
         "name": "Nidoran",
         "gender": 0.5,
-        "family": "p29",
+        "family": 29,
+        "abilities":
+        {
+            "0": "Hustle",
+            "1": "Poison Point",
+            "2": "Rivalry"
+        }
+    },,,
+    {
+        "name": "Nidoran",
+        "gender": 0.5,
+        "family": 29,
         "abilities":
         {
             "0": "Hustle",
@@ -306,21 +317,10 @@ var raw_pokedex = {
             "2": "Rivalry"
         }
     },
-    "p32": {
-        "name": "Nidoran",
-        "gender": 0.5,
-        "family": "p29",
-        "abilities":
-        {
-            "0": "Hustle",
-            "1": "Poison Point",
-            "2": "Rivalry"
-        }
-    },
-    "p33": {
+    {
         "name": "Nidorino",
         "gender": 0.5,
-        "family": "p29",
+        "family": 29,
         "abilities":
         {
             "0": "Hustle",
@@ -328,10 +328,10 @@ var raw_pokedex = {
             "2": "Rivalry"
         }
     },
-    "p34": {
+    {
         "name": "Nidoking",
         "gender": 0.5,
-        "family": "p29",
+        "family": 29,
         "abilities":
         {
             "0": "Sheer Force",
@@ -339,10 +339,10 @@ var raw_pokedex = {
             "2": "Rivalry"
         }
     },
-    "p35": {
+    {
         "name": "Clefairy",
         "gender": 0.75,
-        "family": "p173",
+        "family": 173,
         "abilities":
         {
             "0": "Friend Guard",
@@ -350,10 +350,10 @@ var raw_pokedex = {
             "2": "Magic Guard"
         }
     },
-    "p36": {
+    {
         "name": "Clefable",
         "gender": 0.75,
-        "family": "p173",
+        "family": 173,
         "abilities":
         {
             "0": "Unaware",
@@ -361,30 +361,30 @@ var raw_pokedex = {
             "2": "Magic Guard"
         }
     },
-    "p37": {
+    {
         "name": "Vulpix",
         "gender": 0.75,
-        "family": "p37",
+        "family": 37,
         "abilities":
         {
             "0": "Drought",
             "1": "Flash Fire"
         }
     },
-    "p38": {
+    {
         "name": "Ninetales",
         "gender": 0.75,
-        "family": "p37",
+        "family": 37,
         "abilities":
         {
             "0": "Drought",
             "1": "Flash Fire"
         }
     },
-    "p39": {
+    {
         "name": "Jigglypuff",
         "gender": 0.75,
-        "family": "p174",
+        "family": 174,
         "abilities":
         {
             "0": "Friend Guard",
@@ -392,10 +392,10 @@ var raw_pokedex = {
             "2": "Competitive"
         }
     },
-    "p40": {
+    {
         "name": "Wigglytuff",
         "gender": 0.75,
-        "family": "p174",
+        "family": 174,
         "abilities":
         {
             "0": "Frisk",
@@ -403,60 +403,60 @@ var raw_pokedex = {
             "2": "Competitive"
         }
     },
-    "p41": {
+    {
         "name": "Zubat",
         "gender": 0.5,
-        "family": "p41",
+        "family": 41,
         "abilities":
         {
             "0": "Infiltrator",
             "1": "Inner Focus"
         }
     },
-    "p42": {
+    {
         "name": "Golbat",
         "gender": 0.5,
-        "family": "p41",
+        "family": 41,
         "abilities":
         {
             "0": "Infiltrator",
             "1": "Inner Focus"
         }
     },
-    "p43": {
+    {
         "name": "Oddish",
         "gender": 0.5,
-        "family": "p43",
+        "family": 43,
         "abilities":
         {
             "0": "Run Away",
             "1": "Chlorophyll"
         }
     },
-    "p44": {
+    {
         "name": "Gloom",
         "gender": 0.5,
-        "family": "p43",
+        "family": 43,
         "abilities":
         {
             "0": "Stench",
             "1": "Chlorophyll"
         }
     },
-    "p45": {
+    {
         "name": "Vileplume",
         "gender": 0.5,
-        "family": "p43",
+        "family": 43,
         "abilities":
         {
             "0": "Effect Spore",
             "1": "Chlorophyll"
         }
     },
-    "p46": {
+    {
         "name": "Paras",
         "gender": 0.5,
-        "family": "p46",
+        "family": 46,
         "abilities":
         {
             "0": "Damp",
@@ -464,10 +464,10 @@ var raw_pokedex = {
             "2": "Dry Skin"
         }
     },
-    "p47": {
+    {
         "name": "Parasect",
         "gender": 0.5,
-        "family": "p46",
+        "family": 46,
         "abilities":
         {
             "0": "Damp",
@@ -475,10 +475,10 @@ var raw_pokedex = {
             "2": "Dry Skin"
         }
     },
-    "p48": {
+    {
         "name": "Venonat",
         "gender": 0.5,
-        "family": "p48",
+        "family": 48,
         "abilities":
         {
             "0": "Run Away",
@@ -486,10 +486,10 @@ var raw_pokedex = {
             "2": "Tinted Lens"
         }
     },
-    "p49": {
+    {
         "name": "Venomoth",
         "gender": 0.5,
-        "family": "p48",
+        "family": 48,
         "abilities":
         {
             "0": "Wonder Skin",
@@ -497,10 +497,10 @@ var raw_pokedex = {
             "2": "Tinted Lens"
         }
     },
-    "p50": {
+    {
         "name": "Diglett",
         "gender": 0.5,
-        "family": "p50",
+        "family": 50,
         "abilities":
         {
             "0": "Sand Force",
@@ -508,10 +508,10 @@ var raw_pokedex = {
             "2": "Arena Trap"
         }
     },
-    "p51": {
+    {
         "name": "Dugtrio",
         "gender": 0.5,
-        "family": "p50",
+        "family": 50,
         "abilities":
         {
             "0": "Sand Force",
@@ -519,10 +519,10 @@ var raw_pokedex = {
             "2": "Arena Trap"
         }
     },
-    "p52": {
+    {
         "name": "Meowth",
         "gender": 0.5,
-        "family": "p52",
+        "family": 52,
         "abilities":
         {
             "0": "Unnerve",
@@ -530,10 +530,10 @@ var raw_pokedex = {
             "2": "Technician"
         }
     },
-    "p53": {
+    {
         "name": "Persian",
         "gender": 0.5,
-        "family": "p52",
+        "family": 52,
         "abilities":
         {
             "0": "Unnerve",
@@ -541,10 +541,10 @@ var raw_pokedex = {
             "2": "Technician"
         }
     },
-    "p54": {
+    {
         "name": "Psyduck",
         "gender": 0.5,
-        "family": "p54",
+        "family": 54,
         "abilities":
         {
             "0": "Swift Swim",
@@ -552,10 +552,10 @@ var raw_pokedex = {
             "2": "Cloud Nine"
         }
     },
-    "p55": {
+    {
         "name": "Golduck",
         "gender": 0.5,
-        "family": "p54",
+        "family": 54,
         "abilities":
         {
             "0": "Swift Swim",
@@ -563,10 +563,10 @@ var raw_pokedex = {
             "2": "Cloud Nine"
         }
     },
-    "p56": {
+    {
         "name": "Mankey",
         "gender": 0.5,
-        "family": "p56",
+        "family": 56,
         "abilities":
         {
             "0": "Defiant",
@@ -574,10 +574,10 @@ var raw_pokedex = {
             "2": "Anger Point"
         }
     },
-    "p57": {
+    {
         "name": "Primeape",
         "gender": 0.5,
-        "family": "p56",
+        "family": 56,
         "abilities":
         {
             "0": "Defiant",
@@ -585,10 +585,10 @@ var raw_pokedex = {
             "2": "Anger Point"
         }
     },
-    "p58": {
+    {
         "name": "Growlithe",
         "gender": 0.25,
-        "family": "p58",
+        "family": 58,
         "abilities":
         {
             "0": "Justified",
@@ -596,10 +596,10 @@ var raw_pokedex = {
             "2": "Flash Fire"
         }
     },
-    "p59": {
+    {
         "name": "Arcanine",
         "gender": 0.25,
-        "family": "p58",
+        "family": 58,
         "abilities":
         {
             "0": "Justified",
@@ -607,10 +607,10 @@ var raw_pokedex = {
             "2": "Flash Fire"
         }
     },
-    "p60": {
+    {
         "name": "Poliwag",
         "gender": 0.5,
-        "family": "p60",
+        "family": 60,
         "abilities":
         {
             "0": "Swift Swim",
@@ -618,10 +618,10 @@ var raw_pokedex = {
             "2": "Damp"
         }
     },
-    "p61": {
+    {
         "name": "Poliwhirl",
         "gender": 0.5,
-        "family": "p60",
+        "family": 60,
         "abilities":
         {
             "0": "Swift Swim",
@@ -629,10 +629,10 @@ var raw_pokedex = {
             "2": "Damp"
         }
     },
-    "p62": {
+    {
         "name": "Poliwrath",
         "gender": 0.5,
-        "family": "p60",
+        "family": 60,
         "abilities":
         {
             "0": "Swift Swim",
@@ -640,10 +640,10 @@ var raw_pokedex = {
             "2": "Damp"
         }
     },
-    "p63": {
+    {
         "name": "Abra",
         "gender": 0.25,
-        "family": "p63",
+        "family": 63,
         "abilities":
         {
             "0": "Magic Guard",
@@ -651,10 +651,10 @@ var raw_pokedex = {
             "2": "Inner Focus"
         }
     },
-    "p64": {
+    {
         "name": "Kadabra",
         "gender": 0.25,
-        "family": "p63",
+        "family": 63,
         "abilities":
         {
             "0": "Magic Guard",
@@ -662,10 +662,10 @@ var raw_pokedex = {
             "2": "Inner Focus"
         }
     },
-    "p65": {
+    {
         "name": "Alakazam",
         "gender": 0.25,
-        "family": "p63",
+        "family": 63,
         "abilities":
         {
             "0": "Magic Guard",
@@ -673,10 +673,10 @@ var raw_pokedex = {
             "2": "Inner Focus"
         }
     },
-    "p66": {
+    {
         "name": "Machop",
         "gender": 0.25,
-        "family": "p66",
+        "family": 66,
         "abilities":
         {
             "0": "Steadfast",
@@ -684,10 +684,10 @@ var raw_pokedex = {
             "2": "No Guard"
         }
     },
-    "p67": {
+    {
         "name": "Machoke",
         "gender": 0.25,
-        "family": "p66",
+        "family": 66,
         "abilities":
         {
             "0": "Steadfast",
@@ -695,10 +695,10 @@ var raw_pokedex = {
             "2": "No Guard"
         }
     },
-    "p68": {
+    {
         "name": "Machamp",
         "gender": 0.25,
-        "family": "p66",
+        "family": 66,
         "abilities":
         {
             "0": "Steadfast",
@@ -706,40 +706,40 @@ var raw_pokedex = {
             "2": "No Guard"
         }
     },
-    "p69": {
+    {
         "name": "Bellsprout",
         "gender": 0.5,
-        "family": "p69",
+        "family": 69,
         "abilities":
         {
             "0": "Gluttony",
             "1": "Chlorophyll"
         }
     },
-    "p70": {
+    {
         "name": "Weepinbell",
         "gender": 0.5,
-        "family": "p69",
+        "family": 69,
         "abilities":
         {
             "0": "Gluttony",
             "1": "Chlorophyll"
         }
     },
-    "p71": {
+    {
         "name": "Victreebel",
         "gender": 0.5,
-        "family": "p69",
+        "family": 69,
         "abilities":
         {
             "0": "Gluttony",
             "1": "Chlorophyll"
         }
     },
-    "p72": {
+    {
         "name": "Tentacool",
         "gender": 0.5,
-        "family": "p72",
+        "family": 72,
         "abilities":
         {
             "0": "Rain Dish",
@@ -747,10 +747,10 @@ var raw_pokedex = {
             "2": "Liquid Ooze"
         }
     },
-    "p73": {
+    {
         "name": "Tentacruel",
         "gender": 0.5,
-        "family": "p72",
+        "family": 72,
         "abilities":
         {
             "0": "Rain Dish",
@@ -758,10 +758,10 @@ var raw_pokedex = {
             "2": "Liquid Ooze"
         }
     },
-    "p74": {
+    {
         "name": "Geodude",
         "gender": 0.5,
-        "family": "p74",
+        "family": 74,
         "abilities":
         {
             "0": "Sand Veil",
@@ -769,10 +769,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p75": {
+    {
         "name": "Graveler",
         "gender": 0.5,
-        "family": "p74",
+        "family": 74,
         "abilities":
         {
             "0": "Sand Veil",
@@ -780,10 +780,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p76": {
+    {
         "name": "Golem",
         "gender": 0.5,
-        "family": "p74",
+        "family": 74,
         "abilities":
         {
             "0": "Sand Veil",
@@ -791,10 +791,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p77": {
+    {
         "name": "Ponyta",
         "gender": 0.5,
-        "family": "p77",
+        "family": 77,
         "abilities":
         {
             "0": "Flame Body",
@@ -802,10 +802,10 @@ var raw_pokedex = {
             "2": "Flash Fire"
         }
     },
-    "p78": {
+    {
         "name": "Rapidash",
         "gender": 0.5,
-        "family": "p77",
+        "family": 77,
         "abilities":
         {
             "0": "Flame Body",
@@ -813,10 +813,10 @@ var raw_pokedex = {
             "2": "Flash Fire"
         }
     },
-    "p79": {
+    {
         "name": "Slowpoke",
         "gender": 0.5,
-        "family": "p79",
+        "family": 79,
         "abilities":
         {
             "0": "Regenerator",
@@ -824,10 +824,10 @@ var raw_pokedex = {
             "2": "Own Tempo"
         }
     },
-    "p80": {
+    {
         "name": "Slowbro",
         "gender": 0.5,
-        "family": "p79",
+        "family": 79,
         "abilities":
         {
             "0": "Regenerator",
@@ -835,10 +835,10 @@ var raw_pokedex = {
             "2": "Own Tempo"
         }
     },
-    "p81": {
+    {
         "name": "Magnemite",
-        "gender": "x",
-        "family": "p81",
+        "gender": 'x',
+        "family": 81,
         "abilities":
         {
             "0": "Analytic",
@@ -846,10 +846,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p82": {
+    {
         "name": "Magneton",
-        "gender": "x",
-        "family": "p81",
+        "gender": 'x',
+        "family": 81,
         "abilities":
         {
             "0": "Analytic",
@@ -857,10 +857,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p83": {
+    {
         "name": "Farfetch'd",
         "gender": 0.5,
-        "family": "p83",
+        "family": 83,
         "abilities":
         {
             "0": "Defiant",
@@ -868,10 +868,10 @@ var raw_pokedex = {
             "2": "Inner Focus"
         }
     },
-    "p84": {
+    {
         "name": "Doduo",
         "gender": 0.5,
-        "family": "p84",
+        "family": 84,
         "abilities":
         {
             "0": "Tangled Feet",
@@ -879,10 +879,10 @@ var raw_pokedex = {
             "2": "Early Bird"
         }
     },
-    "p85": {
+    {
         "name": "Dodrio",
         "gender": 0.5,
-        "family": "p84",
+        "family": 84,
         "abilities":
         {
             "0": "Tangled Feet",
@@ -890,10 +890,10 @@ var raw_pokedex = {
             "2": "Early Bird"
         }
     },
-    "p86": {
+    {
         "name": "Seel",
         "gender": 0.5,
-        "family": "p86",
+        "family": 86,
         "abilities":
         {
             "0": "Ice Body",
@@ -901,10 +901,10 @@ var raw_pokedex = {
             "2": "Hydration"
         }
     },
-    "p87": {
+    {
         "name": "Dewgong",
         "gender": 0.5,
-        "family": "p86",
+        "family": 86,
         "abilities":
         {
             "0": "Ice Body",
@@ -912,10 +912,10 @@ var raw_pokedex = {
             "2": "Hydration"
         }
     },
-    "p88": {
+    {
         "name": "Grimer",
         "gender": 0.5,
-        "family": "p88",
+        "family": 88,
         "abilities":
         {
             "0": "Poison Touch",
@@ -923,10 +923,10 @@ var raw_pokedex = {
             "2": "Sticky Hold"
         }
     },
-    "p89": {
+    {
         "name": "Muk",
         "gender": 0.5,
-        "family": "p88",
+        "family": 88,
         "abilities":
         {
             "0": "Poison Touch",
@@ -934,10 +934,10 @@ var raw_pokedex = {
             "2": "Sticky Hold"
         }
     },
-    "p90": {
+    {
         "name": "Shellder",
         "gender": 0.5,
-        "family": "p90",
+        "family": 90,
         "abilities":
         {
             "0": "Overcoat",
@@ -945,10 +945,10 @@ var raw_pokedex = {
             "2": "Skill Link"
         }
     },
-    "p91": {
+    {
         "name": "Cloyster",
         "gender": 0.5,
-        "family": "p90",
+        "family": 90,
         "abilities":
         {
             "0": "Overcoat",
@@ -956,37 +956,37 @@ var raw_pokedex = {
             "2": "Skill Link"
         }
     },
-    "p92": {
+    {
         "name": "Gastly",
         "gender": 0.5,
-        "family": "p92",
+        "family": 92,
         "abilities":
         {
             "1": "Levitate"
         }
     },
-    "p93": {
+    {
         "name": "Haunter",
         "gender": 0.5,
-        "family": "p92",
+        "family": 92,
         "abilities":
         {
             "1": "Levitate"
         }
     },
-    "p94": {
+    {
         "name": "Gengar",
         "gender": 0.5,
-        "family": "p92",
+        "family": 92,
         "abilities":
         {
             "1": "Levitate"
         }
     },
-    "p95": {
+    {
         "name": "Onix",
         "gender": 0.5,
-        "family": "p95",
+        "family": 95,
         "abilities":
         {
             "0": "Weak Armor",
@@ -994,10 +994,10 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p96": {
+    {
         "name": "Drowzee",
         "gender": 0.5,
-        "family": "p96",
+        "family": 96,
         "abilities":
         {
             "0": "Inner Focus",
@@ -1005,10 +1005,10 @@ var raw_pokedex = {
             "2": "Forewarn"
         }
     },
-    "p97": {
+    {
         "name": "Hypno",
         "gender": 0.5,
-        "family": "p96",
+        "family": 96,
         "abilities":
         {
             "0": "Inner Focus",
@@ -1016,20 +1016,532 @@ var raw_pokedex = {
             "2": "Forewarn"
         }
     },
-    "p169": {
+    {
+        "name": "Krabby",
+        "gender": 0.5,
+        "family": 98,
+        "abilities":
+        {
+            "0": "Sheer Force",
+            "1": "Hyper Cutter",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Kingler",
+        "gender": 0.5,
+        "family": 98,
+        "abilities":
+        {
+            "0": "Sheer Force",
+            "1": "Hyper Cutter",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Voltorb",
+        "gender": 'x',
+        "family": 100,
+        "abilities":
+        {
+            "0": "Aftermath",
+            "1": "Soundproof",
+            "2": "Static"
+        }
+    },
+    {
+        "name": "Electrode",
+        "gender": 'x',
+        "family": 100,
+        "abilities":
+        {
+            "0": "Aftermath",
+            "1": "Soundproof",
+            "2": "Static"
+        }
+    },
+    {
+        "name": "Exceggcute",
+        "gender": 0.5,
+        "family": 102,
+        "abilities":
+        {
+            "0": "Harvest",
+            "1": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Exeggutor",
+        "gender": 0.5,
+        "family": 102,
+        "abilities":
+        {
+            "0": "Harvest",
+            "1": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Cubone",
+        "gender": 0.5,
+        "family": 104,
+        "abilities":
+        {
+            "0": "Battle Armor",
+            "1": "Rock Head",
+            "2": "Lightning Rod"
+        }
+    },
+    {
+        "name": "Marowak",
+        "gender": 0.5,
+        "family": 104,
+        "abilities":
+        {
+            "0": "Battle Armor",
+            "1": "Rock Head",
+            "2": "Lightning Rod"
+        }
+    },
+    {
+        "name": "Hitmonlee",
+        "gender": 0,
+        "family": 236,
+        "abilities":
+        {
+            "0": "Unburden",
+            "1": "Limber",
+            "2": "Reckless"
+        }
+    },
+    {
+        "name": "Hitmonchan",
+        "gender": 0,
+        "family": 236,
+        "abilities":
+        {
+            "0": "Inner Focus",
+            "1": "Keen Eye",
+            "2": "Iron Fist"
+        }
+    },
+    {
+        "name": "Lickitung",
+        "gender": 0.5,
+        "family": 108,
+        "abilities":
+        {
+            "0": "Cloud Nine",
+            "1": "Own Tempo",
+            "2": "Oblivious"
+        }
+    },
+    {
+        "name": "Koffing",
+        "gender": 0.5,
+        "family": 109,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Weezing",
+        "gender": 0.5,
+        "family": 109,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Rhyhorn",
+        "gender": 0.5,
+        "family": 111,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Lightning Rod",
+            "2": "Rock Head"
+        }
+    },
+    {
+        "name": "Rhydon",
+        "gender": 0.5,
+        "family": 111,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Lightning Rod",
+            "2": "Rock Head"
+        }
+    },
+    {
+        "name": "Chansey",
+        "gender": 1.0,
+        "family": 113,
+        "abilities":
+        {
+            "0": "Healer",
+            "1": "Natural Cure",
+            "2": "Serene Grace"
+        }
+    },
+    {
+        "name": "Tangela",
+        "gender": 0.5,
+        "family": 114,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Chlorophyll",
+            "2": "Leaf Guard"
+        }
+    },
+    {
+        "name": "Kangaskhan",
+        "gender": 1.0,
+        "family": 115,
+        "abilities":
+        {
+            "0": "Inner Focus",
+            "1": "Early Bird",
+            "2": "Scrappy"
+        }
+    },
+    {
+        "name": "Horsea",
+        "gender": 0.5,
+        "family": 116,
+        "abilities":
+        {
+            "0": "Damp",
+            "1": "Swift Swim",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Seadra",
+        "gender": 0.5,
+        "family": 116,
+        "abilities":
+        {
+            "0": "Damp",
+            "1": "Poison Point",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Goldeen",
+        "gender": 0.5,
+        "family": 118,
+        "abilities":
+        {
+            "0": "Lightning Rod",
+            "1": "Swift Swim",
+            "2": "Water Veil"
+        }
+    },
+    {
+        "name": "Seaking",
+        "gender": 0.5,
+        "family": 118,
+        "abilities":
+        {
+            "0": "Lightning Rod",
+            "1": "Swift Swim",
+            "2": "Water Veil"
+        }
+    },
+    {
+        "name": "Staryu",
+        "gender": 'x',
+        "family": 120,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Illuminate",
+            "2": "Natural Cure"
+        }
+    },
+    {
+        "name": "Starmie",
+        "gender": 'x',
+        "family": 120,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Illuminate",
+            "2": "Natural Cure"
+        }
+    },
+    {
+        "name": "Mr. Mime",
+        "gender": 0.5,
+        "family": 122,
+        "abilities":
+        {
+            "0": "Technician",
+            "1": "Soundproof",
+            "2": "Filter"
+        }
+    },
+    {
+        "name": "Scyther",
+        "gender": 0.5,
+        "family": 123,
+        "abilities":
+        {
+            "0": "Steadfast",
+            "1": "Swarm",
+            "2": "Technician"
+        }
+    },
+    {
+        "name": "Jynx",
+        "gender": 1,
+        "family": 238,
+        "abilities":
+        {
+            "0": "Dry Skin",
+            "1": "Oblivious",
+            "2": "Forewarn"
+        }
+    },
+    {
+        "name": "Electabuzz",
+        "gender": 0.25,
+        "family": 239,
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Static"
+        }
+    },
+    {
+        "name": "Magmar",
+        "gender": 0.25,
+        "family": 240,
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Flame Body"
+        }
+    },
+    {
+        "name": "Pinsir",
+        "gender": 0.5,
+        "family": 127,
+        "abilities":
+        {
+            "0": "Moxie",
+            "1": "Hyper Cutter",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Tauros",
+        "gender": 0.0,
+        "family": 128,
+        "abilities":
+        {
+            "0": "Sheer Force",
+            "1": "Intimidate",
+            "2": "Anger Point"
+        }
+    },
+    {
+        "name": "Magikarp",
+        "gender": 0.5,
+        "family": 129,
+        "abilities":
+        {
+            "0": "Rattled",
+            "1": "Swift Swim"
+        }
+    },
+    {
+        "name": "Gyarados",
+        "gender": 0.5,
+        "family": 129,
+        "abilities":
+        {
+            "0": "Moxie",
+            "1": "Intimidate"
+        }
+    },
+    {
+        "name": "Lapras",
+        "gender": 0.5,
+        "family": 131,
+        "abilities":
+        {
+            "0": "Hydration",
+            "1": "Water Absorb",
+            "2": "Shell Armor"
+        }
+    },,
+    {
+        "name": "Eevee",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Anticipation",
+            "1": "Run Away",
+            "2": "Adaptability"
+        }
+    },
+    {
+        "name": "Vaporeon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Hydration",
+            "1": "Water Absorb"
+        }
+    },
+    {
+        "name": "Jolteon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Quick Feet",
+            "1": "Volt Absorb"
+        }
+    },
+    {
+        "name": "Flareon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Guts",
+            "1": "Flash Fire"
+        }
+    },
+    {
+        "name": "Porygon",
+        "gender": 'x',
+        "family": 137,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Trace",
+            "2": "Download"
+        }
+    },
+    {
+        "name": "Omanyte",
+        "gender": 0.125,
+        "family": 138,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Swift Swim",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Omastar",
+        "gender": 0.125,
+        "family": 138,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Swift Swim",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Kabuto",
+        "gender": 0.125,
+        "family": 140,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Swift Swim",
+            "2": "Battle Armor"
+        }
+    },
+    {
+        "name": "Kabutops",
+        "gender": 0.125,
+        "family": 140,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Swift Swim",
+            "2": "Battle Armor"
+        }
+    },
+    {
+        "name": "Aerodactyl",
+        "gender": 0.125,
+        "family": 142,
+        "abilities":
+        {
+            "0": "Unnerve",
+            "1": "Rock Head",
+            "2": "Pressure"
+        }
+    },
+    {
+        "name": "Snorlax",
+        "gender": 0.125,
+        "family": 143,
+        "abilities":
+        {
+            "0": "Gluttony",
+            "1": "Immunity",
+            "2": "Thick Fat"
+        }
+    },,,,
+    {
+        "name": "Dratini",
+        "gender": 0.5,
+        "family": 147,
+        "abilities":
+        {
+            "0": "Marvel Scale",
+            "1": "Shed Skin"
+        }
+    },
+    {
+        "name": "Dragonair",
+        "gender": 0.5,
+        "family": 147,
+        "abilities":
+        {
+            "0": "Marvel Scale",
+            "1": "Shed Skin"
+        }
+    },
+    {
+        "name": "Dragonite",
+        "gender": 0.5,
+        "family": 147,
+        "abilities":
+        {
+            "0": "Multiscale",
+            "1": "Inner Focus"
+        }
+    },,,,,,,,,,,,,,,,,,,,
+    {
         "name": "Crobat",
         "gender": 0.5,
-        "family": "p41",
+        "family": 41,
         "abilities":
         {
             "0": "Infiltrator",
             "1": "Inner Focus"
         }
-    },
-    "p172": {
+    },,,
+    {
         "name": "Pichu",
         "gender": 0.5,
-        "family": "p172",
+        "family": 172,
         "breeds": "NO",
         "abilities":
         {
@@ -1037,10 +1549,10 @@ var raw_pokedex = {
             "1": "Static"
         }
     },
-    "p173": {
+    {
         "name": "Cleffa",
         "gender": 0.75,
-        "family": "p173",
+        "family": 173,
         "breeds": "NO",
         "abilities":
         {
@@ -1049,10 +1561,10 @@ var raw_pokedex = {
             "2": "Magic Guard"
         }
     },
-    "p174": {
+    {
         "name": "Igglybuff",
         "gender": 0.75,
-        "family": "p174",
+        "family": 174,
         "breeds": "NO",
         "abilities":
         {
@@ -1061,53 +1573,958 @@ var raw_pokedex = {
             "2": "Competitive"
         }
     },
-    "p182": {
+    {
+        "name": "Togepi",
+        "gender": 0.125,
+        "family": 175,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Super Luck",
+            "1": "Hustle",
+            "2": "Serene Grace"
+        }
+    },
+    {
+        "name": "Togetic",
+        "gender": 0.125,
+        "family": 175,
+        "abilities":
+        {
+            "0": "Super Luck",
+            "1": "Hustle",
+            "2": "Serene Grace"
+        }
+    },,,,,,
+    {
         "name": "Bellossom",
         "gender": 0.5,
-        "family": "p43",
+        "family": 43,
         "abilities":
         {
             "0": "Healer",
             "1": "Chlorophyll"
         }
-    },
-    "p186": {
+    },,,,
+    {
         "name": "Politoed",
         "gender": 0.5,
-        "family": "p60",
+        "family": 60,
         "abilities":
         {
             "0": "Drizzle",
             "1": "Water Absorb",
             "2": "Damp"
         }
+    },,,,,,,,,,
+    {
+        "name": "Espeon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Magic Bounce",
+            "1": "Synchronize"
+        }
     },
-    "p199": {
+    {
+        "name": "Umbreon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Inner Focus",
+            "1": "Synchronize"
+        }
+    },,
+    {
         "name": "Slowking",
         "gender": 0.5,
-        "family": "p79",
+        "family": 79,
         "abilities":
         {
             "0": "Regenerator",
             "1": "Oblivious",
             "2": "Own Tempo"
         }
-    },
-    "p208": {
+    },,,,,,,,,
+    {
         "name": "Steelix",
         "gender": 0.5,
-        "family": "p95",
+        "family": 95,
         "abilities":
         {
             "0": "Sheer Force",
             "1": "Rock Head",
             "2": "Sturdy"
         }
+    },,,,
+    {
+        "name": "Scizor",
+        "gender": 0.5,
+        "family": 123,
+        "abilities":
+        {
+            "0": "Light Metal",
+            "1": "Swarm",
+            "2": "Technician"
+        }
+    },,,,,,,,,,,,,,,,,,
+    {
+        "name": "Kingdra",
+        "gender": 0.5,
+        "family": 116,
+        "abilities":
+        {
+            "0": "Damp",
+            "1": "Swift Swim",
+            "2": "Sniper"
+        }
+    },,,
+    {
+        "name": "Porygon2",
+        "gender": 'x',
+        "family": 137,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Trace",
+            "2": "Download"
+        }
+    },,,
+    {
+        "name": "Tyrogue",
+        "gender": 0,
+        "family": 236,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Guts",
+            "2": "Steadfast"
+        }
     },
-    "p462": {
+    {
+        "name": "Hitmontop",
+        "gender": 0,
+        "family": 236,
+        "abilities":
+        {
+            "0": "Steadfast",
+            "1": "Intimidate",
+            "2": "Technician"
+        }
+    },
+    {
+        "name": "Smoochum",
+        "gender": 1,
+        "family": 238,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Hydration",
+            "1": "Oblivious",
+            "2": "Forewarn"
+        }
+    },
+    {
+        "name": "Elekid",
+        "gender": 0.25,
+        "family": 239,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Static"
+        }
+    },
+    {
+        "name": "Magby",
+        "gender": 0.25,
+        "family": 240,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Flame Body"
+        }
+    },,
+    {
+        "name": "Blissey",
+        "gender": 1.0,
+        "family": 113,
+        "abilities":
+        {
+            "0": "Healer",
+            "1": "Natural Cure",
+            "2": "Serene Grace"
+        }
+    },,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    {
+        "name": "Azurill",
+        "gender": 0.75,
+        "family": 183,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Sap Sipper",
+            "1": "Thick Fat",
+            "2": "Huge Power"
+        }
+    },,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    {
+        "name": "Wynaut",
+        "gender": 0.5,
+        "family": 202,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Telepathy",
+            "1": "Shadow Tag"
+        }
+    },,,,,,,,,,,,,,,,,,,,,,,,,,,
+    {
+        "name": "Turtwig",
+        "gender": 0.125,
+        "family": 387,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Grotle",
+        "gender": 0.125,
+        "family": 387,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Torterra",
+        "gender": 0.125,
+        "family": 387,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Chimchar",
+        "gender": 0.125,
+        "family": 390,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Monferno",
+        "gender": 0.125,
+        "family": 390,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Infernape",
+        "gender": 0.125,
+        "family": 390,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Piplup",
+        "gender": 0.125,
+        "family": 393,
+        "abilities":
+        {
+            "0": "Defiant",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Prinplup",
+        "gender": 0.125,
+        "family": 393,
+        "abilities":
+        {
+            "0": "Defiant",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Empoleon",
+        "gender": 0.125,
+        "family": 393,
+        "abilities":
+        {
+            "0": "Defiant",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Starly",
+        "gender": 0.5,
+        "family": 396,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Keen Eye"
+        }
+    },
+    {
+        "name": "Staravia",
+        "gender": 0.5,
+        "family": 396,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Intimidate"
+        }
+    },
+    {
+        "name": "Staraptor",
+        "gender": 0.5,
+        "family": 396,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Intimidate"
+        }
+    },
+    {
+        "name": "Bidoof",
+        "gender": 0.5,
+        "family": 399,
+        "abilities":
+        {
+            "0": "Moody",
+            "1": "Simple",
+            "2": "Unaware"
+        }
+    },
+    {
+        "name": "Bibarel",
+        "gender": 0.5,
+        "family": 399,
+        "abilities":
+        {
+            "0": "Moody",
+            "1": "Simple",
+            "2": "Unaware"
+        }
+    },
+    {
+        "name": "Kricketot",
+        "gender": 0.5,
+        "family": 401,
+        "abilities":
+        {
+            "0": "Run Away",
+            "1": "Shed Skin"
+        }
+    },
+    {
+        "name": "Kricketune",
+        "gender": 0.5,
+        "family": 401,
+        "abilities":
+        {
+            "0": "Technician",
+            "1": "Swarm"
+        }
+    },
+    {
+        "name": "Shinx",
+        "gender": 0.5,
+        "family": 403,
+        "abilities":
+        {
+            "0": "Guts",
+            "1": "Rivalry",
+            "2": "Intimidate"
+        }
+    },
+    {
+        "name": "Luxio",
+        "gender": 0.5,
+        "family": 403,
+        "abilities":
+        {
+            "0": "Guts",
+            "1": "Rivalry",
+            "2": "Intimidate"
+        }
+    },
+    {
+        "name": "Luxray",
+        "gender": 0.5,
+        "family": 403,
+        "abilities":
+        {
+            "0": "Guts",
+            "1": "Rivalry",
+            "2": "Intimidate"
+        }
+    },
+    {
+        "name": "Budew",
+        "gender": 0.5,
+        "family": 315,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Leaf Guard",
+            "1": "Natural Cure",
+            "2": "Poison Point"
+        }
+    },,
+    {
+        "name": "Cranidos",
+        "gender": 0.125,
+        "family": 408,
+        "abilities":
+        {
+            "0": "Sheer Force",
+            "1": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Rampardos",
+        "gender": 0.125,
+        "family": 408,
+        "abilities":
+        {
+            "0": "Sheer Force",
+            "1": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Shieldon",
+        "gender": 0.125,
+        "family": 410,
+        "abilities":
+        {
+            "0": "Soundproof",
+            "1": "Sturdy"
+        }
+    },
+    {
+        "name": "Bastiodon",
+        "gender": 0.125,
+        "family": 410,
+        "abilities":
+        {
+            "0": "Soundproof",
+            "1": "Sturdy"
+        }
+    },
+    {
+        "name": "Burmy",
+        "gender": 0.5,
+        "family": 412,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Shed Skin"
+        }
+    },
+    {
+        "name": "Wormadam",
+        "gender": 0.5,
+        "family": 412,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Anticipation"
+        }
+    },
+    {
+        "name": "Mothim",
+        "gender": 0.5,
+        "family": 412,
+        "abilities":
+        {
+            "0": "Tinted Lens",
+            "1": "Swarm"
+        }
+    },
+    {
+        "name": "Combee",
+        "gender": 0.125,
+        "family": 415,
+        "abilities":
+        {
+            "0": "Hustle",
+            "1": "Honey Gather"
+        }
+    },
+    {
+        "name": "Vespiquen",
+        "gender": 0.125,
+        "family": 415,
+        "abilities":
+        {
+            "0": "Unnerve",
+            "1": "Pressure"
+        }
+    },
+    {
+        "name": "Pachirisu",
+        "gender": 0.5,
+        "family": 417,
+        "abilities":
+        {
+            "0": "Volt Absorb",
+            "1": "Run Away",
+            "2": "Pickup"
+        }
+    },
+    {
+        "name": "Buizel",
+        "gender": 0.5,
+        "family": 418,
+        "abilities":
+        {
+            "0": "Water Veil",
+            "1": "Swift Swim"
+        }
+    },
+    {
+        "name": "Floatzel",
+        "gender": 0.5,
+        "family": 418,
+        "abilities":
+        {
+            "0": "Water Veil",
+            "1": "Swift Swim"
+        }
+    },
+    {
+        "name": "Cherubi",
+        "gender": 0.5,
+        "family": 420,
+        "abilities":
+        {
+            "1": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Cherrim",
+        "gender": 0.5,
+        "family": 420,
+        "abilities":
+        {
+            "1": "Flower Gift"
+        }
+    },
+    {
+        "name": "Shellos",
+        "gender": 0.5,
+        "family": 422,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sticky Hold",
+            "2": "Storm Drain"
+        }
+    },
+    {
+        "name": "Gastrodon",
+        "gender": 0.5,
+        "family": 422,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sticky Hold",
+            "2": "Storm Drain"
+        }
+    },,
+    {
+        "name": "Drifloon",
+        "gender": 0.5,
+        "family": 425,
+        "abilities":
+        {
+            "0": "Flare Boost",
+            "1": "Aftermath",
+            "2": "Unburden"
+        }
+    },
+    {
+        "name": "Drifblim",
+        "gender": 0.5,
+        "family": 425,
+        "abilities":
+        {
+            "0": "Flare Boost",
+            "1": "Aftermath",
+            "2": "Unburden"
+        }
+    },
+    {
+        "name": "Buneary",
+        "gender": 0.5,
+        "family": 427,
+        "abilities":
+        {
+            "0": "Limber",
+            "1": "Run Away",
+            "2": "Klutz"
+        }
+    },
+    {
+        "name": "Lopunny",
+        "gender": 0.5,
+        "family": 427,
+        "abilities":
+        {
+            "0": "Limber",
+            "1": "Cute Charm",
+            "2": "Klutz"
+        }
+    },,,
+    {
+        "name": "Glameow",
+        "gender": 0.75,
+        "family": 431,
+        "abilities":
+        {
+            "0": "Keen Eye",
+            "1": "Limber",
+            "2": "Own Tempo"
+        }
+    },
+    {
+        "name": "Purugly",
+        "gender": 0.75,
+        "family": 431,
+        "abilities":
+        {
+            "0": "Defiant",
+            "1": "Thick Fat",
+            "2": "Own Tempo"
+        }
+    },
+    {
+        "name": "Chingling",
+        "gender": 0.5,
+        "family": 358,
+        "breeds": "NO",
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Stunky",
+        "gender": 0.5,
+        "family": 434,
+        "abilities":
+        {
+            "0": "Keen Eye",
+            "1": "Stench",
+            "2": "Aftermath"
+        }
+    },
+    {
+        "name": "Skuntank",
+        "gender": 0.5,
+        "family": 434,
+        "abilities":
+        {
+            "0": "Keen Eye",
+            "1": "Stench",
+            "2": "Aftermath"
+        }
+    },
+    {
+        "name": "Bronzor",
+        "gender": 'x',
+        "family": 436,
+        "abilities":
+        {
+            "0": "Heavy Metal",
+            "1": "Levitate",
+            "2": "Heatproof"
+        }
+    },
+    {
+        "name": "Bronzong",
+        "gender": 'x',
+        "family": 436,
+        "abilities":
+        {
+            "0": "Heavy Metal",
+            "1": "Levitate",
+            "2": "Heatproof"
+        }
+    },
+    {
+        "name": "Bonsly",
+        "gender": 0.5,
+        "family": 185,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Rattled",
+            "1": "Sturdy",
+            "2": "Rock Head"
+        }
+    },
+    {
+        "name": "Mime Jr.",
+        "gender": 0.5,
+        "family": 122,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Technician",
+            "1": "Soundproof",
+            "2": "Filter"
+        }
+    },
+    {
+        "name": "Happiny",
+        "gender": 1,
+        "family": 113,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Friend Guard",
+            "1": "Natural Cure",
+            "2": "Serene Grace"
+        }
+    },
+    {
+        "name": "Chatot",
+        "gender": 0.5,
+        "family": 441,
+        "abilities":
+        {
+            "0": "Big Pecks",
+            "1": "Keen Eye",
+            "2": "Tangled Feet"
+        }
+    },
+    {
+        "name": "Spiritomb",
+        "gender": 0.5,
+        "family": 442,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Pressure"
+        }
+    },
+    {
+        "name": "Gible",
+        "gender": 0.5,
+        "family": 443,
+        "abilities":
+        {
+            "0": "Rough Skin",
+            "1": "Sand Veil"
+        }
+    },
+    {
+        "name": "Gabite",
+        "gender": 0.5,
+        "family": 443,
+        "abilities":
+        {
+            "0": "Rough Skin",
+            "1": "Sand Veil"
+        }
+    },
+    {
+        "name": "Garchomp",
+        "gender": 0.5,
+        "family": 443,
+        "abilities":
+        {
+            "0": "Rough Skin",
+            "1": "Sand Veil"
+        }
+    },
+    {
+        "name": "Munchlax",
+        "gender": 0.125,
+        "family": 143,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Gluttony",
+            "1": "Pickup",
+            "2": "Thick Fat"
+        }
+    },
+    {
+        "name": "Riolu",
+        "gender": 0.125,
+        "family": 447,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Prankster",
+            "1": "Steadfast",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Lucario",
+        "gender": 0.125,
+        "family": 447,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Justified",
+            "1": "Steadfast",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Hippopotas",
+        "gender": 0.5,
+        "family": 449,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sand Stream"
+        }
+    },
+    {
+        "name": "Hippowdon",
+        "gender": 0.5,
+        "family": 449,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sand Stream"
+        }
+    },
+    {
+        "name": "Skorupi",
+        "gender": 0.5,
+        "family": 451,
+        "abilities":
+        {
+            "0": "Keen Eye",
+            "1": "Battle Armor",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Drapion",
+        "gender": 0.5,
+        "family": 451,
+        "abilities":
+        {
+            "0": "Keen Eye",
+            "1": "Battle Armor",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Croagunk",
+        "gender": 0.5,
+        "family": 453,
+        "abilities":
+        {
+            "0": "Poison Touch",
+            "1": "Anticipation",
+            "2": "Dry Skin"
+        }
+    },
+    {
+        "name": "Toxicroak",
+        "gender": 0.5,
+        "family": 453,
+        "abilities":
+        {
+            "0": "Poison Touch",
+            "1": "Anticipation",
+            "2": "Dry Skin"
+        }
+    },
+    {
+        "name": "Carnivine",
+        "gender": 0.5,
+        "family": 455,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Finneon",
+        "gender": 0.5,
+        "family": 456,
+        "abilities":
+        {
+            "0": "Water Veil",
+            "1": "Swift Swim",
+            "2": "Storm Drain"
+        }
+    },
+    {
+        "name": "Lumineon",
+        "gender": 0.5,
+        "family": 456,
+        "abilities":
+        {
+            "0": "Water Veil",
+            "1": "Swift Swim",
+            "2": "Storm Drain"
+        }
+    },
+    {
+        "name": "Mantyke",
+        "gender": 0.5,
+        "family": 226,
+        "breeds": "NO",
+        "abilities":
+        {
+            "0": "Water Veil",
+            "1": "Swift Swim",
+            "2": "Water Absorb"
+        }
+    },
+    {
+        "name": "Snover",
+        "gender": 0.5,
+        "family": 459,
+        "abilities":
+        {
+            "0": "Soundproof",
+            "1": "Snow Warning"
+        }
+    },
+    {
+        "name": "Abomasnow",
+        "gender": 0.5,
+        "family": 459,
+        "abilities":
+        {
+            "0": "Soundproof",
+            "1": "Snow Warning"
+        }
+    },,
+    {
         "name": "Magnezone",
-        "gender": "x",
-        "family": "p81",
+        "gender": 'x',
+        "family": 81,
         "abilities":
         {
             "0": "Analytic",
@@ -1115,10 +2532,2310 @@ var raw_pokedex = {
             "2": "Sturdy"
         }
     },
-    "p714": {
+    {
+        "name": "Lickilicky",
+        "gender": 0.5,
+        "family": 108,
+        "abilities":
+        {
+            "0": "Cloud Nine",
+            "1": "Own Tempo",
+            "2": "Oblivious"
+        }
+    },
+    {
+        "name": "Rhyperior",
+        "gender": 0.5,
+        "family": 111,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Lightning Rod",
+            "2": "Solid Rock"
+        }
+    },
+    {
+        "name": "Tangrowth",
+        "gender": 0.5,
+        "family": 114,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Chlorophyll",
+            "2": "Leaf Guard"
+        }
+    },
+    {
+        "name": "Electivire",
+        "gender": 0.25,
+        "family": 239,
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Static"
+        }
+    },
+    {
+        "name": "Magmortar",
+        "gender": 0.25,
+        "family": 240,
+        "abilities":
+        {
+            "0": "Vital Spirit",
+            "1": "Flame Body"
+        }
+    },
+    {
+        "name": "Togekiss",
+        "gender": 0.125,
+        "family": 175,
+        "abilities":
+        {
+            "0": "Super Luck",
+            "1": "Hustle",
+            "2": "Serene Grace"
+        }
+    },,
+    {
+        "name": "Leafeon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Chlorophyll",
+            "1": "Leaf Guard"
+        }
+    },
+    {
+        "name": "Glaceon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Ice Body",
+            "1": "Snow Cloak"
+        }
+    },,,
+    {
+        "name": "Porygon-Z",
+        "gender": 'x',
+        "family": 137,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Adaptability",
+            "2": "Download"
+        }
+    },,,,,
+    {
+        "name": "Rotom",
+        "gender": 'x',
+        "family": 479,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },,,,,,,,,,
+    {
+        "name": "Phione",
+        "gender": 'x',
+        "family": 489,
+        "abilities":
+        {
+            "1": "Hydration"
+        }
+    },
+    {
+        "name": "Manaphy",
+        "gender": 'x',
+        "family": 489,
+        "abilities":
+        {
+            "1": "Hydration"
+        }
+    },,,,,
+    {
+        "name": "Snivy",
+        "gender": 0.125,
+        "family": 495,
+        "abilities":
+        {
+            "0": "Contrary",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Servine",
+        "gender": 0.125,
+        "family": 495,
+        "abilities":
+        {
+            "0": "Contrary",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Serperior",
+        "gender": 0.125,
+        "family": 495,
+        "abilities":
+        {
+            "0": "Contrary",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Tepig",
+        "gender": 0.125,
+        "family": 498,
+        "abilities":
+        {
+            "0": "Thick Fat",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Pignite",
+        "gender": 0.125,
+        "family": 498,
+        "abilities":
+        {
+            "0": "Thick Fat",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Emboar",
+        "gender": 0.125,
+        "family": 498,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Oshawott",
+        "gender": 0.125,
+        "family": 501,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Dewott",
+        "gender": 0.125,
+        "family": 501,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Samurott",
+        "gender": 0.125,
+        "family": 501,
+        "abilities":
+        {
+            "0": "Shell Armor",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Patrat",
+        "gender": 0.5,
+        "family": 504,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Run Away",
+            "2": "Keen Eye"
+        }
+    },
+    {
+        "name": "Watchog",
+        "gender": 0.5,
+        "family": 504,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Illuminate",
+            "2": "Keen Eye"
+        }
+    },
+    {
+        "name": "Lillipup",
+        "gender": 0.5,
+        "family": 506,
+        "abilities":
+        {
+            "0": "Run Away",
+            "1": "Vital Spirit",
+            "2": "Pickup"
+        }
+    },
+    {
+        "name": "Herdier",
+        "gender": 0.5,
+        "family": 506,
+        "abilities":
+        {
+            "0": "Scrappy",
+            "1": "Intimidate",
+            "2": "Sand Rush"
+        }
+    },
+    {
+        "name": "Stoutland",
+        "gender": 0.5,
+        "family": 506,
+        "abilities":
+        {
+            "0": "Scrappy",
+            "1": "Intimidate",
+            "2": "Sand Rush"
+        }
+    },
+    {
+        "name": "Purrloin",
+        "gender": 0.5,
+        "family": 509,
+        "abilities":
+        {
+            "0": "Prankster",
+            "1": "Limber",
+            "2": "Unburden"
+        }
+    },
+    {
+        "name": "Liepard",
+        "gender": 0.5,
+        "family": 509,
+        "abilities":
+        {
+            "0": "Prankster",
+            "1": "Limber",
+            "2": "Unburden"
+        }
+    },
+    {
+        "name": "Pansage",
+        "gender": 0.125,
+        "family": 511,
+        "abilities":
+        {
+            "0": "Overgrow",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Simisage",
+        "gender": 0.125,
+        "family": 511,
+        "abilities":
+        {
+            "0": "Overgrow",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Pansear",
+        "gender": 0.125,
+        "family": 513,
+        "abilities":
+        {
+            "0": "Blaze",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Simisear",
+        "gender": 0.125,
+        "family": 513,
+        "abilities":
+        {
+            "0": "Blaze",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Panpour",
+        "gender": 0.125,
+        "family": 515,
+        "abilities":
+        {
+            "0": "Torrent",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Simipour",
+        "gender": 0.125,
+        "family": 515,
+        "abilities":
+        {
+            "0": "Torrent",
+            "1": "Gluttony"
+        }
+    },
+    {
+        "name": "Munna",
+        "gender": 0.5,
+        "family": 517,
+        "abilities":
+        {
+            "0": "Telepathy",
+            "1": "Forewarn",
+            "2": "Synchronize"
+        }
+    },
+    {
+        "name": "Musharna",
+        "gender": 0.5,
+        "family": 517,
+        "abilities":
+        {
+            "0": "Telepathy",
+            "1": "Forewarn",
+            "2": "Synchronize"
+        }
+    },
+    {
+        "name": "Pidove",
+        "gender": 0.5,
+        "family": 519,
+        "abilities":
+        {
+            "0": "Rivalry",
+            "1": "Big Pecks",
+            "2": "Super Luck"
+        }
+    },
+    {
+        "name": "Tranquill",
+        "gender": 0.5,
+        "family": 519,
+        "abilities":
+        {
+            "0": "Rivalry",
+            "1": "Big Pecks",
+            "2": "Super Luck"
+        }
+    },
+    {
+        "name": "Unfezant",
+        "gender": 0.5,
+        "family": 519,
+        "abilities":
+        {
+            "0": "Rivalry",
+            "1": "Big Pecks",
+            "2": "Super Luck"
+        }
+    },
+    {
+        "name": "Blitzle",
+        "gender": 0.5,
+        "family": 522,
+        "abilities":
+        {
+            "0": "Sap Sipper",
+            "1": "Lightning Rod",
+            "2": "Motor Drive"
+        }
+    },
+    {
+        "name": "Zebstrika",
+        "gender": 0.5,
+        "family": 522,
+        "abilities":
+        {
+            "0": "Sap Sipper",
+            "1": "Lightning Rod",
+            "2": "Motor Drive"
+        }
+    },
+    {
+        "name": "Roggenrola",
+        "gender": 0.5,
+        "family": 524,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sturdy"
+        }
+    },
+    {
+        "name": "Boldore",
+        "gender": 0.5,
+        "family": 524,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sturdy"
+        }
+    },
+    {
+        "name": "Gigalith",
+        "gender": 0.5,
+        "family": 524,
+        "abilities":
+        {
+            "0": "Sand Force",
+            "1": "Sturdy"
+        }
+    },
+    {
+        "name": "Woobat",
+        "gender": 0.5,
+        "family": 527,
+        "abilities":
+        {
+            "0": "Simple",
+            "1": "Unaware",
+            "2": "Klutz"
+        }
+    },
+    {
+        "name": "Swoobat",
+        "gender": 0.5,
+        "family": 527,
+        "abilities":
+        {
+            "0": "Simple",
+            "1": "Unaware",
+            "2": "Klutz"
+        }
+    },
+    {
+        "name": "Drilbur",
+        "gender": 0.5,
+        "family": 529,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Sand Rush",
+            "2": "Sand Force"
+        }
+    },
+    {
+        "name": "Excadrill",
+        "gender": 0.5,
+        "family": 529,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Sand Rush",
+            "2": "Sand Force"
+        }
+    },
+    {
+        "name": "Audino",
+        "gender": 0.5,
+        "family": 531,
+        "abilities":
+        {
+            "0": "Klutz",
+            "1": "Healer",
+            "2": "Regenerator"
+        }
+    },
+    {
+        "name": "Timburr",
+        "gender": 0.25,
+        "family": 532,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Guts",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Gurdurr",
+        "gender": 0.25,
+        "family": 532,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Guts",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Conkeldurr",
+        "gender": 0.25,
+        "family": 532,
+        "abilities":
+        {
+            "0": "Iron Fist",
+            "1": "Guts",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Tympole",
+        "gender": 0.5,
+        "family": 535,
+        "abilities":
+        {
+            "0": "Water Absorb",
+            "1": "Swift Swim",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Palpitoad",
+        "gender": 0.5,
+        "family": 535,
+        "abilities":
+        {
+            "0": "Water Absorb",
+            "1": "Swift Swim",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Seismitoad",
+        "gender": 0.5,
+        "family": 535,
+        "abilities":
+        {
+            "0": "Poison Touch",
+            "1": "Swift Swim",
+            "2": "Water Absorb"
+        }
+    },
+    {
+        "name": "Throh",
+        "gender": 0.0,
+        "family": 538,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Guts",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Sawk",
+        "gender": 0.0,
+        "family": 539,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Sturdy",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Sewaddle",
+        "gender": 0.5,
+        "family": 540,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Swarm",
+            "2": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Swadloon",
+        "gender": 0.5,
+        "family": 540,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Swarm",
+            "2": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Leavanny",
+        "gender": 0.5,
+        "family": 540,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Swarm",
+            "2": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Venipede",
+        "gender": 0.5,
+        "family": 543,
+        "abilities":
+        {
+            "0": "Speed Boost",
+            "1": "Poison Point",
+            "2": "Swarm"
+        }
+    },
+    {
+        "name": "Whirlipede",
+        "gender": 0.5,
+        "family": 543,
+        "abilities":
+        {
+            "0": "Speed Boost",
+            "1": "Poison Point",
+            "2": "Swarm"
+        }
+    },
+    {
+        "name": "Scolipede",
+        "gender": 0.5,
+        "family": 543,
+        "abilities":
+        {
+            "0": "Speed Boost",
+            "1": "Poison Point",
+            "2": "Swarm"
+        }
+    },
+    {
+        "name": "Cottonee",
+        "gender": 0.5,
+        "family": 546,
+        "abilities":
+        {
+            "0": "Chlorophyll",
+            "1": "Prankster",
+            "2": "Infiltrator"
+        }
+    },
+    {
+        "name": "Whimsicott",
+        "gender": 0.5,
+        "family": 546,
+        "abilities":
+        {
+            "0": "Chlorophyll",
+            "1": "Prankster",
+            "2": "Infiltrator"
+        }
+    },
+    {
+        "name": "Petilil",
+        "gender": 1.0,
+        "family": 548,
+        "abilities":
+        {
+            "0": "Leaf Guard",
+            "1": "Chlorophyll",
+            "2": "Own Tempo"
+        }
+    },
+    {
+        "name": "Lilligant",
+        "gender": 1.0,
+        "family": 548,
+        "abilities":
+        {
+            "0": "Leaf Guard",
+            "1": "Chlorophyll",
+            "2": "Own Tempo"
+        }
+    },
+    {
+        "name": "Basculin",
+        "gender": 0.5,
+        "family": 550,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Reckless/Rock Head",
+            "2": "Adaptability"
+        }
+    },
+    {
+        "name": "Sandile",
+        "gender": 0.5,
+        "family": 551,
+        "abilities":
+        {
+            "0": "Anger Point",
+            "1": "Intimidate",
+            "2": "Moxie"
+        }
+    },
+    {
+        "name": "Krokorok",
+        "gender": 0.5,
+        "family": 551,
+        "abilities":
+        {
+            "0": "Anger Point",
+            "1": "Intimidate",
+            "2": "Moxie"
+        }
+    },
+    {
+        "name": "Krookodile",
+        "gender": 0.5,
+        "family": 551,
+        "abilities":
+        {
+            "0": "Anger Point",
+            "1": "Intimidate",
+            "2": "Moxie"
+        }
+    },
+    {
+        "name": "Darumaka",
+        "gender": 0.5,
+        "family": 554,
+        "abilities":
+        {
+            "0": "Inner Focus",
+            "1": "Hustle"
+        }
+    },
+    {
+        "name": "Darmanitan",
+        "gender": 0.5,
+        "family": 554,
+        "abilities":
+        {
+            "0": "Zen Mode",
+            "1": "Sheer Force"
+        }
+    },
+    {
+        "name": "Maractus",
+        "gender": 0.5,
+        "family": 556,
+        "abilities":
+        {
+            "0": "Storm Drain",
+            "1": "Water Absorb",
+            "2": "Chlorophyll"
+        }
+    },
+    {
+        "name": "Dwebble",
+        "gender": 0.5,
+        "family": 557,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Sturdy",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Crustle",
+        "gender": 0.5,
+        "family": 557,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Sturdy",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Scraggy",
+        "gender": 0.5,
+        "family": 559,
+        "abilities":
+        {
+            "0": "Intimidate",
+            "1": "Shed Skin",
+            "2": "Moxie"
+        }
+    },
+    {
+        "name": "Scrafty",
+        "gender": 0.5,
+        "family": 559,
+        "abilities":
+        {
+            "0": "Intimidate",
+            "1": "Shed Skin",
+            "2": "Moxie"
+        }
+    },
+    {
+        "name": "Sigilyph",
+        "gender": 0.5,
+        "family": 561,
+        "abilities":
+        {
+            "0": "Tinted Lens",
+            "1": "Wonder Skin",
+            "2": "Magic Guard"
+        }
+    },
+    {
+        "name": "Yamask",
+        "gender": 0.5,
+        "family": 562,
+        "abilities":
+        {
+            "1": "Mummy"
+        }
+    },
+    {
+        "name": "Cofagrigus",
+        "gender": 0.5,
+        "family": 562,
+        "abilities":
+        {
+            "1": "Mummy"
+        }
+    },
+    {
+        "name": "Tirtouga",
+        "gender": 0.125,
+        "family": 564,
+        "abilities":
+        {
+            "0": "Swift Swim",
+            "1": "Solid Rock",
+            "2": "Sturdy"
+        }
+    },
+    {
+        "name": "Carracosta",
+        "gender": 0.125,
+        "family": 564,
+        "abilities":
+        {
+            "0": "Swift Swim",
+            "1": "Solid Rock",
+            "2": "Sturdy"
+        }
+    },
+    {
+        "name": "Archen",
+        "gender": 0.125,
+        "family": 566,
+        "abilities":
+        {
+            "1": "Defeatist"
+        }
+    },
+    {
+        "name": "Archeops",
+        "gender": 0.125,
+        "family": 566,
+        "abilities":
+        {
+            "1": "Defeatist"
+        }
+    },
+    {
+        "name": "Trubbish",
+        "gender": 0.5,
+        "family": 568,
+        "abilities":
+        {
+            "0": "Aftermath",
+            "1": "Stench",
+            "2": "Sticky Hold"
+        }
+    },
+    {
+        "name": "Garbodor",
+        "gender": 0.5,
+        "family": 568,
+        "abilities":
+        {
+            "0": "Aftermath",
+            "1": "Stench",
+            "2": "Weak Armor"
+        }
+    },
+    {
+        "name": "Zorua",
+        "gender": 0.125,
+        "family": 570,
+        "abilities":
+        {
+            "1": "Illusion"
+        }
+    },
+    {
+        "name": "Zoroark",
+        "gender": 0.125,
+        "family": 570,
+        "abilities":
+        {
+            "1": "Illusion"
+        }
+    },
+    {
+        "name": "Minccino",
+        "gender": 0.75,
+        "family": 572,
+        "abilities":
+        {
+            "0": "Technician",
+            "1": "Cute Charm",
+            "2": "Skill Link"
+        }
+    },
+    {
+        "name": "Cinccino",
+        "gender": 0.75,
+        "family": 572,
+        "abilities":
+        {
+            "0": "Technician",
+            "1": "Cute Charm",
+            "2": "Skill Link"
+        }
+    },
+    {
+        "name": "Gothita",
+        "gender": 0.75,
+        "family": 574,
+        "abilities":
+        {
+            "0": "Shadow Tag",
+            "1": "Frisk",
+            "2": "Competitive"
+        }
+    },
+    {
+        "name": "Gothorita",
+        "gender": 0.75,
+        "family": 574,
+        "abilities":
+        {
+            "0": "Shadow Tag",
+            "1": "Frisk",
+            "2": "Competitive"
+        }
+    },
+    {
+        "name": "Gothitelle",
+        "gender": 0.75,
+        "family": 574,
+        "abilities":
+        {
+            "0": "Shadow Tag",
+            "1": "Frisk",
+            "2": "Competitive"
+        }
+    },
+    {
+        "name": "Solosis",
+        "gender": 0.5,
+        "family": 577,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Overcoat",
+            "2": "Magic Guard"
+        }
+    },
+    {
+        "name": "Duosion",
+        "gender": 0.5,
+        "family": 577,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Overcoat",
+            "2": "Magic Guard"
+        }
+    },
+    {
+        "name": "Reuniclus",
+        "gender": 0.5,
+        "family": 577,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Overcoat",
+            "2": "Magic Guard"
+        }
+    },
+    {
+        "name": "Ducklett",
+        "gender": 0.5,
+        "family": 580,
+        "abilities":
+        {
+            "0": "Hydration",
+            "1": "Keen Eye",
+            "2": "Big Pecks"
+        }
+    },
+    {
+        "name": "Swanna",
+        "gender": 0.5,
+        "family": 580,
+        "abilities":
+        {
+            "0": "Hydration",
+            "1": "Keen Eye",
+            "2": "Big Pecks"
+        }
+    },
+    {
+        "name": "Vanillite",
+        "gender": 0.5,
+        "family": 582,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Ice Body"
+        }
+    },
+    {
+        "name": "Vanillish",
+        "gender": 0.5,
+        "family": 582,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Ice Body"
+        }
+    },
+    {
+        "name": "Vanilluxe",
+        "gender": 0.5,
+        "family": 582,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Ice Body"
+        }
+    },
+    {
+        "name": "Deerling",
+        "gender": 0.5,
+        "family": 585,
+        "abilities":
+        {
+            "0": "Serene Grace",
+            "1": "Chlorophyll",
+            "2": "Sap Sipper"
+        }
+    },
+    {
+        "name": "Sawsbuck",
+        "gender": 0.5,
+        "family": 585,
+        "abilities":
+        {
+            "0": "Serene Grace",
+            "1": "Chlorophyll",
+            "2": "Sap Sipper"
+        }
+    },
+    {
+        "name": "Emolga",
+        "gender": 0.5,
+        "family": 587,
+        "abilities":
+        {
+            "0": "Motor Drive",
+            "1": "Static"
+        }
+    },
+    {
+        "name": "Karrablast",
+        "gender": 0.5,
+        "family": 588,
+        "abilities":
+        {
+            "0": "No Guard",
+            "1": "Swarm",
+            "2": "Shed Skin"
+        }
+    },
+    {
+        "name": "Escavalier",
+        "gender": 0.5,
+        "family": 588,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Swarm",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Foongus",
+        "gender": 0.5,
+        "family": 590,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Effect Spore"
+        }
+    },
+    {
+        "name": "Amoonguss",
+        "gender": 0.5,
+        "family": 590,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Effect Spore"
+        }
+    },
+    {
+        "name": "Frillish",
+        "gender": 0.5,
+        "family": 592,
+        "abilities":
+        {
+            "0": "Damp",
+            "1": "Water Absorb",
+            "2": "Cursed Body"
+        }
+    },
+    {
+        "name": "Jellicent",
+        "gender": 0.5,
+        "family": 592,
+        "abilities":
+        {
+            "0": "Damp",
+            "1": "Water Absorb",
+            "2": "Cursed Body"
+        }
+    },
+    {
+        "name": "Alomomola",
+        "gender": 0.5,
+        "family": 594,
+        "abilities":
+        {
+            "0": "Regenerator",
+            "1": "Healer",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Joltik",
+        "gender": 0.5,
+        "family": 595,
+        "abilities":
+        {
+            "0": "Swarm",
+            "1": "Compound Eyes",
+            "2": "Unnerve"
+        }
+    },
+    {
+        "name": "Galvantula",
+        "gender": 0.5,
+        "family": 595,
+        "abilities":
+        {
+            "0": "Swarm",
+            "1": "Compound Eyes",
+            "2": "Unnerve"
+        }
+    },
+    {
+        "name": "Ferroseed",
+        "gender": 0.5,
+        "family": 597,
+        "abilities":
+        {
+            "0": "Iron Barbs",
+            "1": "Iron Barbs"
+        }
+    },
+    {
+        "name": "Ferrothorn",
+        "gender": 0.5,
+        "family": 597,
+        "abilities":
+        {
+            "0": "Anticipation",
+            "1": "Iron Barbs"
+        }
+    },
+    {
+        "name": "Klink",
+        "gender": 'x',
+        "family": 599,
+        "abilities":
+        {
+            "0": "Minus",
+            "1": "Plus",
+            "2": "Clear Body"
+        }
+    },
+    {
+        "name": "Klang",
+        "gender": 'x',
+        "family": 599,
+        "abilities":
+        {
+            "0": "Minus",
+            "1": "Plus",
+            "2": "Clear Body"
+        }
+    },
+    {
+        "name": "Klinklang",
+        "gender": 'x',
+        "family": 599,
+        "abilities":
+        {
+            "0": "Minus",
+            "1": "Plus",
+            "2": "Clear Body"
+        }
+    },
+    {
+        "name": "Tynamo",
+        "gender": 0.5,
+        "family": 602,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Eelektrik",
+        "gender": 0.5,
+        "family": 602,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Eelektross",
+        "gender": 0.5,
+        "family": 602,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Elgyem",
+        "gender": 0.5,
+        "family": 605,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Telepathy",
+            "2": "Synchronize"
+        }
+    },
+    {
+        "name": "Beheeyem",
+        "gender": 0.5,
+        "family": 605,
+        "abilities":
+        {
+            "0": "Analytic",
+            "1": "Telepathy",
+            "2": "Synchronize"
+        }
+    },
+    {
+        "name": "Litwick",
+        "gender": 0.5,
+        "family": 607,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Flash Fire",
+            "2": "Flame Body"
+        }
+    },
+    {
+        "name": "Lampent",
+        "gender": 0.5,
+        "family": 607,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Flash Fire",
+            "2": "Flame Body"
+        }
+    },
+    {
+        "name": "Chandelure",
+        "gender": 0.5,
+        "family": 607,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Flash Fire",
+            "2": "Flame Body"
+        }
+    },
+    {
+        "name": "Axew",
+        "gender": 0.5,
+        "family": 610,
+        "abilities":
+        {
+            "0": "Unnerve",
+            "1": "Rivalry",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Fraxure",
+        "gender": 0.5,
+        "family": 610,
+        "abilities":
+        {
+            "0": "Unnerve",
+            "1": "Rivalry",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Haxorus",
+        "gender": 0.5,
+        "family": 610,
+        "abilities":
+        {
+            "0": "Unnerve",
+            "1": "Rivalry",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Cubchoo",
+        "gender": 0.5,
+        "family": 613,
+        "abilities":
+        {
+            "0": "Rattled",
+            "1": "Snow Cloak"
+        }
+    },
+    {
+        "name": "Beartic",
+        "gender": 0.5,
+        "family": 613,
+        "abilities":
+        {
+            "0": "Swift Swim",
+            "1": "Snow Cloak"
+        }
+    },
+    {
+        "name": "Cryogonal",
+        "gender": 'x',
+        "family": 615,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Shelmet",
+        "gender": 0.5,
+        "family": 616,
+        "abilities":
+        {
+            "0": "Overcoat",
+            "1": "Hydration",
+            "2": "Shell Armor"
+        }
+    },
+    {
+        "name": "Accelgor",
+        "gender": 0.5,
+        "family": 616,
+        "abilities":
+        {
+            "0": "Unburden",
+            "1": "Hydration",
+            "2": "Sticky Hold"
+        }
+    },
+    {
+        "name": "Stunfisk",
+        "gender": 0.5,
+        "family": 618,
+        "abilities":
+        {
+            "0": "Sand Veil",
+            "1": "Static",
+            "2": "Limber"
+        }
+    },
+    {
+        "name": "Meinfoo",
+        "gender": 0.5,
+        "family": 619,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Inner Focus",
+            "2": "Regenerator"
+        }
+    },
+    {
+        "name": "Meinshao",
+        "gender": 0.5,
+        "family": 619,
+        "abilities":
+        {
+            "0": "Reckless",
+            "1": "Inner Focus",
+            "2": "Regenerator"
+        }
+    },
+    {
+        "name": "Druddigon",
+        "gender": 0.5,
+        "family": 621,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Rough Skin",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Golett",
+        "gender": 'x',
+        "family": 622,
+        "abilities":
+        {
+            "0": "No Guard",
+            "1": "Iron Fist",
+            "2": "Klutz"
+        }
+    },
+    {
+        "name": "Golurk",
+        "gender": 'x',
+        "family": 622,
+        "abilities":
+        {
+            "0": "No Guard",
+            "1": "Iron Fist",
+            "2": "Klutz"
+        }
+    },
+    {
+        "name": "Pawniard",
+        "gender": 0.5,
+        "family": 624,
+        "abilities":
+        {
+            "0": "Pressure",
+            "1": "Defiant",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Bisharp",
+        "gender": 0.5,
+        "family": 624,
+        "abilities":
+        {
+            "0": "Pressure",
+            "1": "Defiant",
+            "2": "Inner Focus"
+        }
+    },
+    {
+        "name": "Bouffalant",
+        "gender": 0.5,
+        "family": 626,
+        "abilities":
+        {
+            "0": "Soundproof",
+            "1": "Reckless",
+            "2": "Sap Sipper"
+        }
+    },
+    {
+        "name": "Rufflet",
+        "gender": 0.0,
+        "family": 627,
+        "abilities":
+        {
+            "0": "Hustle",
+            "1": "Keen Eye",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Braviary",
+        "gender": 0.0,
+        "family": 627,
+        "abilities":
+        {
+            "0": "Defiant",
+            "1": "Keen Eye",
+            "2": "Sheer Force"
+        }
+    },
+    {
+        "name": "Vullaby",
+        "gender": 1.0,
+        "family": 629,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Big Pecks",
+            "2": "Overcoat"
+        }
+    },
+    {
+        "name": "Mandibuzz",
+        "gender": 1.0,
+        "family": 629,
+        "abilities":
+        {
+            "0": "Weak Armor",
+            "1": "Big Pecks",
+            "2": "Overcoat"
+        }
+    },
+    {
+        "name": "Heatmor",
+        "gender": 0.5,
+        "family": 631,
+        "abilities":
+        {
+            "0": "White Smoke",
+            "1": "Gluttony",
+            "2": "Flash Fire"
+        }
+    },
+    {
+        "name": "Durant",
+        "gender": 0.5,
+        "family": 632,
+        "abilities":
+        {
+            "0": "Truant",
+            "1": "Swarm",
+            "2": "Hustle"
+        }
+    },
+    {
+        "name": "Deino",
+        "gender": 0.5,
+        "family": 633,
+        "abilities":
+        {
+            "1": "Hustle"
+        }
+    },
+    {
+        "name": "Zweilous",
+        "gender": 0.5,
+        "family": 633,
+        "abilities":
+        {
+            "1": "Hustle"
+        }
+    },
+    {
+        "name": "Hydreigon",
+        "gender": 0.5,
+        "family": 633,
+        "abilities":
+        {
+            "1": "Levitate"
+        }
+    },
+    {
+        "name": "Larvesta",
+        "gender": 0.5,
+        "family": 636,
+        "abilities":
+        {
+            "0": "Swarm",
+            "1": "Flame Body"
+        }
+    },
+    {
+        "name": "Volcarona",
+        "gender": 0.5,
+        "family": 636,
+        "abilities":
+        {
+            "0": "Swarm",
+            "1": "Flame Body"
+        }
+    },,,,,,,,,,,,,
+    {
+        "name": "Chespin",
+        "gender": 0.125,
+        "family": 650,
+        "abilities":
+        {
+            "0": "Bulletproof",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Quilladin",
+        "gender": 0.125,
+        "family": 650,
+        "abilities":
+        {
+            "0": "Bulletproof",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Chesnaught",
+        "gender": 0.125,
+        "family": 650,
+        "abilities":
+        {
+            "0": "Bulletproof",
+            "1": "Overgrow"
+        }
+    },
+    {
+        "name": "Fennekin",
+        "gender": 0.125,
+        "family": 653,
+        "abilities":
+        {
+            "0": "Magician",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Braixen",
+        "gender": 0.125,
+        "family": 653,
+        "abilities":
+        {
+            "0": "Magician",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Delphox",
+        "gender": 0.125,
+        "family": 653,
+        "abilities":
+        {
+            "0": "Magician",
+            "1": "Blaze"
+        }
+    },
+    {
+        "name": "Froakie",
+        "gender": 0.125,
+        "family": 656,
+        "abilities":
+        {
+            "0": "Protean",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Frogadier",
+        "gender": 0.125,
+        "family": 656,
+        "abilities":
+        {
+            "0": "Protean",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Greninja",
+        "gender": 0.125,
+        "family": 656,
+        "abilities":
+        {
+            "0": "Protean",
+            "1": "Torrent"
+        }
+    },
+    {
+        "name": "Bunnelby",
+        "gender": 0.5,
+        "family": 659,
+        "abilities":
+        {
+            "0": "Huge Power",
+            "1": "Pickup",
+            "2": "Cheek Pouch"
+        }
+    },
+    {
+        "name": "Diggersby",
+        "gender": 0.5,
+        "family": 659,
+        "abilities":
+        {
+            "0": "Huge Power",
+            "1": "Pickup",
+            "2": "Cheek Pouch"
+        }
+    },
+    {
+        "name": "Fletchling",
+        "gender": 0.5,
+        "family": 661,
+        "abilities":
+        {
+            "0": "Gale Wings",
+            "1": "Big Pecks"
+        }
+    },
+    {
+        "name": "Fletchinder",
+        "gender": 0.5,
+        "family": 661,
+        "abilities":
+        {
+            "0": "Gale Wings",
+            "1": "Flame Body"
+        }
+    },
+    {
+        "name": "Talonflame",
+        "gender": 0.5,
+        "family": 661,
+        "abilities":
+        {
+            "0": "Gale Wings",
+            "1": "Flame Body"
+        }
+    },
+    {
+        "name": "Scatterbug",
+        "gender": 0.5,
+        "family": 664,
+        "abilities":
+        {
+            "0": "Friend Guard",
+            "1": "Shield Dust",
+            "2": "Compound Eyes"
+        }
+    },
+    {
+        "name": "Spewpa",
+        "gender": 0.5,
+        "family": 664,
+        "abilities":
+        {
+            "0": "Friend Guard",
+            "1": "Shed Skin"
+        }
+    },
+    {
+        "name": "Vivillon",
+        "gender": 0.5,
+        "family": 664,
+        "abilities":
+        {
+            "0": "Friend Guard",
+            "1": "Shield Dust",
+            "2": "Compound Eyes"
+        }
+    },
+    {
+        "name": "Litleo",
+        "gender": 0.75,
+        "family": 667,
+        "abilities":
+        {
+            "0": "Moxie",
+            "1": "Rivalry",
+            "2": "Unnerve"
+        }
+    },
+    {
+        "name": "Pyroar",
+        "gender": 0.75,
+        "family": 667,
+        "abilities":
+        {
+            "0": "Moxie",
+            "1": "Rivalry",
+            "2": "Unnerve"
+        }
+    },
+    {
+        "name": "Flab&eacute;b&eacute;",
+        "gender": 1.0,
+        "family": 669,
+        "abilities":
+        {
+            "0": "Symbiosis",
+            "1": "Flower Veil"
+        }
+    },
+    {
+        "name": "Floette",
+        "gender": 1.0,
+        "family": 669,
+        "abilities":
+        {
+            "0": "Symbiosis",
+            "1": "Flower Veil"
+        }
+    },
+    {
+        "name": "Florges",
+        "gender": 1.0,
+        "family": 669,
+        "abilities":
+        {
+            "0": "Symbiosis",
+            "1": "Flower Veil"
+        }
+    },
+    {
+        "name": "Skiddo",
+        "gender": 0.5,
+        "family": 672,
+        "abilities":
+        {
+            "0": "Grass Pelt",
+            "1": "Sap Sipper"
+        }
+    },
+    {
+        "name": "Gogoat",
+        "gender": 0.5,
+        "family": 672,
+        "abilities":
+        {
+            "0": "Grass Pelt",
+            "1": "Sap Sipper"
+        }
+    },
+    {
+        "name": "Pancham",
+        "gender": 0.5,
+        "family": 674,
+        "abilities":
+        {
+            "0": "Scrappy",
+            "1": "Iron Fist",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Pangoro",
+        "gender": 0.5,
+        "family": 674,
+        "abilities":
+        {
+            "0": "Scrappy",
+            "1": "Iron Fist",
+            "2": "Mold Breaker"
+        }
+    },
+    {
+        "name": "Furfrou",
+        "gender": 0.5,
+        "family": 676,
+        "abilities":
+        {
+            "1": "Fur Coat"
+        }
+    },
+    {
+        "name": "Espurr",
+        "gender": 0.5,
+        "family": 677,
+        "abilities":
+        {
+            "0": "Own Tempo",
+            "1": "Keen Eye",
+            "2": "Infiltrator"
+        }
+    },
+    {
+        "name": "Meowstic",
+        "gender": 0.5,
+        "family": 677,
+        "abilities":
+        {
+            "0": "Prankster/Competitive",
+            "1": "Keen Eye",
+            "2": "Infiltrator"
+        }
+    },
+    {
+        "name": "Honedge",
+        "gender": 0.5,
+        "family": 679,
+        "abilities":
+        {
+            "1": "No Guard"
+        }
+    },
+    {
+        "name": "Doublade",
+        "gender": 0.5,
+        "family": 679,
+        "abilities":
+        {
+            "1": "No Guard"
+        }
+    },
+    {
+        "name": "Aegislash",
+        "gender": 0.5,
+        "family": 679,
+        "abilities":
+        {
+            "1": "Stance Change"
+        }
+    },
+    {
+        "name": "Spritzee",
+        "gender": 0.5,
+        "family": 682,
+        "abilities":
+        {
+            "0": "Aroma Veil",
+            "1": "Healer"
+        }
+    },
+    {
+        "name": "Aromatisse",
+        "gender": 0.5,
+        "family": 682,
+        "abilities":
+        {
+            "0": "Aroma Veil",
+            "1": "Healer"
+        }
+    },
+    {
+        "name": "Swirlix",
+        "gender": 0.5,
+        "family": 684,
+        "abilities":
+        {
+            "0": "Unburden",
+            "1": "Sweet Veil"
+        }
+    },
+    {
+        "name": "Slurpuff",
+        "gender": 0.5,
+        "family": 684,
+        "abilities":
+        {
+            "0": "Unburden",
+            "1": "Sweet Veil"
+        }
+    },
+    {
+        "name": "Inkay",
+        "gender": 0.5,
+        "family": 686,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Contrary",
+            "2": "Suction Cups"
+        }
+    },
+    {
+        "name": "Malamar",
+        "gender": 0.5,
+        "family": 686,
+        "abilities":
+        {
+            "0": "Infiltrator",
+            "1": "Contrary",
+            "2": "Suction Cups"
+        }
+    },
+    {
+        "name": "Binacle",
+        "gender": 0.5,
+        "family": 688,
+        "abilities":
+        {
+            "0": "Pickpocket",
+            "1": "Tough Claws",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Barbaracle",
+        "gender": 0.5,
+        "family": 688,
+        "abilities":
+        {
+            "0": "Pickpocket",
+            "1": "Tough Claws",
+            "2": "Sniper"
+        }
+    },
+    {
+        "name": "Skrelp",
+        "gender": 0.5,
+        "family": 690,
+        "abilities":
+        {
+            "0": "Adaptability",
+            "1": "Poison Point",
+            "2": "Poison Touch"
+        }
+    },
+    {
+        "name": "Dragalge",
+        "gender": 0.5,
+        "family": 690,
+        "abilities":
+        {
+            "0": "Adaptability",
+            "1": "Poison Point",
+            "2": "Poison Touch"
+        }
+    },
+    {
+        "name": "Clauncher",
+        "gender": 0.5,
+        "family": 692,
+        "abilities":
+        {
+            "1": "Mega Launcher"
+        }
+    },
+    {
+        "name": "Clawitzer",
+        "gender": 0.5,
+        "family": 692,
+        "abilities":
+        {
+            "1": "Mega Launcher"
+        }
+    },
+    {
+        "name": "Helioptile",
+        "gender": 0.5,
+        "family": 694,
+        "abilities":
+        {
+            "0": "Solar Power",
+            "1": "Dry Skin",
+            "2": "Sand Veil"
+        }
+    },
+    {
+        "name": "Heliolisk",
+        "gender": 0.5,
+        "family": 694,
+        "abilities":
+        {
+            "0": "Solar Power",
+            "1": "Dry Skin",
+            "2": "Sand Veil"
+        }
+    },
+    {
+        "name": "Tyrunt",
+        "gender": 0.125,
+        "family": 696,
+        "abilities":
+        {
+            "0": "Sturdy",
+            "1": "Strong Jaw"
+        }
+    },
+    {
+        "name": "Tyrantrum",
+        "gender": 0.125,
+        "family": 696,
+        "abilities":
+        {
+            "0": "Rock Head",
+            "1": "Strong Jaw"
+        }
+    },
+    {
+        "name": "Amaura",
+        "gender": 0.125,
+        "family": 698,
+        "abilities":
+        {
+            "0": "Snow Warning",
+            "1": "Refrigerate"
+        }
+    },
+    {
+        "name": "Aurorus",
+        "gender": 0.125,
+        "family": 698,
+        "abilities":
+        {
+            "0": "Snow Warning",
+            "1": "Refrigerate"
+        }
+    },
+    {
+        "name": "Sylveon",
+        "gender": 0.125,
+        "family": 133,
+        "abilities":
+        {
+            "0": "Pixilate",
+            "1": "Cute Charm"
+        }
+    },
+    {
+        "name": "Hawlucha",
+        "gender": 0.5,
+        "family": 701,
+        "abilities":
+        {
+            "0": "Mold Breaker",
+            "1": "Limber",
+            "2": "Unburden"
+        }
+    },
+    {
+        "name": "Dedenne",
+        "gender": 0.5,
+        "family": 702,
+        "abilities":
+        {
+            "0": "Plus",
+            "1": "Cheek Pouch",
+            "2": "Pickup"
+        }
+    },
+    {
+        "name": "Carbink",
+        "gender": 'x',
+        "family": 703,
+        "abilities":
+        {
+            "0": "Sturdy",
+            "1": "Clear Body"
+        }
+    },
+    {
+        "name": "Goomy",
+        "gender": 0.5,
+        "family": 704,
+        "abilities":
+        {
+            "0": "Gooey",
+            "1": "Sap Sipper",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Sliggoo",
+        "gender": 0.5,
+        "family": 704,
+        "abilities":
+        {
+            "0": "Gooey",
+            "1": "Sap Sipper",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Goodra",
+        "gender": 0.5,
+        "family": 704,
+        "abilities":
+        {
+            "0": "Gooey",
+            "1": "Sap Sipper",
+            "2": "Hydration"
+        }
+    },
+    {
+        "name": "Klefki",
+        "gender": 0.5,
+        "family": 707,
+        "abilities":
+        {
+            "0": "Magician",
+            "1": "Prankster"
+        }
+    },
+    {
+        "name": "Phantump",
+        "gender": 0.5,
+        "family": 708,
+        "abilities":
+        {
+            "0": "Harvest",
+            "1": "Natural Cure",
+            "2": "Frisk"
+        }
+    },
+    {
+        "name": "Trevenant",
+        "gender": 0.5,
+        "family": 708,
+        "abilities":
+        {
+            "0": "Harvest",
+            "1": "Natural Cure",
+            "2": "Frisk"
+        }
+    },
+    {
+        "name": "Pumpkaboo",
+        "gender": 0.5,
+        "family": 710,
+        "abilities":
+        {
+            "0": "Insomnia",
+            "1": "Pickup",
+            "2": "Frisk"
+        }
+    },
+    {
+        "name": "Gourgeist",
+        "gender": 0.5,
+        "family": 710,
+        "abilities":
+        {
+            "0": "Insomnia",
+            "1": "Pickup",
+            "2": "Frisk"
+        }
+    },
+    {
+        "name": "Bergmite",
+        "gender": 0.5,
+        "family": 712,
+        "abilities":
+        {
+            "0": "Sturdy",
+            "1": "Own Tempo",
+            "2": "Ice Body"
+        }
+    },
+    {
+        "name": "Avalugg",
+        "gender": 0.5,
+        "family": 712,
+        "abilities":
+        {
+            "0": "Sturdy",
+            "1": "Own Tempo",
+            "2": "Ice Body"
+        }
+    },
+    {
         "name": "Noibat",
         "gender": 0.5,
-        "family": "p714",
+        "family": 714,
         "abilities":
         {
             "0": "Telepathy",
@@ -1126,15 +4843,14 @@ var raw_pokedex = {
             "2": "Infiltrator"
         }
     },
-    "p715": {
+    {
         "name": "Noivern",
         "gender": 0.5,
-        "family": "p714",
+        "family": 714,
         "abilities":
         {
             "0": "Telepathy",
             "1": "Frisk",
             "2": "Infiltrator"
         }
-    }
-};
+    }];

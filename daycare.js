@@ -36,7 +36,6 @@ var goal_gender = "x";
 var goal_ability = 1;
 var two_regions = false;
 var shiny_charm = false;
-var pokedex = [];
 var breedable_pokedex = [];
 
 function round(value, decimals) {
@@ -529,7 +528,7 @@ function pushSpeciesChanges() {
     var goal_ability_block = "";
     var parent_ability_block = "";
     var this_species = parents[0].species;
-    var this_family = raw_pokedex[this_species.family];
+    var this_family = pokedex[this_species.family];
 
     if (this_family.gender === "x") {
         gender_block = "<option value='x'>None</option>";
@@ -625,12 +624,6 @@ function populatePokedex() {
         and updates species-menu with that list */
     var doc_species_menu = document.getElementsByName("species-menu")[0];
     var species_block = "<option value='0' selected>Select Species</option>";
-    for (var p in raw_pokedex) {
-        // first build an array so we can put them in order
-        var this_index = parseInt(p.substr(1));
-        var this_pokemon = raw_pokedex[p];
-        pokedex[this_index] = this_pokemon;
-    }
     for (var p of pokedex) {
         if (pokedex.indexOf(p) > 0 && !(p.breeds === "NO")) {
             var this_index = pokedex.indexOf(p);
