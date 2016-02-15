@@ -29,117 +29,118 @@
 
     <h2>Parents</h2> <!-- PARENTS' INFORMATION -->
 
-    <div class="parent section" id="parent-primary">
-        <h3>Primary Parent</h3>
+    <div class="parents section">
+        <div class="parent" id="parent-primary">
+            <h3>Primary Parent</h3>
 
-        <p>Species:
-            <select name="species-menu" class="species-menu"
-                id="species-menu" onchange="updateParent(0,'species')">
-                <option value="0" selected>Select Species</option>
-            </select>
-        </p>
+            <p>Species:
+                <select name="species-menu" class="species-menu"
+                    id="species-menu" onchange="updateParent(0,'species')">
+                    <option value="0" selected>Select Species</option>
+                </select>
+            </p>
 
-        <p>IVs:
-            <input type="checkbox" name="iv-hp" class="iv-box"
-                id="iv-00" onchange="updateParent(0, 'ivs')">
-            <label for="iv-00" class="lbox"></label>
-            <input type="checkbox" name="iv-atk" class="iv-box"
-                id="iv-01" onchange="updateParent(0, 'ivs')">
-            <label for="iv-01" class="lbox"></label>
-            <input type="checkbox" name="iv-def" class="iv-box"
-                id="iv-02" onchange="updateParent(0, 'ivs')">
-            <label for="iv-02" class="lbox"></label>
-            <input type="checkbox" name="iv-satk" class="iv-box"
-                id="iv-03" onchange="updateParent(0, 'ivs')">
-            <label for="iv-03" class="lbox"></label>
-            <input type="checkbox" name="iv-sdef" class="iv-box"
-                id="iv-04" onchange="updateParent(0, 'ivs')">
-            <label for="iv-04" class="lbox"></label>
-            <input type="checkbox" name="iv-spe" class="iv-box"
-                id="iv-05" onchange="updateParent(0, 'ivs')">
-            <label for="iv-05" class="lbox"></label>
-            <a href="#help-ivs" class="helper">?</a>
-        </p>
+            <p>IVs:
+                <input type="checkbox" name="iv-hp" class="iv-box"
+                    id="iv-00" onchange="updateParent(0, 'ivs')">
+                <label for="iv-00" class="lbox"></label>
+                <input type="checkbox" name="iv-atk" class="iv-box"
+                    id="iv-01" onchange="updateParent(0, 'ivs')">
+                <label for="iv-01" class="lbox"></label>
+                <input type="checkbox" name="iv-def" class="iv-box"
+                    id="iv-02" onchange="updateParent(0, 'ivs')">
+                <label for="iv-02" class="lbox"></label>
+                <input type="checkbox" name="iv-satk" class="iv-box"
+                    id="iv-03" onchange="updateParent(0, 'ivs')">
+                <label for="iv-03" class="lbox"></label>
+                <input type="checkbox" name="iv-sdef" class="iv-box"
+                    id="iv-04" onchange="updateParent(0, 'ivs')">
+                <label for="iv-04" class="lbox"></label>
+                <input type="checkbox" name="iv-spe" class="iv-box"
+                    id="iv-05" onchange="updateParent(0, 'ivs')">
+                <label for="iv-05" class="lbox"></label>
+                <a href="#help-ivs" class="helper">?</a>
+            </p>
 
-        <label>Held Item:
-            <select name="held-item" class="held-item-menu"
-                onchange="updateParent(0, 'item')">
-                <option value="none">None</option>
-                <option value="everstone">Everstone</option>
-                <option value="destiny-knot">Destiny Knot</option>
-                <option value="power-0">Power Weight</option>
-                <option value="power-1">Power Bracer</option>
-                <option value="power-2">Power Belt</option>
-                <option value="power-3">Power Lens</option>
-                <option value="power-4">Power Band</option>
-                <option value="power-5">Power Anklet</option>
-            </select>
-        </label>
+            <label>Held Item:
+                <select name="held-item" class="held-item-menu"
+                    onchange="updateParent(0, 'item')">
+                    <option value="none">None</option>
+                    <option value="everstone">Everstone</option>
+                    <option value="destiny-knot">Destiny Knot</option>
+                    <option value="power-0">Power Weight</option>
+                    <option value="power-1">Power Bracer</option>
+                    <option value="power-2">Power Belt</option>
+                    <option value="power-3">Power Lens</option>
+                    <option value="power-4">Power Band</option>
+                    <option value="power-5">Power Anklet</option>
+                </select>
+            </label>
 
-        <input type="checkbox" name="nature" class="nature-box cbox"
-            id="nature-0" onchange="updateParent(0, 'nature')">
-        <label for="nature-0">
-            Has desired nature
-            <a href="#help-nature" class="helper">?</a>
-        </label>
+            <input type="checkbox" name="nature" class="nature-box cbox"
+                id="nature-0" onchange="updateParent(0, 'nature')">
+            <label for="nature-0">
+                Has desired nature
+                <a href="#help-nature" class="helper">?</a>
+            </label>
 
-        <label>Ability:
-            <select name="ability" class="ability-menu"
-                onchange="updateParent(0, 'ability')">
-                <option value="0">Hidden Ability</option>
-                <option value="1" selected>Regular Ability 1</option>
-                <option value="2">Regular Ability 2</option>
-            </select>
-            <a href="#help-ability" class="helper">?</a>
-        </label>
-
-    </div>
-    <div class="parent section" id="parent-secondary">
+            <label>Ability:
+                <select name="ability" class="ability-menu"
+                    onchange="updateParent(0, 'ability')">
+                    <option value="0">Hidden Ability</option>
+                    <option value="1" selected>Regular Ability 1</option>
+                    <option value="2">Regular Ability 2</option>
+                </select>
+                <a href="#help-ability" class="helper">?</a>
+            </label>
+        </div>
+        <div class="parent" id="parent-secondary">
         <h3>Secondary Parent</h3>
 
-        <p>IVs:
-            <input type="checkbox" name="iv-hp" class="iv-box"
-                id="iv-10" onchange="updateParent(1, 'ivs')">
-            <label for="iv-10" class="lbox"></label>
-            <input type="checkbox" name="iv-atk" class="iv-box"
-                id="iv-11" onchange="updateParent(1, 'ivs')">
-            <label for="iv-11" class="lbox"></label>
-            <input type="checkbox" name="iv-def" class="iv-box"
-                id="iv-12" onchange="updateParent(1, 'ivs')">
-            <label for="iv-12" class="lbox"></label>
-            <input type="checkbox" name="iv-satk" class="iv-box"
-                id="iv-13" onchange="updateParent(1, 'ivs')">
-            <label for="iv-13" class="lbox"></label>
-            <input type="checkbox" name="iv-sdef" class="iv-box"
-                id="iv-14" onchange="updateParent(1, 'ivs')">
-            <label for="iv-14" class="lbox"></label>
-            <input type="checkbox" name="iv-spe" class="iv-box"
-                id="iv-15" onchange="updateParent(1, 'ivs')">
-            <label for="iv-15" class="lbox"></label>
-            <a href="#help-ivs" class="helper">?</a>
-        </p>
+            <p>IVs:
+                <input type="checkbox" name="iv-hp" class="iv-box"
+                    id="iv-10" onchange="updateParent(1, 'ivs')">
+                <label for="iv-10" class="lbox"></label>
+                <input type="checkbox" name="iv-atk" class="iv-box"
+                    id="iv-11" onchange="updateParent(1, 'ivs')">
+                <label for="iv-11" class="lbox"></label>
+                <input type="checkbox" name="iv-def" class="iv-box"
+                    id="iv-12" onchange="updateParent(1, 'ivs')">
+                <label for="iv-12" class="lbox"></label>
+                <input type="checkbox" name="iv-satk" class="iv-box"
+                    id="iv-13" onchange="updateParent(1, 'ivs')">
+                <label for="iv-13" class="lbox"></label>
+                <input type="checkbox" name="iv-sdef" class="iv-box"
+                    id="iv-14" onchange="updateParent(1, 'ivs')">
+                <label for="iv-14" class="lbox"></label>
+                <input type="checkbox" name="iv-spe" class="iv-box"
+                    id="iv-15" onchange="updateParent(1, 'ivs')">
+                <label for="iv-15" class="lbox"></label>
+                <a href="#help-ivs" class="helper">?</a>
+            </p>
 
-        <label>Held Item:
-            <select name="held-item" class="held-item-menu"
-                onchange="updateParent(1, 'item')">
-                <option value="none">None</option>
-                <option value="everstone">Everstone</option>
-                <option value="destiny-knot">Destiny Knot</option>
-                <option value="power-0">Power Weight</option>
-                <option value="power-1">Power Bracer</option>
-                <option value="power-2">Power Belt</option>
-                <option value="power-3">Power Lens</option>
-                <option value="power-4">Power Band</option>
-                <option value="power-5">Power Anklet</option>
-            </select>
-        </label>
+            <label>Held Item:
+                <select name="held-item" class="held-item-menu"
+                    onchange="updateParent(1, 'item')">
+                    <option value="none">None</option>
+                    <option value="everstone">Everstone</option>
+                    <option value="destiny-knot">Destiny Knot</option>
+                    <option value="power-0">Power Weight</option>
+                    <option value="power-1">Power Bracer</option>
+                    <option value="power-2">Power Belt</option>
+                    <option value="power-3">Power Lens</option>
+                    <option value="power-4">Power Band</option>
+                    <option value="power-5">Power Anklet</option>
+                </select>
+            </label>
 
-        <input type="checkbox" name="nature" class="nature-box cbox"
-            id="nature-1" onchange="updateParent(1, 'nature')">
-        <label for="nature-1">
-            Has desired nature
-            <a href="#help-nature" class="helper">?</a>
-        </label>
+            <input type="checkbox" name="nature" class="nature-box cbox"
+                id="nature-1" onchange="updateParent(1, 'nature')">
+            <label for="nature-1">
+                Has desired nature
+                <a href="#help-nature" class="helper">?</a>
+            </label>
+        </div>
     </div>
 
     <h2>Desired Results</h2> <!-- USER'S DESIRED RESULTS SECTION -->

@@ -50,13 +50,8 @@ a.helper {
 }
 
 .parent {
-    display: inline-block;
-    width: 250px;
+    clear: both;
     margin: auto 0px;
-}
-
-#parent-secondary {
-    margin-left: 10px;
 }
 
 .iv-box, .cbox {
@@ -105,7 +100,7 @@ label::before {
     border-color: #6a4940;
 }
 
-.parent.section .lbox, .cbox + label::before, .goals .iv-box + label {
+.section .parent .lbox, .cbox + label::before, .goals .iv-box + label {
     margin-bottom: -3.5pt;
 }
 

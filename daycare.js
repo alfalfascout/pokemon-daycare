@@ -1,7 +1,15 @@
 /* For the parents[], think of false as "the pokemon doesn't have
 the value the user wants in this stat". true means "has" or "is perfect" */
 var parent0 = {
-    "species": 0,
+    "species": {
+        "name": "Pokemon",
+        "gender": 0.5,
+        "family": 0,
+        "abilities": {
+            "0": "Hidden",
+            "1": "Regular",
+            "2": "Regular"
+        }},
     "ivs": [false,false,false,false,false,false],
     "item": "",
     "nature": false,
@@ -30,13 +38,15 @@ var manual = {
     "nature": false,
     "ability": false
 };
+/* This pokedex is populated when the program loads */
+var breedable_pokedex = [];
 /* The rest of these globals are set by the user in the goals section. */
 var goal_ivs = [false,false,false,false,false,false];
 var goal_gender = "x";
 var goal_ability = 1;
 var two_regions = false;
 var shiny_charm = false;
-var breedable_pokedex = [];
+
 
 function round(value, decimals) {
     /* Rounds a float to specified decimal places */
@@ -275,129 +285,6 @@ function compareIVs(wanted_ivs, possible_ivs) {
 }
 
 
-function pushResults(total_pbty, pbtys) {
-    /*  Updates the doc's results section with a breakdown of the
-        probabilities, e.g. of hatching a shiny egg with perfect ivs */
-    var doc_results = document.getElementById("results");
-    var result_block = "<h3>Overall Result</h3>\n\n <p><b>" +
-        "The chance of you hatching your desired pok&eacute;mon is " +
-        round(total_pbty * 100, 4) + "%!</b> ";
-
-    result_block += "If you were to hatch 10 eggs, the chance would be ~" +
-        round(pbtyX(total_pbty, 10) * 100, 4) +
-        "%. If you were to hatch 50, the chance would be ~" +
-        round(pbtyX(total_pbty, 50) * 100, 4) + "%.</p>\n\n";
-
-    result_block += "<h3>Breakdown</h3>\n\n";
-
-    if (desired.ivs) {
-        result_block += "<p><b>IVs:</b> The chance of you hatching a " +
-            "pok&eacute;mon with your desired IVs is " +
-            round(pbtys["ivs"] * 100, 4) + "%.</p>\n\n";
-    }
-
-    if (desired.shiny) {
-        result_block += "<p><b>Shiny:</b> The chance of you hatching a " +
-            "shiny pok&eacute;mon is " +
-            round(pbtys["shiny"] * 100, 4) + "%.</p>\n\n";
-    }
-
-    if (desired.nature) {
-        result_block += "<p><b>Nature:</b> The chance of you hatching a " +
-            "pok&eacute;mon with your desired nature is " +
-            round(pbtys["nature"] * 100, 4) + "%.</p>\n\n";
-    }
-
-    if (desired.ability) {
-        result_block += "<p><b>Ability:</b> The chance of you hatching a " +
-            "pok&eacute;mon with your desired ability is " +
-            round(pbtys["ability"] * 100, 4) + "%.</p>\n\n";
-    }
-
-    if (desired.gender) {
-        result_block += "<p><b>Gender:</b> The chance of you hatching a " +
-            "pok&eacute;mon with your desired gender is " +
-            round(pbtys["gender"] * 100, 4) + "%.</p>\n\n";
-    }
-
-    doc_results.innerHTML = result_block;
-}
-
-
-function calculateResults() {
-    /*  Determines the likelihood of hatching an egg with the desired
-        iv, nature, etc. as the user's goals, based on the parents' stats. */
-    var total_pbty = 1.0;
-    var pbtys = [];
-    if (desired.ivs) {
-        var iv_pbty = 1.0;
-        iv_spreads = generateIVs();
-        iv_pbty = compareIVs(goal_ivs.slice(), iv_spreads);
-        total_pbty *= iv_pbty;
-        pbtys["ivs"] = iv_pbty;
-    }
-
-    if (desired.shiny) {
-        var shiny_pbty = 1.0 / 8192.0;
-        if (two_regions && shiny_charm) {
-            shiny_pbty = 1.0 / 512.0;
-        }
-        else if (shiny_charm) {
-            shiny_pbty = 3.0 / 8192.0;
-        }
-        else if (two_regions) {
-            shiny_pbty = 5.0 / 8192.0;
-        }
-        total_pbty *= shiny_pbty;
-        pbtys["shiny"] = shiny_pbty;
-    }
-
-    if (desired.nature) {
-        var nature_pbty = 1.0;
-        if (!((parents[0].item === "everstone" && parents[0].nature) ||
-                (parents[1].item === "everstone" && parents[1].nature))) {
-            nature_pbty = 1.0 / 25.0;
-        }
-        total_pbty *= nature_pbty;
-        pbtys["nature"] = nature_pbty;
-    }
-
-    if (desired.ability) {
-        var ability_pbty = 1.0; // 100% base chance
-        if (parents[0].species.abilities[2]) {
-            // if more than one regular ability possible, 50% base chance
-            ability_pbty = 0.5;
-        }
-        if (goal_ability === 0) {
-            // if goal is hidden ability, 0% base chance
-            ability_pbty = 0.0;
-        }
-        if (parents[0].ability === goal_ability) {
-            // if primary parent has ability, 60% likely to inherit
-            ability_pbty = 0.6 + (0.4 * ability_pbty);
-        }
-        else {
-            // if primary parent doesn't, 60% not likely ???
-            ability_pbty = 0.4 * ability_pbty;
-        }
-        total_pbty *= ability_pbty;
-        pbtys["ability"] = ability_pbty;
-    }
-
-    if (desired.gender) {
-        var gender_pbty = 1.0;
-        if (goal_gender != "x") {
-            gender_pbty = parents[0].species.gender;
-            if (goal_gender === "m") {
-                gender_pbty = 1 - gender_pbty;
-            }
-        }
-        total_pbty *= gender_pbty;
-        pbtys["gender"] = gender_pbty;
-    }
-    pushResults(total_pbty, pbtys);
-}
-
 function pushGoals(part) {
     /*  Called by updateGoals(). Pushes changes from the indented options
         (ivs, shiny probability aids, ability choices) to check the
@@ -420,6 +307,7 @@ function pushGoals(part) {
         doc_part.checked = desired[part];
     }
 }
+
 
 function updateGoals(part, push_from_parents, unchecking) {
     /*  If the user specifies stats from the parents (ivs, nature, etc.),
@@ -502,6 +390,7 @@ function updateGoals(part, push_from_parents, unchecking) {
     }
 }
 
+
 function updateOrUncheck(part) {
     /*  Called from the goals section. Determines whether the element changed
         has just been unchecked, and calls updateGoals accordingly. */
@@ -516,6 +405,7 @@ function updateOrUncheck(part) {
         updateGoals(part);
     }
 }
+
 
 function pushSpeciesChanges() {
     /*  Called when the user sets a species. Changes ability & gender menus
@@ -574,6 +464,7 @@ function pushSpeciesChanges() {
     goal_ability = parseInt(doc_goal_abilities.value);
 }
 
+
 function updateParent(pn, part) {
     /* Translates the webpage's parent information into
         variables local to the javascript program,
@@ -619,6 +510,136 @@ function updateParent(pn, part) {
     }
 }
 
+
+function pushResults(total_pbty, pbtys) {
+    /*  Updates the doc's results section with a breakdown of the
+        probabilities, e.g. of hatching a shiny egg with perfect ivs */
+    var doc_results = document.getElementById("results");
+    var result_block = "<h3>Overall Result</h3>\n\n <p><b>" +
+        "The chance of you hatching your desired pok&eacute;mon is " +
+        round(total_pbty * 100, 4) + "%!</b> ";
+
+    result_block += "If you were to hatch 10 eggs, the chance would be ~" +
+        round(pbtyX(total_pbty, 10) * 100, 4) +
+        "%. If you were to hatch 50, the chance would be ~" +
+        round(pbtyX(total_pbty, 50) * 100, 4) + "%.</p>\n\n";
+
+    result_block += "<h3>Breakdown</h3>\n\n";
+
+    if (desired.ivs) {
+        result_block += "<p><b>IVs:</b> The chance of you hatching a " +
+            "pok&eacute;mon with your desired IVs is " +
+            round(pbtys["ivs"] * 100, 4) + "%.</p>\n\n";
+    }
+
+    if (desired.shiny) {
+        result_block += "<p><b>Shiny:</b> The chance of you hatching a " +
+            "shiny pok&eacute;mon is " +
+            round(pbtys["shiny"] * 100, 4) + "%.</p>\n\n";
+    }
+
+    if (desired.nature) {
+        result_block += "<p><b>Nature:</b> The chance of you hatching a " +
+            "pok&eacute;mon with your desired nature is " +
+            round(pbtys["nature"] * 100, 4) + "%.</p>\n\n";
+    }
+
+    if (desired.ability) {
+        result_block += "<p><b>Ability:</b> The chance of you hatching a " +
+            "pok&eacute;mon with your desired ability is " +
+            round(pbtys["ability"] * 100, 4) + "%.</p>\n\n";
+    }
+
+    if (desired.gender) {
+        result_block += "<p><b>Gender:</b> The chance of you hatching a " +
+            "pok&eacute;mon with your desired gender is " +
+            round(pbtys["gender"] * 100, 4) + "%.</p>\n\n";
+    }
+
+    doc_results.innerHTML = result_block;
+    doc_button = document.getElementsByName("goal-calculate")[0];
+    doc_button.innerHTML = "Calculate!";
+}
+
+
+function calculateResults() {
+    /*  Determines the likelihood of hatching an egg with the desired
+        iv, nature, etc. as the user's goals, based on the parents' stats. */
+    doc_button = document.getElementsByName("goal-calculate")[0];
+    doc_button.innerHTML = "Calculating...";
+
+    var total_pbty = 1.0;
+    var pbtys = [];
+    if (desired.ivs) {
+        var iv_pbty = 1.0;
+        iv_spreads = generateIVs();
+        iv_pbty = compareIVs(goal_ivs.slice(), iv_spreads);
+        total_pbty *= iv_pbty;
+        pbtys["ivs"] = iv_pbty;
+    }
+
+    if (desired.shiny) {
+        var shiny_pbty = 1.0 / 8192.0;
+        if (two_regions && shiny_charm) {
+            shiny_pbty = 1.0 / 512.0;
+        }
+        else if (shiny_charm) {
+            shiny_pbty = 3.0 / 8192.0;
+        }
+        else if (two_regions) {
+            shiny_pbty = 5.0 / 8192.0;
+        }
+        total_pbty *= shiny_pbty;
+        pbtys["shiny"] = shiny_pbty;
+    }
+
+    if (desired.nature) {
+        var nature_pbty = 1.0;
+        if (!((parents[0].item === "everstone" && parents[0].nature) ||
+                (parents[1].item === "everstone" && parents[1].nature))) {
+            nature_pbty = 1.0 / 25.0;
+        }
+        total_pbty *= nature_pbty;
+        pbtys["nature"] = nature_pbty;
+    }
+
+    if (desired.ability) {
+        var ability_pbty = 1.0; // 100% base chance
+        if (parents[0].species.abilities[2]) {
+            // if more than one regular ability possible, 50% base chance
+            ability_pbty = 0.5;
+        }
+        if (goal_ability === 0) {
+            // if goal is hidden ability, 0% base chance
+            ability_pbty = 0.0;
+        }
+        if (parents[0].ability === goal_ability) {
+            // if primary parent has ability, 60% likely to inherit
+            ability_pbty = 0.6 + (0.4 * ability_pbty);
+        }
+        else {
+            // if primary parent doesn't, 60% not likely ???
+            ability_pbty = 0.4 * ability_pbty;
+        }
+        total_pbty *= ability_pbty;
+        pbtys["ability"] = ability_pbty;
+    }
+
+    if (desired.gender) {
+        var gender_pbty = 1.0;
+        if (goal_gender != "x") {
+            gender_pbty = parents[0].species.gender;
+            if (goal_gender === "m") {
+                gender_pbty = 1 - gender_pbty;
+            }
+        }
+        total_pbty *= gender_pbty;
+        pbtys["gender"] = gender_pbty;
+    }
+    pushResults(total_pbty, pbtys);
+}
+
+
 function populatePokedex() {
     /*  Gets every breedable pokemon species from pokedex.js
         and updates species-menu with that list */
@@ -635,9 +656,11 @@ function populatePokedex() {
     doc_species_menu.innerHTML = species_block;
 }
 
+
 function matchFields(part) {
     /*  TODO: Autocompletes the menu with full or partial matches
         from the text field. So far, only necessary for species. */
 }
+
 
 populatePokedex();
