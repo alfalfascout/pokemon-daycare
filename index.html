@@ -34,6 +34,10 @@
             <h3>Primary Parent</h3>
 
             <p>Species:
+                <input type="text" name="species-text" class="species-text"
+                    id="species-text" onkeydown="setTimeout(function()
+                        {matchFields('species');}, 50)"
+                    onchange="matchFields('species')">
                 <select name="species-menu" class="species-menu"
                     id="species-menu" onchange="updateParent(0,'species')">
                     <option value="0" selected>Select Species</option>
