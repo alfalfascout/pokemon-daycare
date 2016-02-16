@@ -675,6 +675,7 @@ function matchFields(part) {
             }
         }
     doc_species.value = best_match_data;
+    updateParent(0, "species");
     }
 }
 
