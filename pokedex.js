@@ -1400,7 +1400,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Hydration",
-            "1": "Water Absorb"
+            "1": "Water Absorb",
+            "2": "Water Absorb"
         }
     },
     {
@@ -1410,7 +1411,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Quick Feet",
-            "1": "Volt Absorb"
+            "1": "Volt Absorb",
+            "2": "Volt Absorb"
         }
     },
     {
@@ -1420,7 +1422,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Guts",
-            "1": "Flash Fire"
+            "1": "Flash Fire",
+            "2": "Flash Fire"
         }
     },
     {
@@ -2010,7 +2013,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Magic Bounce",
-            "1": "Synchronize"
+            "1": "Synchronize",
+            "2": "Synchronize"
         }
     },
     {
@@ -2020,7 +2024,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Inner Focus",
-            "1": "Synchronize"
+            "1": "Synchronize",
+            "2": "Synchronize"
         }
     },
     {
@@ -4481,7 +4486,6 @@ var pokedex = [
         "name": "Lucario",
         "gender": 0.125,
         "family": 447,
-        "breeds": "NO",
         "abilities":
         {
             "0": "Justified",
@@ -4623,7 +4627,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Pickpocket",
-            "1": "Pressure"
+            "1": "Pressure",
+            "2": "Pressure"
         }
     },
     {
@@ -4719,7 +4724,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Chlorophyll",
-            "1": "Leaf Guard"
+            "1": "Leaf Guard",
+            "2": "Leaf Guard"
         }
     },
     {
@@ -4729,7 +4735,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Ice Body",
-            "1": "Snow Cloak"
+            "1": "Snow Cloak",
+            "2": "Snow Cloak"
         }
     },
     {
@@ -4772,7 +4779,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Justified",
-            "1": "Steadfast"
+            "1": "Steadfast",
+            "2": "Steadfast"
         }
     },
     {
@@ -6509,7 +6517,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Friend Guard",
-            "1": "Shed Skin"
+            "1": "Shed Skin",
+            "2": "Shed Skin"
         }
     },
     {
@@ -6868,7 +6877,8 @@ var pokedex = [
         "abilities":
         {
             "0": "Pixilate",
-            "1": "Cute Charm"
+            "1": "Cute Charm",
+            "2": "Cute Charm"
         }
     },
     {
