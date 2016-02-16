@@ -650,7 +650,7 @@ function populatePokedex() {
             var this_index = pokedex.indexOf(p);
             species_block += "<option value='" + this_index.toString() +
                 "'>" + p.name + " (" + this_index.toString() + ")</option>";
-            breedable_pokedex[this_index] = p;
+            breedable_pokedex[this_index] = p.name;
         }
     }
     doc_species_menu.innerHTML = species_block;
@@ -660,6 +660,22 @@ function populatePokedex() {
 function matchFields(part) {
     /*  TODO: Autocompletes the menu with full or partial matches
         from the text field. So far, only necessary for species. */
+    if (part === "species") {
+        var user_input =
+            document.getElementById("species-text").value.toLowerCase();
+        var doc_species = document.getElementById("species-menu");
+        var best_match = 100;
+        var best_match_data = 0;
+        for (var p in breedable_pokedex) {
+            var this_match =
+                breedable_pokedex[p].toLowerCase().indexOf(user_input);
+            if ((this_match != -1) && (this_match < best_match)) {
+                best_match = this_match;
+                best_match_data = p;
+            }
+        }
+    doc_species.value = best_match_data;
+    }
 }
 
 
