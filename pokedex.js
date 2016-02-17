@@ -3175,7 +3175,7 @@ var pokedex = [
     },
     {
         "name": "Volbeat",
-        "gender": 0.0,
+        "gender": 0.5,
         "family": 313,
         "abilities":
         {
@@ -3186,7 +3186,7 @@ var pokedex = [
     },
     {
         "name": "Illumise",
-        "gender": 1.0,
+        "gender": 0.5,
         "family": 314,
         "abilities":
         {
