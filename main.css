@@ -123,3 +123,7 @@ label {
 .section .indented {
     margin-left: 16pt;
 }
+
+#species-menu {
+    min-width: 154px;
+}
