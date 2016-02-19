@@ -644,16 +644,17 @@ function populatePokedex() {
     /*  Gets every breedable pokemon species from pokedex.js
         and updates species-menu with that list */
     var doc_species_menu = document.getElementsByName("species-menu")[0];
-    var species_block = "<option value='0' selected>Select Species</option>";
+    doc_species_menu.innerHTML =
+        "<option value='0' selected>Select Species</option>";
     for (var p of pokedex) {
         if (pokedex.indexOf(p) > 0 && !(p.breeds === "NO")) {
             var this_index = pokedex.indexOf(p);
-            species_block += "<option value='" + this_index.toString() +
-                "'>" + p.name + " (" + this_index.toString() + ")</option>";
-            breedable_pokedex[this_index] = p.name;
+            doc_species_menu.innerHTML += "<option value='" +
+                this_index.toString() + "'>" +
+                this_index.toString() + ": " + p.name + "</option>";
+            breedable_pokedex[this_index] = this_index.toString() + p.name;
         }
     }
-    doc_species_menu.innerHTML = species_block;
 }
 
 
