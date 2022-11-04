@@ -556,6 +556,8 @@ function pushResults(total_pbty, pbtys) {
             round(pbtys["gender"] * 100, 4) + "%.</p>\n\n";
     }
 
+    result_block += "<button name='refresh' onclick='location.reload();'>Start Over</button>";
+
     doc_results.innerHTML = result_block;
     doc_button = document.getElementsByName("goal-calculate")[0];
     doc_button.innerHTML = "Calculate!";

@@ -31,7 +31,7 @@
 
     <div class="parents section">
         <div class="parent" id="parent-primary">
-            <h3>Primary Parent</h3>
+            <h3>Primary Parent (Female/non Ditto)</h3>
 
             <p>Species:
                 <input type="text" name="species-text" class="species-text"
@@ -99,7 +99,7 @@
             </label>
         </div>
         <div class="parent" id="parent-secondary">
-        <h3>Secondary Parent</h3>
+        <h3>Secondary Parent (Male/Ditto)</h3>
 
             <p>IVs:
                 <input type="checkbox" name="iv-hp" class="iv-box"
@@ -238,6 +238,10 @@
         <button name="goal-calculate" onclick="calculateResults()">
             Calculate!
         </button>
+        <button name="refresh" onclick='location.reload();'>
+            Clear
+        </button>
+        <!-- <input type='button' onclick='location.reload();' value='Refresh Page' /> -->
     </div>
 
     <h2>Results</h2> <!-- CALCULATED RESULTS SECTION -->
@@ -299,7 +303,9 @@
         <h3 id="help-ability">How do I breed for a specific ability?</h3>
         <p>
             If your primary parent pok&eacute;mon has that ability, they have
-            a 60% chance of passing it on to their eggs. Eggs also have a
+            a 80% chance of passing it on to their eggs. However, if the 
+            primary parnet has a hidden ability, there is only a 60% 
+            chance that it gets passed down. Eggs also have a
             chance of hatching with any of the pok&eacute;mon's regular
             abilities. If you want to breed for a hidden ability, the primary
             parent must have the hidden ability,
