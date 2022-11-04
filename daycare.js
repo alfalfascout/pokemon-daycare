@@ -178,6 +178,8 @@ function generateIVs() {
         given the parents' IVs and held items.
         Could return as many as 5 million or as few as 192 IV spreads */
     // iv_spreads are all the possible spreads
+    //other 3/1 element(s) are left out of chosen_ivs because they are random
+    //if element in array in onespread is 0, then it is randomized
     var iv_spreads = [];
     // chosen_ivs are what the egg could inherit
     var chosen_ivs = [
@@ -255,7 +257,7 @@ function generateIVs() {
             }
             else {
                 // if neither have the stat's item or a perfect iv
-                one_spread[chosen_ivs[j][k]] = [10, 20];
+                one_spread[chosen_ivs[j][k]] = 10;
             }
         }
         iv_spreads = splitIVs(one_spread.slice(), chosen_ivs[j], iv_spreads);
