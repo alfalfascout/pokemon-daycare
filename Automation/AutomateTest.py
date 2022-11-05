@@ -130,7 +130,8 @@ while True:
 
   if percentage_1 != percentage_2:
     with open(r'C:\Users\Noah\Desktop\pokemon-daycare\Automation\log.txt', 'a') as f:
-      f.write('ERROR ' + str(ErrorCount) + ": Parent 1 IV's: " + str(p1) + 
+      f.write('ERROR ' + str(ErrorCount) + 
+      ":\nParent 1 IV's: " + str(p1) + 
       "\nParent 2 IV's: " + str(p2) + 
       "\nDesired IV's: " + str(desired) + 
       "\nPercentage for Daycare: " + str(percentage_1) + " Percentage for other site: " + str(percentage_2) + "\n\n")

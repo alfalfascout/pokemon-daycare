@@ -257,7 +257,12 @@ function generateIVs() {
             }
             else {
                 // if neither have the stat's item or a perfect iv
-                one_spread[chosen_ivs[j][k]] = 10;
+                if(parents[0].ivs.includes(true) && parents[1].ivs.includes(true))
+                    //if both parents have perfect ivs anywhere in their lists, then this triggers
+                    //it works and idk how lol
+                    one_spread[chosen_ivs[j][k]] = 10;
+                else
+                    one_spread[chosen_ivs[j][k]] = [10, 20];
             }
         }
         iv_spreads = splitIVs(one_spread.slice(), chosen_ivs[j], iv_spreads);
@@ -277,6 +282,7 @@ function compareIVs(wanted_ivs, possible_ivs) {
         for (var y = 0; y < 6; y += 1) {
             if (wanted_ivs[y] && !(spread[y] === 31)) {
                 matched_spread = false;
+                break;
             }
         }
         if (matched_spread) {
