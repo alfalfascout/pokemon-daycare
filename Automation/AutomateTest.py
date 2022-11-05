@@ -14,8 +14,8 @@ ErrorCount = 1
 cprint = 1
 
 #chromedriver.exe in \pokemon-daycare\Atomation\chromedriver.exe
-driverpath = ''
-site1 = 'http://alfalfascout.github.io/pokemon-daycare/'
+driverpath = r''
+site1 = ''
 site2 = 'https://mkwrs.com/destiny_knot/'
 
 driver = webdriver.Chrome(driverpath)
@@ -30,17 +30,17 @@ select = Select(driver.find_element("name", "held-item"))
 select.select_by_value('destiny-knot')
 
 #Daycare IV locations
-p1IV = ['/html/body/div/div[2]/div[1]/p[2]/label[1]', '/html/body/div/div[2]/div[1]/p[2]/label[2]', 
-        '/html/body/div/div[2]/div[1]/p[2]/label[3]', '/html/body/div/div[2]/div[1]/p[2]/label[4]', 
-        '/html/body/div/div[2]/div[1]/p[2]/label[5]', '/html/body/div/div[2]/div[1]/p[2]/label[6]'] 
+p1IV = ['/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[2]/label', '/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[3]/label', 
+        '/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[4]/label', '/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[5]/label', 
+        '/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[6]/label', '/html/body/div/div[2]/div[1]/table/tbody/tr[2]/td[7]/label'] 
 
-p2IV = ['/html/body/div/div[2]/div[2]/p/label[1]', '/html/body/div/div[2]/div[2]/p/label[2]', 
-        '/html/body/div/div[2]/div[2]/p/label[3]', '/html/body/div/div[2]/div[2]/p/label[4]', 
-        '/html/body/div/div[2]/div[2]/p/label[5]', '/html/body/div/div[2]/div[2]/p/label[6]'] 
+p2IV = ['/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[2]/label', '/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[3]/label', 
+        '/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[4]/label', '/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[5]/label', 
+        '/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[6]/label', '/html/body/div/div[2]/div[2]/table/tbody/tr[2]/td[7]/label'] 
 
-desiredIV = ['/html/body/div/div[3]/span/label[1]', '/html/body/div/div[3]/span/label[2]',
-            '/html/body/div/div[3]/span/label[3]', '/html/body/div/div[3]/span/label[4]', 
-            '/html/body/div/div[3]/span/label[5]', '/html/body/div/div[3]/span/label[6]']
+desiredIV = ['/html/body/div/div[3]/span/table/tbody/tr[2]/td[1]/label', '/html/body/div/div[3]/span/table/tbody/tr[2]/td[2]/label',
+             '/html/body/div/div[3]/span/table/tbody/tr[2]/td[3]/label', '/html/body/div/div[3]/span/table/tbody/tr[2]/td[4]/label', 
+             '/html/body/div/div[3]/span/table/tbody/tr[2]/td[5]/label', '/html/body/div/div[3]/span/table/tbody/tr[2]/td[6]/label']
 
 #Compare site IV locations
 p1IV2 = ['/html/body/form/table[1]/tbody/tr[2]/td[2]/input', '/html/body/form/table[1]/tbody/tr[2]/td[3]/input', 
