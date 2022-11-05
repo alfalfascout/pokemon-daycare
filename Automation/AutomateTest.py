@@ -61,9 +61,15 @@ while True:
   desired = combinations[clist][12:18]
 
   #Used to see if combination is impossible. If it is, then skip
+  #This brings down number combinations to run from ~260,00 to ~212,000
+  #It takes 6 days to run all combinations
+  #It takes 5 days to run all combinations that aren't impossible
+  #This whole block can be commented out to run tests on zero percents
+
   tcount = 0
   count = 0
   while count < 6:
+    #Found that if there are two more desired perfect IV stats than the two parents, then it is impossible
     if p1[count] == True or p2[count] == True:
       if desired[count] == True:
         tcount+=1
@@ -75,14 +81,18 @@ while True:
 
   count = 0
   for x in desired:
+    #Found that if neither of the parents' perfect IVs align with any of the desired IV's, then it is impossible
     if x == True:
       if p1[count] == True or p2[count] == True:
         break
     count+=1
 
   if count == 6:
-    clist+=1
-    continue
+    if tcount != desired.count(True):
+      clist+=1
+      continue
+
+  #Combination filter ends here
 
   #rgba(101, 149, 78, 1) is True color
 
@@ -157,7 +167,7 @@ while True:
   percentage_2 = float(percentage[0])
   print(percentage_2)
 
-  if percentage_1 != percentage_2 or percentage_1 == 0 or percentage_2 == 0:
+  if percentage_1 != percentage_2:
     with open(r'C:\Users\Noah\Desktop\pokemon-daycare\Automation\log.txt', 'a') as f:
       f.write('ERROR ' + str(ErrorCount) + 
       ":\nParent 1 IV's: " + str(p1) + 
