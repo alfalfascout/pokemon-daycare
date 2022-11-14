@@ -1,0 +1,18 @@
+In order to run test, these things need to be installed:
+
+Latest version of python. Link: https://www.python.org/downloads/
+
+IMPORTANT: Make sure to add Python to PATH when asked in install
+
+Install an IDE/text editor. I prefer VScode
+
+After Python is installed, open up command prompt and type these commands:
+pip install selenium
+---Wait until finished---
+pip install chromedriver_autoinstaller
+
+When installs are complete, open AutomateTest.py in an IDE and edit the site1 variable
+on line 25. Copy the path of index.html in the repo file and paste it into site1.
+Or you can paste the actual URl of the website which is http://alfalfascout.github.io/pokemon-daycare/
+
+After this, run the code. All errors will be reported to the log.txt file
