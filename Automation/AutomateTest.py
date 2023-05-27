@@ -15,7 +15,7 @@ cprint = 1
 
 #chromedriver.exe in \pokemon-daycare\Atomation\chromedriver.exe
 driverpath = r''
-site1 = ''
+site1 = 'https://inoahguy02.github.io/pokemon-daycare/'
 site2 = 'https://mkwrs.com/destiny_knot/'
 
 driver = webdriver.Chrome(driverpath)
