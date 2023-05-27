@@ -2,9 +2,15 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
 from itertools import product
+from os import path
 import re
 import time
+
+#Add path of 'index.html' inside of the quotes
+site1 = r''
+site2 = 'https://mkwrs.com/destiny_knot/'
 
 l = [False, True]
 combinations = list(product(l, repeat=18))
@@ -13,16 +19,25 @@ clist = 0
 ErrorCount = 1
 cprint = 1
 
+<<<<<<< HEAD
 #chromedriver.exe in \pokemon-daycare\Atomation\chromedriver.exe
 driverpath = r''
 site1 = 'https://inoahguy02.github.io/pokemon-daycare/'
 site2 = 'https://mkwrs.com/destiny_knot/'
+=======
+chromedriver_autoinstaller.install()
+>>>>>>> 147d1e00513f4ee605d245207ce9bbb0659dfce9
 
-driver = webdriver.Chrome(driverpath)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument("--disable-infobars")
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 driver.get(site1)
 
-cdriver = webdriver.Chrome(driverpath)
+cdriver = webdriver.Chrome(options=chrome_options)
 cdriver.maximize_window()
 cdriver.get(site2)
 
@@ -168,7 +183,7 @@ while True:
   print(percentage_2)
 
   if percentage_1 != percentage_2:
-    with open(r'C:\Users\Noah\Desktop\pokemon-daycare\Automation\log.txt', 'a') as f:
+    with open(r'Automation\log.txt', 'a') as f:
       f.write('ERROR ' + str(ErrorCount) + 
       ":\nParent 1 IV's: " + str(p1) + 
       "\nParent 2 IV's: " + str(p2) + 

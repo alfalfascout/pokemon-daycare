@@ -1,0 +1,14 @@
+In order to run test, these things need to be installed:
+
+Latest version of python. Link: https://www.python.org/downloads/
+
+IMPORTANT: Make sure to add Python to PATH when asked in install
+
+Install an IDE/text editor. I prefer VScode
+
+After Python is installed, open up command prompt and type these commands:
+pip install selenium
+---Wait until finished---
+pip install chromedriver_autoinstaller
+
+When the installs are complete run the code in an IDE. All errors will be reported to the log.txt file
