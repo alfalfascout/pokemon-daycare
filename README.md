@@ -2,6 +2,12 @@
 
 A web page that calculates the chance of hatching the pokémon with the stats you want. Includes a complete pokédex of breedable pokémon. It can calculate for IVs, natures, abilities, gender, and shininess with a variety of held items.
 
+## Fork Changes:
+- Gen 7 and 8 Pokedex addition
+- Completely fixed breeding odds calculations
+- Added a Python web scraping script that will compare calculations with another breeding odds calculator
+- Small UI changes
+
 ## How to run:
 
 You have a few choices!
